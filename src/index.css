@@ -1,0 +1,107 @@
+/* --- MERGLOWW ESTATES GOLD & BLACK DESIGN SYSTEM --- */
+
+:root {
+  /* Colors - Gold & Black Theme */
+  --primary: #d4af37;          /* Metallic Gold */
+  --primary-light: #f3e5ab;    /* Champagne Gold */
+  --primary-dark: #aa8c2c;     /* Dark Gold */
+  --accent: #c5a059;           /* Secondary Gold */
+  
+  --bg-main: #0a0a0b;          /* Deep Black */
+  --bg-alt: #121214;           /* Charcoal/Dark Gray */
+  --bg-dark: #000000;          /* True Black */
+  
+  --text-main: #f3f4f6;        /* Off-white */
+  --text-muted: #9ca3af;       /* Gray */
+  --text-light: #d1d5db;       /* Light Gray */
+  
+  --border-color: #2d2d30;     /* Dark border */
+  --border-gold: rgba(212, 175, 55, 0.3); /* Subtle gold border */
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
+  --gradient-accent: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%);
+  --gradient-dark: linear-gradient(135deg, #121214 0%, #0a0a0b 100%);
+
+  /* Typography */
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Cinzel', serif;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 12px 24px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.8);
+  --shadow-glow: 0 0 15px rgba(212, 175, 55, 0.2);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+
+  /* Layout */
+  --header-height: 80px;
+  --max-width: 1280px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+}
+
+/* Global Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary);
+  font-family: var(--font-serif);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 6rem 0;
+  min-height: 50vh;
+}
+
+.section-alt {
+  background-color: var(--bg-alt);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: bold;
+  cursor: pointer;
+}
