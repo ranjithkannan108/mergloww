@@ -37,12 +37,45 @@ export default function Home() {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundColor: 'rgba(0,0,0,0.2)',
+          backgroundColor: 'rgba(0,0,0,0.3)',
           zIndex: 0
         }}
       ></div>
 
-      {/* Intentionally left empty of text as requested */}
+      {/* Dark gradient overlay at the bottom specifically for text readability */}
+      <div 
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '50%',
+          background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%)',
+          zIndex: 1
+        }}
+      ></div>
+
+      {/* Text Content positioned at the bottom */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '5%',
+          left: '0',
+          width: '100%',
+          padding: '0 5%',
+          zIndex: 2,
+          textAlign: 'center',
+          color: 'white',
+          textShadow: '2px 2px 8px rgba(0,0,0,0.9)'
+        }}
+      >
+        <h1 style={{ fontSize: '3.5rem', marginBottom: '20px', fontWeight: 'bold' }}>
+          A Legacy Built on Trust
+        </h1>
+        <p style={{ fontSize: '1.3rem', maxWidth: '900px', margin: '0 auto', lineHeight: '1.6', opacity: '0.9' }}>
+          Premium land investments in Tamil Nadu — secure your future with trusted real estate opportunities built on transparency, long-term growth, and peace of mind. Every property is more than land; it’s a foundation for prosperity and a legacy that lasts.
+        </p>
+      </div>
     </section>
   );
 }

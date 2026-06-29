@@ -202,3 +202,38 @@
     gap: 1.25rem;
   }
 }
+
+/* New Custom Effects for About Section */
+.glowing-title {
+  background: linear-gradient(90deg, #d4af37 0%, #ffdf73 50%, #d4af37 100%);
+  color: #000 !important;
+  padding: 0.5rem 2rem;
+  border-radius: 50px;
+  text-align: center;
+  margin: 0 auto;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.7), 0 0 60px rgba(212, 175, 55, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.5rem;
+}
+
+.text-glass-effect {
+  background: rgba(15, 15, 18, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(212, 175, 55, 0.05);
+  text-align: justify;
+  transition: all 0.4s ease;
+}
+
+.text-glass-effect:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8), inset 0 0 25px rgba(212, 175, 55, 0.15);
+  transform: translateY(-5px);
+}
