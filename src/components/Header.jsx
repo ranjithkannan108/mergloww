@@ -24,7 +24,7 @@ export default function Header() {
   };
 
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+    <header className={`header animate-nav ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
         <div className="logo-section">
           <div className="logo-icon-container">
@@ -41,10 +41,10 @@ export default function Header() {
 
         <nav className="desktop-nav">
           <Link to="/" className="nav-link"><span>Home</span></Link>
-          <a href="/#about" className="nav-link"><span>About</span></a>
+          <Link to="/#about" className="nav-link"><span>About</span></Link>
           <Link to="/services" className="nav-link"><span>Services</span></Link>
-          <a href="/#testimonials" className="nav-link"><span>Testimonials</span></a>
-          <a href="#footer" className="nav-link"><span>Contact</span></a>
+          <Link to="/#testimonials" className="nav-link"><span>Testimonials</span></Link>
+          <Link to="/#footer" className="nav-link"><span>Contact</span></Link>
         </nav>
 
         <div className="header-actions">
@@ -62,10 +62,10 @@ export default function Header() {
 
       <nav className={`mobile-nav ${isMobileMenuOpen ? 'active' : ''}`}>
         <Link to="/" onClick={closeMenu} className="mobile-link"><span>Home</span></Link>
-        <a href="/#about" onClick={closeMenu} className="mobile-link"><span>About</span></a>
+        <Link to="/#about" onClick={closeMenu} className="mobile-link"><span>About</span></Link>
         <Link to="/services" onClick={closeMenu} className="mobile-link"><span>Services</span></Link>
-        <a href="/#testimonials" onClick={closeMenu} className="mobile-link"><span>Testimonials</span></a>
-        <a href="#footer" onClick={closeMenu} className="mobile-link"><span>Contact</span></a>
+        <Link to="/#testimonials" onClick={closeMenu} className="mobile-link"><span>Testimonials</span></Link>
+        <Link to="/#footer" onClick={closeMenu} className="mobile-link"><span>Contact</span></Link>
         <button className="btn-primary mobile-btn glow-btn" onClick={closeMenu}>
           <span>Get in Touch</span>
         </button>

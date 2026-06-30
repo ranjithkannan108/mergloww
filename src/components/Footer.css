@@ -1,6 +1,6 @@
 .footer-wrapper {
-  background-color: #111111;
-  color: #e0e0e0;
+  background-color: #041c12;
+  color: var(--text-main);
   padding: 5rem 0 0 0;
   border-top: 2px solid var(--primary);
   font-family: var(--font-sans);

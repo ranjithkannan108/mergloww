@@ -6,16 +6,30 @@ export default function Home() {
     <section 
       id="home" 
       style={{ 
-        backgroundImage: `url(${heroBg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
         height: '100vh',
         width: '100%',
         position: 'relative',
-        borderBottom: '1px solid var(--border-color)'
+        borderBottom: '1px solid var(--border-color)',
+        overflow: 'hidden'
       }}
     >
+      {/* Animated Hero Background Image */}
+      <div 
+        className="animate-hero-bg"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 0
+        }}
+      ></div>
+
       {/* Dark gradient overlay to make the transparent header text clearly visible */}
       <div 
         style={{
@@ -38,7 +52,7 @@ export default function Home() {
           right: 0,
           bottom: 0,
           backgroundColor: 'rgba(0,0,0,0.3)',
-          zIndex: 0
+          zIndex: 1
         }}
       ></div>
 
@@ -55,8 +69,9 @@ export default function Home() {
         }}
       ></div>
 
-      {/* Text Content positioned at the bottom */}
+      {/* Text Content positioned at the bottom - Animated */}
       <div
+        className="animate-hero-text"
         style={{
           position: 'absolute',
           bottom: '5%',

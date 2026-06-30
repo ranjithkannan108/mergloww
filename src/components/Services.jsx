@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, Sprout, FileCheck, ShieldCheck, Headphones } from 'lucide-react';
 import './About.css';
+import Reveal from './Reveal';
 
 export default function Services() {
   const services = [
@@ -36,48 +37,57 @@ export default function Services() {
       <div className="container">
         
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <h2 className="glowing-title" style={{ marginBottom: '1.5rem' }}>
-            OUR SERVICES
-          </h2>
-          <p style={{ color: '#ffffff', fontSize: '1.5rem', letterSpacing: '0.05em', opacity: 0.9 }}>
-            We Build Opportunities
-          </p>
+          <Reveal type="fade">
+            <h2 className="glowing-title" style={{ marginBottom: '1.5rem' }}>
+              OUR SERVICES
+            </h2>
+          </Reveal>
+          <Reveal type="fade" delay={0.15}>
+            <p style={{ color: '#ffffff', fontSize: '1.5rem', letterSpacing: '0.05em', opacity: 0.9 }}>
+              We Build Opportunities
+            </p>
+          </Reveal>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
           {services.map((service, index) => (
-            <div key={index} style={{ 
-              background: '#ffffff', 
-              borderRadius: '16px', 
-              padding: '2.5rem 2rem', 
-              boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
-              borderBottom: '4px solid var(--primary)',
-              transition: 'transform 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-            >
+            <Reveal key={index} type="pop-up" delay={index * 0.15} display="flex">
               <div style={{ 
-                width: '80px', 
-                height: '80px', 
-                background: 'rgba(212, 175, 55, 0.1)', 
-                borderRadius: '50%', 
-                display: 'flex', 
-                justifyContent: 'center', 
-                alignItems: 'center', 
-                marginBottom: '1.5rem',
-                border: '2px solid var(--primary)'
-              }}>
-                {service.icon}
+                background: '#ffffff', 
+                borderRadius: '16px', 
+                padding: '2.5rem 2rem', 
+                boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+                borderBottom: '4px solid var(--primary)',
+                transition: 'transform 0.3s ease',
+                cursor: 'pointer',
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+              >
+                <div style={{ 
+                  width: '80px', 
+                  height: '80px', 
+                  background: 'rgba(212, 175, 55, 0.1)', 
+                  borderRadius: '50%', 
+                  display: 'flex', 
+                  justifyContent: 'center', 
+                  alignItems: 'center', 
+                  marginBottom: '1.5rem',
+                  border: '2px solid var(--primary)'
+                }}>
+                  {service.icon}
+                </div>
+                <h3 style={{ color: '#072F1F', fontSize: '1.4rem', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-serif)' }}>
+                  {service.title}
+                </h3>
+                <p style={{ color: '#444444', fontSize: '1.05rem', lineHeight: '1.6' }}>
+                  {service.description}
+                </p>
               </div>
-              <h3 style={{ color: '#072F1F', fontSize: '1.4rem', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-serif)' }}>
-                {service.title}
-              </h3>
-              <p style={{ color: '#444444', fontSize: '1.05rem', lineHeight: '1.6' }}>
-                {service.description}
-              </p>
-            </div>
+            </Reveal>
           ))}
         </div>
 
