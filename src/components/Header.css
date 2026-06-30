@@ -5,8 +5,8 @@
   left: 0;
   width: 100%;
   height: var(--header-height);
-  background-color: transparent;
-  border-bottom: 1px solid transparent;
+  background-color: #072F1F;
+  border-bottom: 2px solid var(--primary);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -14,10 +14,10 @@
 }
 
 .header.scrolled {
-  background-color: rgba(10, 10, 11, 0.85);
+  background-color: rgba(7, 47, 31, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  border-bottom: 2px solid var(--primary);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
   height: calc(var(--header-height) - 10px);
 }

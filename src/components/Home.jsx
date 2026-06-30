@@ -1,5 +1,5 @@
 import React from 'react';
-import heroBg from '../assets/hero-bg.png';
+import heroBg from '../assets/hero-bg-textless.png';
 
 export default function Home() {
   return (
@@ -42,7 +42,7 @@ export default function Home() {
         }}
       ></div>
 
-      {/* Dark gradient overlay at the bottom specifically for text readability */}
+      {/* Green gradient overlay at the bottom specifically for text readability */}
       <div 
         style={{
           position: 'absolute',
@@ -50,7 +50,7 @@ export default function Home() {
           left: 0,
           right: 0,
           height: '50%',
-          background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%)',
+          background: 'linear-gradient(to top, rgba(7, 47, 31, 0.95) 0%, rgba(7, 47, 31, 0.6) 50%, transparent 100%)',
           zIndex: 1
         }}
       ></div>
@@ -69,10 +69,10 @@ export default function Home() {
           textShadow: '2px 2px 8px rgba(0,0,0,0.9)'
         }}
       >
-        <h1 style={{ fontSize: '3.5rem', marginBottom: '20px', fontWeight: 'bold' }}>
+        <h1 style={{ fontSize: '2.5rem', marginBottom: '20px', fontWeight: 'bold' }}>
           A Legacy Built on Trust
         </h1>
-        <p style={{ fontSize: '1.3rem', maxWidth: '900px', margin: '0 auto', lineHeight: '1.6', opacity: '0.9' }}>
+        <p style={{ fontSize: '1.1rem', maxWidth: '900px', margin: '0 auto', lineHeight: '1.6', opacity: '0.9' }}>
           Premium land investments in Tamil Nadu — secure your future with trusted real estate opportunities built on transparency, long-term growth, and peace of mind. Every property is more than land; it’s a foundation for prosperity and a legacy that lasts.
         </p>
       </div>

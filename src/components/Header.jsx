@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 export default function Header() {
@@ -39,11 +40,11 @@ export default function Header() {
         </div>
 
         <nav className="desktop-nav">
-          <a href="#home" className="nav-link"><span>Home</span></a>
-          <a href="#about" className="nav-link"><span>About</span></a>
-          <a href="#services" className="nav-link"><span>Services</span></a>
-          <a href="#testimonials" className="nav-link"><span>Testimonials</span></a>
-          <a href="#contact" className="nav-link"><span>Contact</span></a>
+          <Link to="/" className="nav-link"><span>Home</span></Link>
+          <a href="/#about" className="nav-link"><span>About</span></a>
+          <Link to="/services" className="nav-link"><span>Services</span></Link>
+          <a href="/#testimonials" className="nav-link"><span>Testimonials</span></a>
+          <a href="#footer" className="nav-link"><span>Contact</span></a>
         </nav>
 
         <div className="header-actions">
@@ -60,11 +61,11 @@ export default function Header() {
       </div>
 
       <nav className={`mobile-nav ${isMobileMenuOpen ? 'active' : ''}`}>
-        <a href="#home" onClick={closeMenu} className="mobile-link"><span>Home</span></a>
-        <a href="#about" onClick={closeMenu} className="mobile-link"><span>About</span></a>
-        <a href="#services" onClick={closeMenu} className="mobile-link"><span>Services</span></a>
-        <a href="#testimonials" onClick={closeMenu} className="mobile-link"><span>Testimonials</span></a>
-        <a href="#contact" onClick={closeMenu} className="mobile-link"><span>Contact</span></a>
+        <Link to="/" onClick={closeMenu} className="mobile-link"><span>Home</span></Link>
+        <a href="/#about" onClick={closeMenu} className="mobile-link"><span>About</span></a>
+        <Link to="/services" onClick={closeMenu} className="mobile-link"><span>Services</span></Link>
+        <a href="/#testimonials" onClick={closeMenu} className="mobile-link"><span>Testimonials</span></a>
+        <a href="#footer" onClick={closeMenu} className="mobile-link"><span>Contact</span></a>
         <button className="btn-primary mobile-btn glow-btn" onClick={closeMenu}>
           <span>Get in Touch</span>
         </button>
