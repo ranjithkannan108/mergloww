@@ -37,7 +37,6 @@ export default function About() {
 
   return (
     <section ref={sectionRef} id="about" className="section section-alt" style={{ 
-      borderBottom: '1px solid var(--border-color)', 
       padding: '50px 0 40px 0',
       backgroundColor: '#ffffff',
       backgroundImage: 'radial-gradient(rgba(212, 175, 55, 0.12) 1.5px, transparent 1.5px), radial-gradient(rgba(7, 47, 31, 0.08) 1.5px, transparent 1.5px)',

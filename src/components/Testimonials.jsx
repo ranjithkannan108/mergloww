@@ -31,8 +31,10 @@ export default function Testimonials() {
 
   return (
     <section ref={sectionRef} id="testimonials" className="section section-alt" style={{ 
-      borderBottom: '1px solid var(--border-color)', 
-      backgroundColor: '#ffffff', 
+      backgroundColor: '#ffffff',
+      backgroundImage: 'radial-gradient(rgba(212, 175, 55, 0.12) 1.5px, transparent 1.5px), radial-gradient(rgba(7, 47, 31, 0.08) 1.5px, transparent 1.5px)',
+      backgroundSize: '32px 32px',
+      backgroundPosition: '0 0, 16px 16px',
       color: '#072F1F', 
       padding: '40px 0 100px 0',
       position: 'relative',

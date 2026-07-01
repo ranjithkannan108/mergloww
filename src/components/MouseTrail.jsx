@@ -11,9 +11,8 @@ export default function MouseTrail() {
     let animationFrameId;
     
     // Arrays for cursor particles and mouse history
+    // Arrays for cursor particles
     const cursorParticles = [];
-    const mouseHistory = [];
-    const maxHistoryLength = 35;
 
     // Background rising dots
     const backgroundDots = [];
@@ -32,13 +31,13 @@ export default function MouseTrail() {
       constructor(x, y) {
         this.x = x;
         this.y = y;
-        // Float outwards randomly
-        this.vx = (Math.random() - 0.5) * 2;
-        this.vy = (Math.random() - 0.5) * 2;
+        // Float outwards randomly with more spread for a sprinkle effect
+        this.vx = (Math.random() - 0.5) * 5;
+        this.vy = (Math.random() - 0.5) * 5;
         this.alpha = 1.0;
-        this.size = Math.random() * 6 + 3; // 3px to 9px golden dots
-        const goldColors = ['#d4af37', '#f3e5ab', '#ffdf73', '#c5a059'];
-        this.color = goldColors[Math.floor(Math.random() * goldColors.length)];
+        this.size = Math.random() * 4 + 1; // 1px to 5px smaller sprinkle dots
+        const sprinkleColors = ['#d4af37', '#f3e5ab', '#ffffff', '#ffdf73', '#c5a059'];
+        this.color = sprinkleColors[Math.floor(Math.random() * sprinkleColors.length)];
       }
 
       update() {
@@ -105,19 +104,12 @@ export default function MouseTrail() {
       }
     }
 
-    // Track mouse move
     const handleMouseMove = (e) => {
       const x = e.clientX;
       const y = e.clientY;
 
-      // Add to mouse history for drawing the tail line
-      mouseHistory.push({ x, y });
-      if (mouseHistory.length > maxHistoryLength) {
-        mouseHistory.shift();
-      }
-
-      // Spawn golden dots
-      if (Math.random() < 0.8) {
+      // Spawn a burst of sprinkles on every mouse move
+      for (let i = 0; i < 4; i++) {
         cursorParticles.push(new CursorParticle(x, y));
       }
     };
@@ -143,43 +135,7 @@ export default function MouseTrail() {
         }
       }
 
-      // 2. Draw the Smooth Glowing Golden Tail of Dots (with interpolation to prevent gaps)
-      if (mouseHistory.length > 1) {
-        ctx.save();
-        for (let i = 1; i < mouseHistory.length; i++) {
-          const p1 = mouseHistory[i - 1];
-          const p2 = mouseHistory[i];
-          
-          const ratio1 = (i - 1) / mouseHistory.length;
-          const ratio2 = i / mouseHistory.length;
-
-          const dx = p2.x - p1.x;
-          const dy = p2.y - p1.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          // Draw a dot every 3 pixels for a dense, smooth tail
-          const steps = Math.max(1, Math.floor(distance / 3));
-
-          for (let step = 0; step <= steps; step++) {
-            const t = step / steps;
-            const x = p1.x + dx * t;
-            const y = p1.y + dy * t;
-            const currentRatio = ratio1 + (ratio2 - ratio1) * t;
-
-            // Make the tail dots larger (from 3px at the end up to 14px at the cursor)
-            const size = currentRatio * 11 + 3;
-            const alpha = currentRatio * 0.7;
-
-            ctx.beginPath();
-            ctx.globalAlpha = alpha;
-            ctx.fillStyle = '#d4af37';
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = '#d4af37';
-            ctx.arc(x, y, size, 0, Math.PI * 2);
-            ctx.fill();
-          }
-        }
-        ctx.restore();
-      }
+      // 2. Removed the Smooth Glowing Golden Tail of Dots
 
       // 3. Update and Draw Cursor Particles (Golden Dots)
       for (let i = cursorParticles.length - 1; i >= 0; i--) {
@@ -190,11 +146,6 @@ export default function MouseTrail() {
         } else {
           p.draw();
         }
-      }
-
-      // Also slowly decay mouse history length if mouse is static
-      if (mouseHistory.length > 0 && Math.random() < 0.3) {
-        mouseHistory.shift();
       }
 
       animationFrameId = requestAnimationFrame(animate);

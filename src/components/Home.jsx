@@ -86,8 +86,19 @@ export default function Home() {
           textShadow: '2px 2px 8px rgba(0,0,0,0.9)'
         }}
       >
-        <h1 style={{ fontSize: '2.5rem', marginBottom: '20px', fontWeight: 'bold' }}>
-          A Legacy Built on Trust
+        <h1 style={{ fontSize: '2.5rem', marginBottom: '20px', fontWeight: 'bold', display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+          {"A Legacy Built on Trust".split('').map((char, index) => (
+            <span
+              key={index}
+              className="reveal-letter"
+              style={{
+                animationDelay: `${index * 0.1}s`,
+                whiteSpace: char === ' ' ? 'pre' : 'normal'
+              }}
+            >
+              {char}
+            </span>
+          ))}
         </h1>
         <p style={{ fontSize: '1.1rem', maxWidth: '900px', margin: '0 auto', lineHeight: '1.6', opacity: '0.9' }}>
           Premium land investments in Tamil Nadu — secure your future with trusted real estate opportunities built on transparency, long-term growth, and peace of mind. Every property is more than land; it’s a foundation for prosperity and a legacy that lasts.

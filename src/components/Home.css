@@ -311,3 +311,15 @@
     justify-content: center;
   }
 }
+
+/* Letter Reveal Animation */
+@keyframes revealLetter {
+  0% { opacity: 0; transform: translateY(10px); filter: blur(2px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.reveal-letter {
+  opacity: 0;
+  display: inline-block;
+  animation: revealLetter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
