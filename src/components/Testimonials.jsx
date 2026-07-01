@@ -1,10 +1,44 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './About.css';
 import Reveal from './Reveal';
 
 export default function Testimonials() {
+  const sectionRef = useRef(null);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+      },
+      { 
+        threshold: 0.05, 
+        rootMargin: '0px 0px -40% 0px' 
+      }
+    );
+
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
   return (
-    <section id="testimonials" className="section section-alt" style={{ borderBottom: '1px solid var(--border-color)', backgroundColor: '#ffffff', color: '#072F1F', padding: '40px 0 100px 0' }}>
+    <section ref={sectionRef} id="testimonials" className="section section-alt" style={{ 
+      borderBottom: '1px solid var(--border-color)', 
+      backgroundColor: '#ffffff', 
+      color: '#072F1F', 
+      padding: '40px 0 100px 0',
+      position: 'relative',
+      overflow: 'hidden'
+    }}>
+
       <div className="container">
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '4rem' }}>
           <h2 className="glowing-title" style={{ marginBottom: '1.5rem', fontSize: '1.25rem' }}>Happy Customers</h2>

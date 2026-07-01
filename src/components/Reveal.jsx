@@ -1,23 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-export default function Reveal({ children, duration = 0.8, delay = 0, type = 'fade-up', display = 'block' }) {
+export default function Reveal({ children, duration = 1.4, delay = 0, type = 'fade-up', display = 'block' }) {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          // Once it reveals, we don't need to observe it anymore
-          if (ref.current) {
-            observer.unobserve(ref.current);
-          }
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { 
         threshold: 0.05, // Trigger as soon as 5% of the element is visible
-        rootMargin: '0px 0px -20% 0px' // Trigger when the element is 20% above the bottom of the screen
+        rootMargin: '0px 0px -40% 0px' 
       }
     );
 
@@ -45,6 +39,12 @@ export default function Reveal({ children, duration = 0.8, delay = 0, type = 'fa
       visibleTransform = 'translateX(0)';
     } else if (type === 'slide-right') { // comes from left to right
       initialTransform = 'translateX(-60px)';
+      visibleTransform = 'translateX(0)';
+    } else if (type === 'slide-left-far') { // comes from far right to left
+      initialTransform = 'translateX(500px)';
+      visibleTransform = 'translateX(0)';
+    } else if (type === 'slide-right-far') { // comes from far left to right
+      initialTransform = 'translateX(-500px)';
       visibleTransform = 'translateX(0)';
     } else if (type === 'pop-up') { // pop up (scale + fade)
       initialTransform = 'scale(0.8) translateY(20px)';

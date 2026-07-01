@@ -1,5 +1,6 @@
 import React from 'react';
 import heroBg from '../assets/hero-bg-textless.png';
+import './Home.css';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         overflow: 'hidden'
       }}
     >
+
       {/* Animated Hero Background Image */}
       <div 
         className="animate-hero-bg"

@@ -5,6 +5,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import MouseTrail from './components/MouseTrail';
 import ScrollTopWidget from './components/ScrollTopWidget';
@@ -62,6 +63,7 @@ const HomePage = () => (
     <Home />
     <About />
     <Testimonials />
+    <Contact />
   </div>
 );
 

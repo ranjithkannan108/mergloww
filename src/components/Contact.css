@@ -1,0 +1,250 @@
+.contact-section {
+  padding: 80px 0;
+  background-color: #FAF8F5; /* Warm light cream background matching mockup */
+  color: #072F1F;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.contact-badge {
+  background: linear-gradient(90deg, #d4af37 0%, #ffdf73 50%, #d4af37 100%);
+  color: #000000 !important;
+  padding: 0.5rem 2.2rem;
+  border-radius: 50px;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.7), 0 0 60px rgba(212, 175, 55, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.contact-subtitle {
+  font-size: 1.15rem;
+  color: #072F1F; /* Green content text */
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+/* Grid Layout */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 3.5rem;
+  align-items: stretch;
+}
+
+/* Left Visual Card */
+.contact-image-card {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  min-height: 480px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: flex-end;
+  padding: 2.5rem;
+}
+
+.contact-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+  z-index: 1;
+}
+
+.contact-image-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+/* Chalkboard Sign Style */
+.thank-you-sign {
+  background: #1A1A1A; /* Slate black chalkboard */
+  border: 8px solid #5C4033; /* Dark wood frame */
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.8), 0 8px 25px rgba(0,0,0,0.4);
+  color: #ffffff;
+}
+
+.sign-title {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--primary); /* Gold */
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.sign-text {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  opacity: 0.9;
+  letter-spacing: 0.02em;
+}
+
+/* Right Grid Info Cards - Styled like Vision & Mission template */
+.contact-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.contact-info-card {
+  background: linear-gradient(180deg, rgba(7, 47, 31, 0.72) 0%, rgba(7, 47, 31, 0.92) 100%);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(212, 175, 55, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: border-color 1.2s ease, box-shadow 1.2s ease, transform 0.4s ease;
+}
+
+.contact-info-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25);
+}
+
+.contact-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(212, 175, 55, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.contact-icon {
+  color: var(--primary);
+}
+
+.contact-info-card h4 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--primary) !important; /* Gold title */
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.info-main {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.info-sub {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark Card (Follow Us) - Styled like Vision & Mission template */
+.dark-card {
+  background: linear-gradient(180deg, rgba(7, 47, 31, 0.72) 0%, rgba(7, 47, 31, 0.92) 100%) !important;
+  border: 2px solid rgba(212, 175, 55, 0.25);
+}
+
+.dark-card h4 {
+  color: var(--primary) !important;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark-card-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.social-links-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.social-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.45rem 1rem;
+  border-radius: 50px;
+  color: #ffffff;
+  font-size: 0.85rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.social-pill:hover {
+  background-color: var(--primary);
+  color: #1E1510;
+  border-color: var(--primary);
+}
+
+/* Responsive Adaptations */
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .contact-image-card {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .contact-section {
+    padding: 60px 0;
+  }
+  .contact-header {
+    margin-bottom: 2.5rem;
+  }
+  .contact-image-card {
+    padding: 1.5rem;
+    min-height: 300px;
+  }
+  .thank-you-sign {
+    padding: 1rem;
+  }
+}

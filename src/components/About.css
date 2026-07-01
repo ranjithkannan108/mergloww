@@ -15,37 +15,27 @@
   position: relative;
   width: 100%;
   max-width: 440px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  aspect-ratio: 1 / 1;
+  padding: 4px; /* acts as the border width */
+  background: linear-gradient(135deg, #d4af37 0%, #ffdf73 50%, #d4af37 100%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  transition: transform 0.4s ease, filter 0.4s ease;
   cursor: pointer;
+  filter: drop-shadow(0 10px 25px rgba(212, 175, 55, 0.4));
 }
 
 .about-image-card:hover {
-  transform: translateY(15px);
-}
-
-.about-image-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.05) 40%, rgba(255, 255, 255, 0) 100%);
-  pointer-events: none;
-  z-index: 2;
+  transform: translateY(-10px) scale(1.02);
+  filter: drop-shadow(0 15px 35px rgba(212, 175, 55, 0.7));
 }
 
 .about-image {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  height: auto;
+  height: 100%;
   object-fit: cover;
-  object-position: 85% center;
-  border-radius: 50%;
+  object-position: center;
   display: block;
-  border: 4px solid var(--primary);
-  box-shadow: 0 0 35px rgba(212, 175, 55, 0.7);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
 .experience-badge {
@@ -379,5 +369,147 @@
   }
   .testimonial-card span {
     font-size: 0.8rem !important;
+  }
+}
+
+/* Vision & Mission Row Styles (Static Banners with Backgrounds) */
+.vision-mission-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2.5rem;
+  margin-top: 4rem;
+  width: 100%;
+  min-height: 320px;
+}
+
+.accordion-card {
+  position: relative;
+  flex: 1;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: border-color 1.2s ease, box-shadow 1.2s ease;
+}
+
+.accordion-card.vision-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.accordion-card.mission-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.accordion-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(7, 47, 31, 0.72) 0%, rgba(7, 47, 31, 0.92) 100%);
+  z-index: 1;
+}
+
+.card-content-reveal {
+  position: relative;
+  z-index: 3;
+  padding: 2rem;
+  opacity: 1;
+  transform: none;
+  color: #ffffff;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.card-content-reveal h3 {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.4rem;
+  display: inline-block;
+}
+
+.card-content-reveal p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Very slow hover transition for border/shadow only */
+.accordion-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25);
+}
+
+/* Center Ribbon */
+.accordion-ribbon-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  flex-shrink: 0;
+}
+
+.ribbon-banner-double {
+  background: linear-gradient(180deg, #072F1F 0%, #164228 100%);
+  border-left: 2px solid var(--primary);
+  border-right: 2px solid var(--primary);
+  padding: 1.5rem 0.4rem;
+  width: 100%;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(7, 47, 31, 0.25);
+  clip-path: polygon(0% 0%, 50% 12px, 100% 0%, 100% 100%, 50% calc(100% - 12px), 0% 100%);
+}
+
+.ribbon-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 0.95rem;
+  font-family: var(--font-serif);
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+@media (max-width: 768px) {
+  .vision-mission-container {
+    flex-direction: column;
+    min-height: auto;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .accordion-card {
+    min-height: 220px;
+    width: 100%;
+  }
+  .card-content-reveal {
+    padding: 1.5rem;
+  }
+  .card-content-reveal h3 {
+    font-size: 1.5rem;
+  }
+  .accordion-ribbon-divider {
+    display: none;
   }
 }

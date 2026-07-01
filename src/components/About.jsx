@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Home as HomeIcon, Handshake, TrendingUp, HeartHandshake, SearchCheck } from 'lucide-react';
 import './About.css';
 import Reveal from './Reveal';
@@ -9,16 +9,45 @@ import imgTransparency from '../assets/why-transparency.png';
 import imgProfessionalism from '../assets/why-professionalism.png';
 
 export default function About() {
+  const sectionRef = useRef(null);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+      },
+      { 
+        threshold: 0.05, 
+        rootMargin: '0px 0px -40% 0px' 
+      }
+    );
+
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
   return (
-    <section id="about" className="section section-alt" style={{ 
+    <section ref={sectionRef} id="about" className="section section-alt" style={{ 
       borderBottom: '1px solid var(--border-color)', 
       padding: '50px 0 40px 0',
       backgroundColor: '#ffffff',
       backgroundImage: 'radial-gradient(rgba(212, 175, 55, 0.12) 1.5px, transparent 1.5px), radial-gradient(rgba(7, 47, 31, 0.08) 1.5px, transparent 1.5px)',
       backgroundSize: '32px 32px',
       backgroundPosition: '0 0, 16px 16px',
-      color: '#072F1F'
+      color: '#072F1F',
+      position: 'relative',
+      overflow: 'hidden'
     }}>
+
       <div className="container">
         
         {/* Centered Glowing Title */}
@@ -33,7 +62,7 @@ export default function About() {
         <div className="about-grid">
           
           <div className="about-visuals" style={{ transform: 'scale(0.85)', marginTop: '-2rem' }}>
-            <Reveal type="slide-left" duration={1.8}>
+            <Reveal type="slide-left-far" duration={2.8}>
               <div className="about-image-card">
                 <img src={aboutFamily} alt="Happy family showing trust in Mergloww" className="about-image" />
               </div>
@@ -41,7 +70,7 @@ export default function About() {
           </div>
 
           <div className="about-info" style={{ textAlign: 'justify' }}>
-            <Reveal type="fade">
+            <Reveal type="fade" duration={2.2}>
               <p className="about-description" style={{ fontSize: '1.25rem', lineHeight: '1.9' }}>
                 <strong style={{ color: 'var(--primary)', textShadow: '0 0 10px rgba(212, 175, 55, 0.6), 0 0 20px rgba(212, 175, 55, 0.4)' }}>Merglooww Estates Private Limited</strong> is a customer-focused real estate company committed to delivering premium land investments across Tamil Nadu. We believe every property should provide security, appreciation, and peace of mind.
               </p>
@@ -50,29 +79,56 @@ export default function About() {
               </p>
             </Reveal>
           </div>
-
-          <div style={{ padding: '1.5rem', background: 'rgba(212, 175, 55, 0.05)', borderTop: '4px solid var(--primary)', borderRadius: '16px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
-            <Reveal type="pop-up">
-              <h3 style={{ color: 'var(--primary)', fontSize: '1.25rem', marginBottom: '0.5rem', fontFamily: 'var(--font-serif)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                Our Vision
-              </h3>
-              <p style={{ fontSize: '1.05rem', lineHeight: '1.7', color: '#164228' }}>
-                To become the most trusted and preferred real estate partner in Tamil Nadu by continually exceeding customer expectations and redefining the standards of land investments.
-              </p>
-            </Reveal>
-          </div>
-
-          <div style={{ padding: '1.5rem', background: 'rgba(212, 175, 55, 0.05)', borderTop: '4px solid var(--primary)', borderRadius: '16px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
-            <Reveal type="pop-up" delay={0.15}>
-              <h3 style={{ color: 'var(--primary)', fontSize: '1.25rem', marginBottom: '0.5rem', fontFamily: 'var(--font-serif)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                Our Mission
-              </h3>
-              <p style={{ fontSize: '1.05rem', lineHeight: '1.7', color: '#164228' }}>
-                To deliver legally verified, strategically located properties while maintaining the highest standards of integrity, customer satisfaction, and long-term value.
-              </p>
-            </Reveal>
-          </div>
           
+        </div>
+
+        {/* Vision & Mission Section - Static Banners with Sunset & Landscape Backgrounds */}
+        <div className="vision-mission-container">
+          <Reveal type="slide-right" display="flex" style={{ flex: 1 }}>
+            <div 
+              className="accordion-card vision-bg" 
+              style={{ backgroundImage: `url(${aboutFamily})` }}
+            >
+              <div className="accordion-overlay"></div>
+              <div className="card-content-reveal">
+                <h3>Our Vision</h3>
+                <p>
+                  To become the most trusted and preferred real estate partner in Tamil Nadu by continually exceeding customer expectations and redefining the standards of land investments.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Static MERGLOWW divider banner (does not move/transition) */}
+          <div className="accordion-ribbon-divider">
+            <div className="ribbon-banner-double">
+              <div className="ribbon-text">
+                <span>M</span>
+                <span>E</span>
+                <span>R</span>
+                <span>G</span>
+                <span>L</span>
+                <span>O</span>
+                <span>W</span>
+                <span>W</span>
+              </div>
+            </div>
+          </div>
+
+          <Reveal type="slide-left" display="flex" style={{ flex: 1 }}>
+            <div 
+              className="accordion-card mission-bg" 
+              style={{ backgroundImage: `url(${imgProfessionalism})` }}
+            >
+              <div className="accordion-overlay"></div>
+              <div className="card-content-reveal">
+                <h3>Our Mission</h3>
+                <p>
+                  To deliver legally verified, strategically located properties while maintaining the highest standards of integrity, customer satisfaction, and long-term value.
+                </p>
+              </div>
+            </div>
+          </Reveal>
         </div>
 
         {/* Our Expertise Section */}

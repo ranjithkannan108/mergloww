@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { MapPin, Sprout, FileCheck, ShieldCheck, Headphones } from 'lucide-react';
 import './About.css';
 import Reveal from './Reveal';
 
 export default function Services() {
+  const sectionRef = useRef(null);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+      },
+      { 
+        threshold: 0.05, 
+        rootMargin: '0px 0px -40% 0px' 
+      }
+    );
+
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
   const services = [
     {
       title: 'Premium Villa Plots',
@@ -33,7 +59,15 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="section" style={{ background: '#072F1F', color: '#ffffff', minHeight: '80vh', padding: '100px 0' }}>
+    <section ref={sectionRef} id="services" className="section" style={{ 
+      background: '#072F1F', 
+      color: '#ffffff', 
+      minHeight: '80vh', 
+      padding: '100px 0',
+      position: 'relative',
+      overflow: 'hidden'
+    }}>
+
       <div className="container">
         
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>

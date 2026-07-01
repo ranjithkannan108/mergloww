@@ -44,13 +44,13 @@ export default function Header() {
           <Link to="/#about" className="nav-link"><span>About</span></Link>
           <Link to="/services" className="nav-link"><span>Services</span></Link>
           <Link to="/#testimonials" className="nav-link"><span>Testimonials</span></Link>
-          <Link to="/#footer" className="nav-link"><span>Contact</span></Link>
+          <Link to="/#contact" className="nav-link"><span>Contact</span></Link>
         </nav>
 
         <div className="header-actions">
-          <button className="btn-primary glow-btn">
+          <Link to="/#contact" className="btn-primary glow-btn" style={{ textDecoration: 'none' }}>
             <span>Get in Touch</span>
-          </button>
+          </Link>
         </div>
 
         <button className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMenu} aria-label="Toggle Navigation">
@@ -65,10 +65,10 @@ export default function Header() {
         <Link to="/#about" onClick={closeMenu} className="mobile-link"><span>About</span></Link>
         <Link to="/services" onClick={closeMenu} className="mobile-link"><span>Services</span></Link>
         <Link to="/#testimonials" onClick={closeMenu} className="mobile-link"><span>Testimonials</span></Link>
-        <Link to="/#footer" onClick={closeMenu} className="mobile-link"><span>Contact</span></Link>
-        <button className="btn-primary mobile-btn glow-btn" onClick={closeMenu}>
+        <Link to="/#contact" onClick={closeMenu} className="mobile-link"><span>Contact</span></Link>
+        <Link to="/#contact" className="btn-primary mobile-btn glow-btn" onClick={closeMenu} style={{ textDecoration: 'none', textAlign: 'center' }}>
           <span>Get in Touch</span>
-        </button>
+        </Link>
       </nav>
     </header>
   );
