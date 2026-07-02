@@ -323,3 +323,88 @@
   display: inline-block;
   animation: revealLetter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
+
+/* Services Marquee */
+.marquee-wrapper {
+  background-color: #ffffff;
+  background-image: radial-gradient(rgba(212, 175, 55, 0.12) 1.5px, transparent 1.5px), radial-gradient(rgba(7, 47, 31, 0.08) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+  padding: 1rem 0;
+  border: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* Fading edges */
+.marquee-wrapper::before,
+.marquee-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #ffffff 0%, transparent 100%);
+}
+.marquee-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #ffffff 0%, transparent 100%);
+}
+
+.marquee-content {
+  display: inline-flex;
+  gap: 2rem;
+  animation: scrollMarquee 30s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+.marquee-capsule {
+  display: inline-block;
+  background: linear-gradient(90deg, #d4af37 0%, #ffdf73 100%);
+  color: #072F1F !important;
+  text-decoration: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  border: 2px solid #072F1F;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.marquee-capsule:hover {
+  background: linear-gradient(90deg, #072F1F 0%, #164228 100%);
+  color: #d4af37 !important;
+  border-color: #d4af37;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(7, 47, 31, 0.4);
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Translate by exactly half the width since content is duplicated */
+    transform: translateX(-50%);
+  }
+}
+

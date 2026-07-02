@@ -60,8 +60,13 @@ export default function About() {
 
         <div className="about-grid">
           
-          <div className="about-visuals" style={{ transform: 'scale(0.85)', marginTop: '-2rem' }}>
-            <Reveal type="slide-left-far" duration={2.8}>
+          <div className="about-visuals" style={{ transform: 'scale(0.85)', marginTop: '-2rem', position: 'relative' }}>
+            {/* Decorative Hexagons */}
+            <div className="about-hexagon-gold" style={{ top: '-10%', left: '-5%' }}></div>
+            <div className="about-hexagon-green" style={{ bottom: '-5%', right: '-10%' }}></div>
+            <div className="about-hexagon-gold" style={{ top: '40%', right: '-15%', width: '60px', height: '60px', opacity: 0.5 }}></div>
+            
+            <Reveal type="slide-left-far" duration={2.8} style={{ zIndex: 1, position: 'relative' }}>
               <div className="about-image-card">
                 <img src={aboutFamily} alt="Happy family showing trust in Mergloww" className="about-image" />
               </div>
@@ -71,7 +76,7 @@ export default function About() {
           <div className="about-info" style={{ textAlign: 'justify' }}>
             <Reveal type="fade" duration={2.2}>
               <p className="about-description" style={{ fontSize: '1.25rem', lineHeight: '1.9' }}>
-                <strong style={{ color: 'var(--primary)', textShadow: '0 0 10px rgba(212, 175, 55, 0.6), 0 0 20px rgba(212, 175, 55, 0.4)' }}>Merglooww Estates Private Limited</strong> is a customer-focused real estate company committed to delivering premium land investments across Tamil Nadu. We believe every property should provide security, appreciation, and peace of mind.
+                <strong style={{ color: 'var(--primary)', textShadow: '0 0 10px rgba(212, 175, 55, 0.6), 0 0 20px rgba(212, 175, 55, 0.4)' }}>Mergloww Estates Private Limited</strong> is a customer-focused real estate agency committed to delivering premium land investments, commercial properties, and luxury homes across Tamil Nadu. We believe every real estate investment should provide security, appreciation, and peace of mind.
               </p>
               <p className="about-description-secondary" style={{ fontSize: '1.15rem', lineHeight: '1.9', marginTop: '1.5rem' }}>
                 From project planning to registration, our experienced team ensures every customer receives complete guidance with transparency and professionalism.
@@ -92,7 +97,7 @@ export default function About() {
               <div className="card-content-reveal">
                 <h3>Our Vision</h3>
                 <p>
-                  To become the most trusted and preferred real estate partner in Tamil Nadu by continually exceeding customer expectations and redefining the standards of land investments.
+                  To become the most trusted and preferred real estate agency in Tamil Nadu by continually exceeding customer expectations and redefining the standards of premium property and land investments.
                 </p>
               </div>
             </div>

@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import heroBg from '../assets/hero-bg-textless.png';
 import './Home.css';
 
 export default function Home() {
   return (
+    <>
     <section 
       id="home" 
       style={{ 
@@ -101,9 +103,30 @@ export default function Home() {
           ))}
         </h1>
         <p style={{ fontSize: '1.1rem', maxWidth: '900px', margin: '0 auto', lineHeight: '1.6', opacity: '0.9' }}>
-          Premium land investments in Tamil Nadu — secure your future with trusted real estate opportunities built on transparency, long-term growth, and peace of mind. Every property is more than land; it’s a foundation for prosperity and a legacy that lasts.
+          Premium land investments and luxury real estate in Tamil Nadu — secure your future with trusted property opportunities built on transparency, long-term growth, and peace of mind. Every commercial and residential property is more than land; it’s a foundation for prosperity and a legacy that lasts.
         </p>
       </div>
     </section>
+    
+    {/* Scrolling Services Marquee */}
+    <div className="marquee-wrapper">
+      <div className="marquee-container">
+        <div className="marquee-content">
+          <Link to="/services/premium-residential-plots" className="marquee-capsule">Premium Residential Plots</Link>
+          <Link to="/services/agricultural-farmland" className="marquee-capsule">Agricultural & Farmland Investments</Link>
+          <Link to="/services/dtcp-approved-layouts" className="marquee-capsule">DTCP Approved Layouts</Link>
+          <Link to="/services/property-documentation" className="marquee-capsule">Property Documentation</Link>
+          <Link to="/services/real-estate-consulting" className="marquee-capsule">Real Estate Consulting</Link>
+          
+          {/* Duplicated for seamless scrolling */}
+          <Link to="/services/premium-residential-plots" className="marquee-capsule">Premium Residential Plots</Link>
+          <Link to="/services/agricultural-farmland" className="marquee-capsule">Agricultural & Farmland Investments</Link>
+          <Link to="/services/dtcp-approved-layouts" className="marquee-capsule">DTCP Approved Layouts</Link>
+          <Link to="/services/property-documentation" className="marquee-capsule">Property Documentation</Link>
+          <Link to="/services/real-estate-consulting" className="marquee-capsule">Real Estate Consulting</Link>
+        </div>
+      </div>
+    </div>
+    </>
   );
 }

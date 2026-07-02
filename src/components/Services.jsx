@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { MapPin, Sprout, FileCheck, ShieldCheck, Headphones } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import './About.css';
 import Reveal from './Reveal';
 
 export default function Services() {
   const sectionRef = useRef(null);
   const [isIntersecting, setIsIntersecting] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,28 +34,33 @@ export default function Services() {
 
   const services = [
     {
-      title: 'Premium Villa Plots',
-      description: 'Well-planned residential plots located in rapidly developing areas with excellent future appreciation.',
+      id: 'premium-residential-plots',
+      title: 'Premium Residential Plots',
+      description: 'Well-planned residential villa plots in Tamil Nadu located in rapidly developing areas with excellent future appreciation potential.',
       icon: <MapPin size={40} color="#072F1F" />
     },
     {
-      title: 'Farmland Investments',
-      description: 'Invest in fertile agricultural land designed for long-term growth, passive income, and sustainable living.',
+      id: 'agricultural-farmland',
+      title: 'Agricultural & Farmland Investments',
+      description: 'Invest in fertile agricultural land and estates designed for long-term real estate growth, passive income, and sustainable living.',
       icon: <Sprout size={40} color="#072F1F" />
     },
     {
+      id: 'dtcp-approved-layouts',
       title: 'DTCP Approved Layouts',
       description: 'Government-approved layouts with wide roads, drainage, electricity, and modern infrastructure.',
       icon: <ShieldCheck size={40} color="#072F1F" />
     },
     {
+      id: 'property-documentation',
       title: 'Property Documentation',
       description: 'Complete legal verification and hassle-free registration support from our experienced legal team.',
       icon: <FileCheck size={40} color="#072F1F" />
     },
     {
-      title: 'Customer Support',
-      description: 'Dedicated assistance before, during, and after your property purchase.',
+      id: 'real-estate-consulting',
+      title: 'Real Estate Consulting',
+      description: 'Dedicated real estate agent assistance before, during, and after your commercial or residential property purchase.',
       icon: <Headphones size={40} color="#072F1F" />
     }
   ];
@@ -96,10 +103,12 @@ export default function Services() {
                 cursor: 'pointer',
                 width: '100%',
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                height: '100%'
               }}
               onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+              onClick={() => navigate(`/services/${service.id}`)}
               >
                 <div style={{ 
                   width: '80px', 
@@ -117,9 +126,36 @@ export default function Services() {
                 <h3 style={{ color: '#072F1F', fontSize: '1.4rem', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-serif)' }}>
                   {service.title}
                 </h3>
-                <p style={{ color: '#444444', fontSize: '1.05rem', lineHeight: '1.6' }}>
+                <p style={{ color: '#444444', fontSize: '1.05rem', lineHeight: '1.6', flex: 1, marginBottom: '2rem' }}>
                   {service.description}
                 </p>
+                
+                <button 
+                  style={{
+                    alignSelf: 'flex-start',
+                    background: 'transparent',
+                    border: '2px solid var(--primary)',
+                    color: '#072F1F',
+                    padding: '0.6rem 1.2rem',
+                    borderRadius: '30px',
+                    fontWeight: 'bold',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    marginTop: 'auto'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'var(--primary)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'transparent';
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(`/services/${service.id}`);
+                  }}
+                >
+                  Click me for more details
+                </button>
               </div>
             </Reveal>
           ))}

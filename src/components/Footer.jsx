@@ -57,10 +57,11 @@ export default function Footer() {
           <div>
             <h4 className="footer-heading">Our Offerings</h4>
             <ul className="footer-links">
-              <li><Link to="/services" className="footer-link">Premium Villa Plots</Link></li>
-              <li><Link to="/services" className="footer-link">Farmland Investments</Link></li>
-              <li><Link to="/services" className="footer-link">DTCP Approved Layouts</Link></li>
-              <li><Link to="/services" className="footer-link">Property Documentation</Link></li>
+              <li><Link to="/services/premium-residential-plots" className="footer-link">Premium Residential Plots</Link></li>
+              <li><Link to="/services/agricultural-farmland" className="footer-link">Farmland Investments</Link></li>
+              <li><Link to="/services/dtcp-approved-layouts" className="footer-link">DTCP Approved Layouts</Link></li>
+              <li><Link to="/services/property-documentation" className="footer-link">Property Documentation</Link></li>
+              <li><Link to="/services/real-estate-consulting" className="footer-link">Real Estate Consulting</Link></li>
             </ul>
           </div>
 

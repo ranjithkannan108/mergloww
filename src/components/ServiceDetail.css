@@ -1,0 +1,188 @@
+/* src/components/ServiceDetail.css */
+
+.service-detail-container {
+  padding-top: 80px; /* Offset for fixed header */
+  min-height: 100vh;
+  background-color: #ffffff;
+  background-image: radial-gradient(rgba(212, 175, 55, 0.12) 1.5px, transparent 1.5px), radial-gradient(rgba(7, 47, 31, 0.08) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+  font-family: var(--font-sans, sans-serif);
+}
+
+/* Hero Image Banner */
+.service-hero-banner {
+  width: 100%;
+  height: 40vh;
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.service-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(7, 47, 31, 0.9) 0%, rgba(7, 47, 31, 0.3) 100%);
+}
+
+.service-hero-title {
+  position: relative;
+  z-index: 2;
+  color: #d4af37;
+  padding: 0 5%;
+  font-family: var(--font-serif, serif);
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+
+/* Main Content Area */
+.service-content-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Scrolling Text Marquee */
+.service-detail-marquee-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+}
+
+.service-detail-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.service-detail-marquee-content {
+  display: inline-flex;
+  animation: scrollDetailMarquee 35s linear infinite;
+  align-items: center;
+}
+
+.service-detail-marquee-content span {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #072F1F;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding-right: 0rem;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes scrollDetailMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Content Blocks (Text only, no boxes) */
+.service-block {
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.service-block h3 {
+  color: #072F1F;
+  font-family: var(--font-serif, serif);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  display: block;
+}
+
+.service-block p {
+  color: #333333;
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+/* Specific Block Styling */
+.block-highlight {
+  /* Removed highlight box styling, acts like normal block now */
+}
+
+.block-highlight h3 {
+  color: #d4af37;
+}
+
+.block-highlight p {
+  color: #333333;
+}
+
+/* CTA Card */
+.service-cta-card {
+  margin-top: 4rem;
+  text-align: center;
+  padding: 3.5rem 2rem;
+  background: #ffffff; /* Light background, no black color */
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-cta-card h3 {
+  color: #072F1F;
+  font-family: var(--font-serif, serif);
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-cta-card p {
+  color: #555555;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.service-cta-btn {
+  display: inline-block;
+  background: #072F1F;
+  color: #d4af37;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.8rem 2.5rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+.service-cta-btn:hover {
+  /* No hover effects as requested previously */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .service-hero-title {
+    font-size: 2.2rem;
+  }
+  .service-content-wrapper {
+    padding: 2rem 1rem;
+  }
+  .service-block {
+    padding: 1.5rem;
+  }
+  .service-block h3 {
+    font-size: 1.5rem;
+  }
+}
