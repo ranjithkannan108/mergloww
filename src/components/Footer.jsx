@@ -1,9 +1,28 @@
 import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Footer.css';
 
 export default function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = (e, path, targetId) => {
+    e.preventDefault();
+    if (location.pathname === path) {
+      if (targetId) {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } else {
+      navigate(path, { state: { scrollTo: targetId } });
+    }
+  };
+
   return (
     <footer id="footer" className="footer-wrapper">
       <div className="container">
@@ -45,11 +64,11 @@ export default function Footer() {
           <div>
             <h4 className="footer-heading">Company</h4>
             <ul className="footer-links">
-              <li><Link to="/" className="footer-link">Home</Link></li>
-              <li><a href="/#about" className="footer-link">About Us</a></li>
+              <li><a href="/" onClick={(e) => handleNavClick(e, '/', '')} className="footer-link">Home</a></li>
+              <li><a href="/" onClick={(e) => handleNavClick(e, '/', 'about')} className="footer-link">About Us</a></li>
               <li><Link to="/services" className="footer-link">Services</Link></li>
-              <li><a href="/#testimonials" className="footer-link">Testimonials</a></li>
-              <li><a href="/#footer" className="footer-link">Contact Us</a></li>
+              <li><a href="/" onClick={(e) => handleNavClick(e, '/', 'testimonials')} className="footer-link">Testimonials</a></li>
+              <li><a href="/" onClick={(e) => handleNavClick(e, '/', 'contact')} className="footer-link">Contact Us</a></li>
             </ul>
           </div>
 

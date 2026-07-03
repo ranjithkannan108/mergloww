@@ -11,7 +11,7 @@ export default function Reveal({ children, duration = 1.4, delay = 0, type = 'fa
       },
       { 
         threshold: 0.05, // Trigger as soon as 5% of the element is visible
-        rootMargin: '0px 0px -40% 0px' 
+        rootMargin: '0px 0px -15% 0px' 
       }
     );
 

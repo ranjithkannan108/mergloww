@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Header.css';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +23,24 @@ export default function Header() {
 
   const closeMenu = () => {
     setIsMobileMenuOpen(false);
+  };
+
+  const handleNavClick = (e, path, targetId) => {
+    e.preventDefault();
+    closeMenu();
+    
+    if (location.pathname === path) {
+      if (targetId) {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } else {
+      navigate(path, { state: { scrollTo: targetId } });
+    }
   };
 
   return (
@@ -40,17 +60,17 @@ export default function Header() {
         </div>
 
         <nav className="desktop-nav">
-          <Link to="/" className="nav-link"><span>Home</span></Link>
-          <Link to="/#about" className="nav-link"><span>About</span></Link>
-          <Link to="/services" className="nav-link"><span>Services</span></Link>
-          <Link to="/#testimonials" className="nav-link"><span>Testimonials</span></Link>
-          <Link to="/#contact" className="nav-link"><span>Contact</span></Link>
+          <a href="/" onClick={(e) => handleNavClick(e, '/', '')} className="nav-link"><span>Home</span></a>
+          <a href="/" onClick={(e) => handleNavClick(e, '/', 'about')} className="nav-link"><span>About</span></a>
+          <Link to="/services" onClick={closeMenu} className="nav-link"><span>Services</span></Link>
+          <a href="/" onClick={(e) => handleNavClick(e, '/', 'testimonials')} className="nav-link"><span>Testimonials</span></a>
+          <a href="/" onClick={(e) => handleNavClick(e, '/', 'contact')} className="nav-link"><span>Contact</span></a>
         </nav>
 
         <div className="header-actions">
-          <Link to="/#contact" className="btn-primary glow-btn" style={{ textDecoration: 'none' }}>
+          <a href="/" onClick={(e) => handleNavClick(e, '/', 'contact')} className="btn-primary glow-btn" style={{ textDecoration: 'none' }}>
             <span>Get in Touch</span>
-          </Link>
+          </a>
         </div>
 
         <button className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMenu} aria-label="Toggle Navigation">
@@ -61,14 +81,14 @@ export default function Header() {
       </div>
 
       <nav className={`mobile-nav ${isMobileMenuOpen ? 'active' : ''}`}>
-        <Link to="/" onClick={closeMenu} className="mobile-link"><span>Home</span></Link>
-        <Link to="/#about" onClick={closeMenu} className="mobile-link"><span>About</span></Link>
+        <a href="/" onClick={(e) => handleNavClick(e, '/', '')} className="mobile-link"><span>Home</span></a>
+        <a href="/" onClick={(e) => handleNavClick(e, '/', 'about')} className="mobile-link"><span>About</span></a>
         <Link to="/services" onClick={closeMenu} className="mobile-link"><span>Services</span></Link>
-        <Link to="/#testimonials" onClick={closeMenu} className="mobile-link"><span>Testimonials</span></Link>
-        <Link to="/#contact" onClick={closeMenu} className="mobile-link"><span>Contact</span></Link>
-        <Link to="/#contact" className="btn-primary mobile-btn glow-btn" onClick={closeMenu} style={{ textDecoration: 'none', textAlign: 'center' }}>
+        <a href="/" onClick={(e) => handleNavClick(e, '/', 'testimonials')} className="mobile-link"><span>Testimonials</span></a>
+        <a href="/" onClick={(e) => handleNavClick(e, '/', 'contact')} className="mobile-link"><span>Contact</span></a>
+        <a href="/" className="btn-primary mobile-btn glow-btn" onClick={(e) => handleNavClick(e, '/', 'contact')} style={{ textDecoration: 'none', textAlign: 'center' }}>
           <span>Get in Touch</span>
-        </Link>
+        </a>
       </nav>
     </header>
   );

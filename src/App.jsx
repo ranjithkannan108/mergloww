@@ -12,14 +12,22 @@ import MouseTrail from './components/MouseTrail';
 import ScrollTopWidget from './components/ScrollTopWidget';
 
 const ScrollToTop = () => {
-  const { pathname, hash } = useLocation();
+  const { pathname, hash, state } = useLocation();
 
   useEffect(() => {
-    if (hash) {
-      // Find the element by ID (removing the '#' prefix)
+    if (state && state.scrollTo) {
+      // Find the element by ID
+      const timer = setTimeout(() => {
+        const element = document.getElementById(state.scrollTo);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    } else if (hash) {
+      // Fallback for direct hash links
       const id = hash.substring(1);
       
-      // Delay slightly to ensure React has mounted the components on the Home page
       const timer = setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
@@ -31,7 +39,7 @@ const ScrollToTop = () => {
     } else {
       window.scrollTo(0, 0);
     }
-  }, [pathname, hash]);
+  }, [pathname, hash, state]);
 
   return null;
 };
