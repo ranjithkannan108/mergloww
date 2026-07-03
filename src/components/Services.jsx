@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { MapPin, Sprout, FileCheck, ShieldCheck, Headphones } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import './About.css';
+import './Services.css';
 import Reveal from './Reveal';
 
 export default function Services() {
@@ -70,33 +71,33 @@ export default function Services() {
       background: '#072F1F', 
       color: '#ffffff', 
       minHeight: '80vh', 
-      padding: '100px 0',
+      padding: '40px 0',
       position: 'relative',
       overflow: 'hidden'
     }}>
 
       <div className="container">
         
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <Reveal type="fade">
-            <h2 className="glowing-title" style={{ marginBottom: '1.5rem' }}>
+            <h2 className="glowing-title" style={{ marginBottom: '0.5rem' }}>
               OUR SERVICES
             </h2>
           </Reveal>
           <Reveal type="fade" delay={0.15}>
-            <p style={{ color: '#ffffff', fontSize: '1.5rem', letterSpacing: '0.05em', opacity: 0.9 }}>
+            <p style={{ color: '#ffffff', fontSize: '1.2rem', letterSpacing: '0.05em', opacity: 0.9 }}>
               We Build Opportunities
             </p>
           </Reveal>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
           {services.map((service, index) => (
             <Reveal key={index} type="pop-up" delay={index * 0.15} display="flex">
               <div style={{ 
                 background: '#ffffff', 
                 borderRadius: '16px', 
-                padding: '2.5rem 2rem', 
+                padding: '1.2rem', 
                 boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
                 borderBottom: '4px solid var(--primary)',
                 transition: 'transform 0.3s ease',
@@ -108,53 +109,35 @@ export default function Services() {
               }}
               onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-              onClick={() => navigate(`/services/${service.id}`)}
               >
                 <div style={{ 
-                  width: '80px', 
-                  height: '80px', 
+                  width: '50px', 
+                  height: '50px', 
                   background: 'rgba(212, 175, 55, 0.1)', 
                   borderRadius: '50%', 
                   display: 'flex', 
                   justifyContent: 'center', 
                   alignItems: 'center', 
-                  marginBottom: '1.5rem',
+                  marginBottom: '0.8rem',
                   border: '2px solid var(--primary)'
                 }}>
-                  {service.icon}
+                  {React.cloneElement(service.icon, { size: 24 })}
                 </div>
-                <h3 style={{ color: '#072F1F', fontSize: '1.4rem', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-serif)' }}>
+                <h3 style={{ color: '#072F1F', fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.4rem', fontFamily: 'var(--font-serif)' }}>
                   {service.title}
                 </h3>
-                <p style={{ color: '#444444', fontSize: '1.05rem', lineHeight: '1.6', flex: 1, marginBottom: '2rem' }}>
+                <p style={{ color: '#444444', fontSize: '0.85rem', lineHeight: '1.3', flex: 1, marginBottom: '1rem' }}>
                   {service.description}
                 </p>
                 
                 <button 
-                  style={{
-                    alignSelf: 'flex-start',
-                    background: 'transparent',
-                    border: '2px solid var(--primary)',
-                    color: '#072F1F',
-                    padding: '0.6rem 1.2rem',
-                    borderRadius: '30px',
-                    fontWeight: 'bold',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    marginTop: 'auto'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'var(--primary)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'transparent';
-                  }}
+                  className="attractive-btn"
                   onClick={(e) => {
                     e.stopPropagation();
                     navigate(`/services/${service.id}`);
                   }}
                 >
-                  Click me for more details
+                  Learn More <span>→</span>
                 </button>
               </div>
             </Reveal>

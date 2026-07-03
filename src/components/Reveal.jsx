@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-export default function Reveal({ children, duration = 1.4, delay = 0, type = 'fade-up', display = 'block' }) {
+export default function Reveal({ children, duration = 1.4, delay = 0, type = 'fade-up', display = 'block', style = {}, className = "" }) {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -56,12 +56,13 @@ export default function Reveal({ children, duration = 1.4, delay = 0, type = 'fa
       transform: isVisible ? visibleTransform : initialTransform,
       transition: `opacity ${duration}s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform ${duration}s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
       width: display === 'block' ? '100%' : 'auto',
-      display: display
+      display: display,
+      ...style
     };
   };
 
   return (
-    <div ref={ref} style={getStyles()}>
+    <div ref={ref} className={className} style={getStyles()}>
       {children}
     </div>
   );

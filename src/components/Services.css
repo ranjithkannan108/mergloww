@@ -252,3 +252,65 @@
     font-size: 1.35rem;
   }
 }
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.05); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.05); }
+  70% { transform: scale(1); }
+}
+
+.heartbeat-btn {
+  animation: heartbeat 1.5s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/* Attractive High-Converting Button */
+.attractive-btn {
+  background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+  color: #ffffff !important;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.attractive-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+  z-index: -1;
+}
+
+.attractive-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+}
+
+.attractive-btn:hover::before {
+  left: 150%;
+}
+.attractive-btn span {
+  transition: transform 0.3s ease;
+}
+.attractive-btn:hover span {
+  transform: translateX(4px);
+}
