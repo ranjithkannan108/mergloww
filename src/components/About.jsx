@@ -66,7 +66,7 @@ export default function About() {
             <div className="about-hexagon-green" style={{ bottom: '-5%', right: '-10%' }}></div>
             <div className="about-hexagon-gold" style={{ top: '40%', right: '-15%', width: '60px', height: '60px', opacity: 0.5 }}></div>
             
-            <Reveal type="slide-left-far" duration={2.8} style={{ zIndex: 1, position: 'relative' }}>
+            <Reveal type="slide-left" duration={2.8} style={{ zIndex: 1, position: 'relative' }}>
               <div className="about-image-card">
                 <img src={aboutFamily} alt="Happy family showing trust in Mergloww" className="about-image" />
               </div>
