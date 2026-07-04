@@ -2,10 +2,10 @@
 
 :root {
   /* Colors - Gold & Black Theme */
-  --primary: #d4af37;          /* Metallic Gold */
-  --primary-light: #f3e5ab;    /* Champagne Gold */
-  --primary-dark: #aa8c2c;     /* Dark Gold */
-  --accent: #c5a059;           /* Secondary Gold */
+  --primary: #FFE500;          /* Ultra Bright Gold */
+  --primary-light: #FFF68F;    /* Bright Champagne Gold */
+  --primary-dark: #FFC300;     /* Strong Gold */
+  --accent: #FFE833;           /* Secondary Ultra Bright Gold */
   
   --bg-main: #0a0a0b;          /* Deep Black */
   --bg-alt: #121214;           /* Charcoal/Dark Gray */
@@ -16,13 +16,13 @@
   --text-light: #d1d5db;       /* Light Gray */
   
   --border-color: #2d2d30;     /* Dark border */
-  --border-gold: rgba(212, 175, 55, 0.3); /* Subtle gold border */
+  --border-gold: rgba(255, 229, 0, 0.4); /* Subtle bright gold border */
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
-  --gradient-accent: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%);
+  --gradient-primary: linear-gradient(135deg, #FFE500 0%, #FFC300 100%);
+  --gradient-accent: linear-gradient(135deg, #FFF68F 0%, #FFE500 100%);
   --gradient-dark: linear-gradient(135deg, #121214 0%, #0a0a0b 100%);
-  --gradient-glowing-gold: linear-gradient(90deg, #d4af37 0%, #ffdf73 50%, #d4af37 100%);
+  --gradient-glowing-gold: linear-gradient(90deg, #FFE500 0%, #FFF68F 50%, #FFE500 100%);
 
   /* Typography */
   --font-sans: 'Outfit', sans-serif;
@@ -32,7 +32,7 @@
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 12px 24px rgba(0, 0, 0, 0.6);
   --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.8);
-  --shadow-glow: 0 0 15px rgba(212, 175, 55, 0.2);
+  --shadow-glow: 0 0 20px rgba(255, 229, 0, 0.4);
 
   /* Transitions */
   --transition-fast: 0.2s ease;
@@ -56,6 +56,20 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-height);
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+@media (max-width: 1024px) {
+  html { font-size: 15px; }
+}
+
+@media (max-width: 768px) {
+  html { font-size: 14px; }
+}
+
+@media (max-width: 480px) {
+  html { font-size: 13px; }
 }
 
 body {
@@ -63,11 +77,14 @@ body {
   color: var(--text-main);
   background-color: var(--bg-main);
   line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--primary);
   font-family: var(--font-serif);
+  text-shadow: 0 0 12px rgba(255, 229, 0, 0.4);
 }
 
 a {
@@ -83,9 +100,33 @@ a {
   padding: 0 2rem;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
 .section {
   padding: 6rem 0;
   min-height: 50vh;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 4rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
 }
 
 .section-alt {

@@ -10,12 +10,11 @@ export default function Contact() {
       <div className="container">
         
         {/* Get in Touch Badge Header */}
-        <Reveal type="fade">
-          <div className="contact-header">
-            <span className="contact-badge">GET IN TOUCH</span>
-            <p className="contact-subtitle">
-              Whether you're looking for premium land investments or just want to ask a question, we're here for it.
-            </p>
+        <Reveal type="fade" display="flex" style={{ justifyContent: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem', width: '100%' }}>
+            <h2 className="about-title glowing-title" style={{ fontSize: '1.25rem' }}>
+              START YOUR JOURNEY WITH US.
+            </h2>
           </div>
         </Reveal>
 
@@ -35,64 +34,29 @@ export default function Contact() {
             </div>
           </Reveal>
 
-          {/* Right Side: Four Information Cards */}
-          <div className="contact-cards-grid">
-            
-            {/* Card 1: Opening Hours */}
-            <Reveal type="pop-up" delay={0}>
-              <div className="contact-info-card">
-                <div className="contact-icon-wrapper">
-                  <Clock size={24} className="contact-icon" />
+          {/* Right Side: Contact Form */}
+          <Reveal type="slide-left" duration={1.5} display="flex">
+            <div className="contact-form-container">
+              <h3 className="form-title">Send us a message</h3>
+              <form className="contact-form">
+                <div className="form-group">
+                  <input type="text" placeholder="Your Name" required className="form-input" />
                 </div>
-                <h4>Opening Hours</h4>
-                <p className="info-main">Monday - Saturday</p>
-                <p className="info-sub">9:00 AM - 6:00 PM</p>
-              </div>
-            </Reveal>
-
-            {/* Card 2: Visit Us */}
-            <Reveal type="pop-up" delay={0.15}>
-              <div className="contact-info-card">
-                <div className="contact-icon-wrapper">
-                  <MapPin size={24} className="contact-icon" />
+                <div className="form-group">
+                  <input type="tel" placeholder="Phone Number" required className="form-input" />
                 </div>
-                <h4>Visit Us</h4>
-                <p className="info-main">No. 45, Prime Tower,</p>
-                <p className="info-sub">Chennai - 600001</p>
-              </div>
-            </Reveal>
-
-            {/* Card 3: Talk to Us */}
-            <Reveal type="pop-up" delay={0.3}>
-              <div className="contact-info-card">
-                <div className="contact-icon-wrapper">
-                  <Phone size={24} className="contact-icon" />
+                <div className="form-group">
+                  <input type="email" placeholder="Email Address" required className="form-input" />
                 </div>
-                <h4>Talk to Us</h4>
-                <p className="info-main">+91 98765 43210</p>
-                <p className="info-sub">support@merglowwestates.com</p>
-              </div>
-            </Reveal>
-
-            {/* Card 4: Follow Us */}
-            <Reveal type="pop-up" delay={0.45}>
-              <div className="contact-info-card dark-card">
-                <h4>Follow the Legacy</h4>
-                <p className="dark-card-desc">Stay updated with our latest project launches and land investment options.</p>
-                <div className="social-links-row">
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-pill">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                    <span>Instagram</span>
-                  </a>
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-pill">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                    <span>Facebook</span>
-                  </a>
+                <div className="form-group">
+                  <textarea placeholder="Your Query" required className="form-input form-textarea" rows="3"></textarea>
                 </div>
-              </div>
-            </Reveal>
-
-          </div>
+                <button type="submit" className="btn-primary glow-btn form-submit-btn">
+                  <span>Submit Query</span>
+                </button>
+              </form>
+            </div>
+          </Reveal>
 
         </div>
 

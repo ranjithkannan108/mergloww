@@ -68,7 +68,8 @@ export default function Services() {
 
   return (
     <section ref={sectionRef} id="services" className="section" style={{ 
-      background: '#072F1F', 
+      backgroundColor: '#071f11',
+      backgroundImage: 'radial-gradient(circle at center, #184725 0%, #0a2914 60%, #041208 100%)',
       color: '#ffffff', 
       minHeight: '80vh', 
       padding: '40px 0',

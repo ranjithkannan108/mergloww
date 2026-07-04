@@ -73,10 +73,19 @@
 
 .logo-subtitle {
   color: var(--text-muted);
-  font-size: 0.65rem;
+  font-size: 0.5rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-top: 2px;
+}
+
+.logo-tagline {
+  color: #FFD700;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  margin-top: 3px;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
 }
 
 /* Desktop Navigation - Oval Hover Effect */
@@ -387,3 +396,198 @@
 .desktop-nav .nav-link:nth-child(3) { animation-delay: 0.6s; }
 .desktop-nav .nav-link:nth-child(4) { animation-delay: 0.8s; }
 .desktop-nav .nav-link:nth-child(5) { animation-delay: 1.0s; }
+/* Flyer Style Contact Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(15px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.flyer-modal {
+  background: rgba(15, 25, 20, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 229, 0, 0.2);
+  border-bottom: 4px solid var(--primary);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Absolute Circular Close Button */
+.flyer-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.flyer-close-btn:hover {
+  background: rgba(212, 175, 55, 0.9);
+  color: #000;
+  transform: rotate(90deg);
+}
+
+.flyer-image-section {
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.flyer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(10, 30, 20, 0.9) 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.flyer-logo-container {
+  text-align: center;
+}
+
+.flyer-brand {
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.25rem 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.flyer-tagline {
+  color: var(--primary);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0;
+  font-weight: 500;
+}
+
+.flyer-content-section {
+  padding: 2.5rem 2rem;
+  background: #071f11;
+  border-top: 2px solid rgba(212, 175, 55, 0.2);
+  text-align: center;
+}
+
+.flyer-title {
+  color: var(--primary);
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.flyer-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.flyer-contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.flyer-contact-item.full-width {
+  grid-column: span 2;
+}
+
+.flyer-icon {
+  font-size: 1.8rem;
+  color: var(--primary);
+}
+
+.flyer-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.flyer-label {
+  font-size: 0.75rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.flyer-text strong {
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .flyer-image-section {
+    height: 180px;
+  }
+  .flyer-brand {
+    font-size: 1.4rem;
+  }
+  .flyer-tagline {
+    font-size: 0.75rem;
+  }
+  .flyer-content-section {
+    padding: 1.5rem 1rem;
+  }
+  .flyer-title {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .flyer-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .flyer-contact-item.full-width {
+    grid-column: span 1;
+  }
+}

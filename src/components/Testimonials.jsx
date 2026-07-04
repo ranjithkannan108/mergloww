@@ -31,12 +31,10 @@ export default function Testimonials() {
 
   return (
     <section ref={sectionRef} id="testimonials" className="section section-alt" style={{ 
-      backgroundColor: '#ffffff',
-      backgroundImage: 'radial-gradient(rgba(212, 175, 55, 0.12) 1.5px, transparent 1.5px), radial-gradient(rgba(7, 47, 31, 0.08) 1.5px, transparent 1.5px)',
-      backgroundSize: '32px 32px',
-      backgroundPosition: '0 0, 16px 16px',
-      color: '#072F1F', 
-      padding: '40px 0 100px 0',
+      backgroundColor: '#071f11',
+      backgroundImage: 'radial-gradient(circle at center, #184725 0%, #0a2914 60%, #041208 100%)',
+      color: '#ffffff', 
+      padding: '80px 0 80px 0',
       position: 'relative',
       overflow: 'hidden'
     }}>

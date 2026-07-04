@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -10,6 +10,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import MouseTrail from './components/MouseTrail';
 import ScrollTopWidget from './components/ScrollTopWidget';
+import Preloader from './components/Preloader';
 
 const ScrollToTop = () => {
   const { pathname, hash, state } = useLocation();
@@ -72,6 +73,7 @@ const HomePage = () => (
     <Home />
     <About />
     <Testimonials />
+    <Contact />
   </div>
 );
 
@@ -88,6 +90,28 @@ const ContactPage = () => (
 );
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const [showPreloader, setShowPreloader] = useState(false);
+
+  useEffect(() => {
+    const hasVisited = sessionStorage.getItem('merglowwVisited');
+    if (!hasVisited) {
+      setShowPreloader(true);
+      const timer = setTimeout(() => {
+        setLoading(false);
+        sessionStorage.setItem('merglowwVisited', 'true');
+      }, 2500);
+      return () => clearTimeout(timer);
+    } else {
+      setLoading(false);
+      setShowPreloader(false);
+    }
+  }, []);
+
+  if (loading && showPreloader) {
+    return <Preloader />;
+  }
+
   return (
     <BrowserRouter>
       <ScrollToTop />

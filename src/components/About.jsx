@@ -37,12 +37,10 @@ export default function About() {
 
   return (
     <section ref={sectionRef} id="about" className="section section-alt" style={{ 
-      padding: '50px 0 40px 0',
-      backgroundColor: '#ffffff',
-      backgroundImage: 'radial-gradient(rgba(212, 175, 55, 0.12) 1.5px, transparent 1.5px), radial-gradient(rgba(7, 47, 31, 0.08) 1.5px, transparent 1.5px)',
-      backgroundSize: '32px 32px',
-      backgroundPosition: '0 0, 16px 16px',
-      color: '#072F1F',
+      padding: '80px 0 80px 0',
+      backgroundColor: '#071f11',
+      backgroundImage: 'radial-gradient(circle at center, #184725 0%, #0a2914 60%, #041208 100%)',
+      color: '#ffffff',
       position: 'relative',
       overflow: 'hidden'
     }}>
@@ -52,15 +50,15 @@ export default function About() {
         {/* Centered Glowing Title */}
         <Reveal type="fade" display="flex" style={{ justifyContent: 'center' }}>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '4rem', width: '100%' }}>
-            <h2 className="about-title glowing-title">
-              About Mergloww Estates
+            <h2 className="about-title glowing-title" style={{ fontSize: '1.25rem', marginBottom: '1.5rem' }}>
+              About Mergloww Estates Private Limited
             </h2>
           </div>
         </Reveal>
 
         <div className="about-grid">
           
-          <div className="about-visuals" style={{ transform: 'scale(0.85)', marginTop: '-2rem', position: 'relative' }}>
+          <div className="about-visuals" style={{ transform: 'scale(0.85)', position: 'relative' }}>
             {/* Decorative Hexagons */}
             <div className="about-hexagon-gold" style={{ top: '-10%', left: '-5%' }}></div>
             <div className="about-hexagon-green" style={{ bottom: '-5%', right: '-10%' }}></div>
@@ -76,7 +74,7 @@ export default function About() {
           <div className="about-info" style={{ textAlign: 'justify' }}>
             <Reveal type="fade" duration={2.2}>
               <p className="about-description" style={{ fontSize: '1.25rem', lineHeight: '1.9' }}>
-                <strong style={{ color: 'var(--primary)', textShadow: '0 0 10px rgba(212, 175, 55, 0.6), 0 0 20px rgba(212, 175, 55, 0.4)' }}>Mergloww Estates Private Limited</strong> is a customer-focused real estate agency committed to delivering premium land investments, commercial properties, and luxury homes across Tamil Nadu. We believe every real estate investment should provide security, appreciation, and peace of mind.
+                <strong style={{ color: 'var(--primary)', textShadow: '0 0 10px rgba(212, 175, 55, 0.6), 0 0 20px rgba(212, 175, 55, 0.4)' }}>Mergloww Estates Private Limited</strong> is a trusted real estate company specializing in DTCP, RERA, CMDA-approved projects, and premium farmland developments. With a strong commitment to integrity, transparency, and quality, we provide secure investment opportunities that help you grow your wealth with confidence and build a better future.
               </p>
               <p className="about-description-secondary" style={{ fontSize: '1.15rem', lineHeight: '1.9', marginTop: '1.5rem' }}>
                 From project planning to registration, our experienced team ensures every customer receives complete guidance with transparency and professionalism.
@@ -90,14 +88,14 @@ export default function About() {
         <div className="vision-mission-container">
           <Reveal type="slide-right" display="flex" style={{ flex: 1 }}>
             <div 
-              className="accordion-card vision-bg" 
-              style={{ backgroundImage: `url(${aboutFamily})` }}
+              className="accordion-card mission-bg" 
+              style={{ backgroundImage: `url(${imgProfessionalism})` }}
             >
               <div className="accordion-overlay"></div>
               <div className="card-content-reveal">
-                <h3>Our Vision</h3>
+                <h3>Our Mission</h3>
                 <p>
-                  To become the most trusted and preferred real estate agency in Tamil Nadu by continually exceeding customer expectations and redefining the standards of premium property and land investments.
+                  To provide trusted DTCP, RERA, CMDA-approved and premium farmland investment opportunities through transparency, integrity, and quality, empowering our customers to build lasting wealth and a secure future.
                 </p>
               </div>
             </div>
@@ -121,123 +119,80 @@ export default function About() {
 
           <Reveal type="slide-left" display="flex" style={{ flex: 1 }}>
             <div 
-              className="accordion-card mission-bg" 
-              style={{ backgroundImage: `url(${imgProfessionalism})` }}
+              className="accordion-card vision-bg" 
+              style={{ backgroundImage: `url(${aboutFamily})` }}
             >
               <div className="accordion-overlay"></div>
               <div className="card-content-reveal">
-                <h3>Our Mission</h3>
+                <h3>Our Vision</h3>
                 <p>
-                  To deliver legally verified, strategically located properties while maintaining the highest standards of integrity, customer satisfaction, and long-term value.
+                  To be the trusted partner behind every successful property investment, delivering exceptional value, lasting relationships, and a future built on confidence.
                 </p>
               </div>
             </div>
           </Reveal>
         </div>
 
-        {/* Our Expertise Section */}
-        <div style={{ marginTop: '5rem', marginBottom: '2rem' }}>
-          <Reveal type="fade" display="flex" style={{ justifyContent: 'center' }}>
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem', width: '100%' }}>
-              <h2 style={{ color: '#072F1F', fontFamily: 'var(--font-serif)', fontSize: '2rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                Our Expertise
-              </h2>
-            </div>
-          </Reveal>
-          
-          <div className="expertise-container">
-            
-            {/* Buying */}
-            <Reveal type="pop-up" delay={0} display="inline-block">
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ width: '75px', height: '75px', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '3px solid var(--primary)', borderRadius: '50%', boxShadow: '0 0 25px rgba(212,175,55,0.5)', background: '#ffffff' }}>
-                  <HomeIcon size={34} color="#072F1F" strokeWidth={2} />
-                </div>
-                <span style={{ color: '#000000', fontWeight: 'bold', fontSize: '1.05rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Buying</span>
-              </div>
-            </Reveal>
 
-            {/* Selling */}
-            <Reveal type="pop-up" delay={0.15} display="inline-block">
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ width: '75px', height: '75px', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '3px solid var(--primary)', borderRadius: '50%', boxShadow: '0 0 25px rgba(212,175,55,0.5)', background: '#ffffff' }}>
-                  <Handshake size={34} color="#072F1F" strokeWidth={2} />
-                </div>
-                <span style={{ color: '#000000', fontWeight: 'bold', fontSize: '1.05rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Selling</span>
-              </div>
-            </Reveal>
-
-            {/* Investing */}
-            <Reveal type="pop-up" delay={0.3} display="inline-block">
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ width: '75px', height: '75px', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '3px solid var(--primary)', borderRadius: '50%', boxShadow: '0 0 25px rgba(212,175,55,0.5)', background: '#ffffff' }}>
-                  <TrendingUp size={34} color="#072F1F" strokeWidth={2} />
-                </div>
-                <span style={{ color: '#000000', fontWeight: 'bold', fontSize: '1.05rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Investing</span>
-              </div>
-            </Reveal>
-
-          </div>
-        </div>
 
         {/* Why Choose Mergloww Section */}
-        <div style={{ marginTop: '6rem' }}>
+        <div style={{ marginTop: '8rem' }}>
           <Reveal type="fade" display="flex" style={{ justifyContent: 'center' }}>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem', width: '100%' }}>
-              <h2 className="about-title glowing-title">
-                Why Choose Mergloww
+              <h2 className="about-title glowing-title" style={{ fontSize: '1.25rem', marginBottom: '1.5rem' }}>
+                WHY CHOOSE MERGLOWW ?
               </h2>
             </div>
           </Reveal>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
-            {/* Customer Satisfaction */}
+            {/* Trust & Integrity */}
             <Reveal type="pop-up" delay={0} display="flex">
-              <div className="why-choose-card" style={{ background: '#ffffff', border: '2px solid var(--primary)', borderRadius: '0 60px 0 60px', boxShadow: '0 8px 30px rgba(212, 175, 55, 0.3)', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%' }}>
+              <div className="why-choose-card" style={{ background: 'rgba(15, 25, 20, 0.6)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255, 229, 0, 0.2)', borderBottom: '4px solid var(--primary)', borderRadius: '16px', boxShadow: '0 8px 30px rgba(0, 0, 0, 0.4)', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%' }}>
                 <div style={{ padding: '2.5rem 2rem 2rem 2rem', flex: 1 }}>
-                  <h4 style={{ color: 'var(--primary)', fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-serif)', textTransform: 'uppercase' }}>Customer Satisfaction</h4>
-                  <p style={{ color: '#164228', lineHeight: '1.6', fontSize: '0.95rem' }}>We prioritize your needs, ensuring a smooth, personalized, and delightful property buying experience from start to finish.</p>
+                  <h4 style={{ color: 'var(--primary)', fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-serif)', textTransform: 'uppercase' }}>Trust & Integrity</h4>
+                  <p style={{ color: '#d1d5db', lineHeight: '1.6', fontSize: '0.95rem' }}>We uphold the highest standards of honesty, ethics, and transparency, ensuring every investment is built on trust and confidence.</p>
                 </div>
                 <div className="why-choose-img-wrapper">
-                  <img src={imgCustomerSatisfaction} alt="Customer Satisfaction" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={imgCustomerSatisfaction} alt="Trust & Integrity" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.9)' }} />
                 </div>
               </div>
             </Reveal>
 
-            {/* Long-term Value */}
+            {/* Long-Term Value */}
             <Reveal type="pop-up" delay={0.15} display="flex">
-              <div className="why-choose-card" style={{ background: '#ffffff', border: '2px solid var(--primary)', borderRadius: '0 60px 0 60px', boxShadow: '0 8px 30px rgba(212, 175, 55, 0.3)', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%' }}>
+              <div className="why-choose-card" style={{ background: 'rgba(15, 25, 20, 0.6)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255, 229, 0, 0.2)', borderBottom: '4px solid var(--primary)', borderRadius: '16px', boxShadow: '0 8px 30px rgba(0, 0, 0, 0.4)', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%' }}>
                 <div style={{ padding: '2.5rem 2rem 2rem 2rem', flex: 1 }}>
-                  <h4 style={{ color: 'var(--primary)', fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-serif)', textTransform: 'uppercase' }}>Long-term Value</h4>
-                  <p style={{ color: '#164228', lineHeight: '1.6', fontSize: '0.95rem' }}>We handpick strategically located properties poised for exceptional appreciation, securing your financial future.</p>
+                  <h4 style={{ color: 'var(--primary)', fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-serif)', textTransform: 'uppercase' }}>Long-Term Value</h4>
+                  <p style={{ color: '#d1d5db', lineHeight: '1.6', fontSize: '0.95rem' }}>We offer strategically selected DTCP, RERA, CMDA-approved projects and premium farmland with excellent growth potential, helping you create lasting wealth and long-term financial security.</p>
                 </div>
                 <div className="why-choose-img-wrapper">
-                  <img src={imgLongTermValue} alt="Long-term Value" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={imgLongTermValue} alt="Long-Term Value" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.9)' }} />
                 </div>
               </div>
             </Reveal>
 
-            {/* Transparency */}
+            {/* Complete Transparency */}
             <Reveal type="pop-up" delay={0.3} display="flex">
-              <div className="why-choose-card" style={{ background: '#ffffff', border: '2px solid var(--primary)', borderRadius: '0 60px 0 60px', boxShadow: '0 8px 30px rgba(212, 175, 55, 0.3)', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%' }}>
+              <div className="why-choose-card" style={{ background: 'rgba(15, 25, 20, 0.6)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255, 229, 0, 0.2)', borderBottom: '4px solid var(--primary)', borderRadius: '16px', boxShadow: '0 8px 30px rgba(0, 0, 0, 0.4)', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%' }}>
                 <div style={{ padding: '2.5rem 2rem 2rem 2rem', flex: 1 }}>
-                  <h4 style={{ color: 'var(--primary)', fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-serif)', textTransform: 'uppercase' }}>Transparency</h4>
-                  <p style={{ color: '#164228', lineHeight: '1.6', fontSize: '0.95rem' }}>We believe in open communication and complete honesty, ensuring you are fully informed at every step of your investment.</p>
+                  <h4 style={{ color: 'var(--primary)', fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-serif)', textTransform: 'uppercase' }}>Complete Transparency</h4>
+                  <p style={{ color: '#d1d5db', lineHeight: '1.6', fontSize: '0.95rem' }}>From consultation to registration, every step is clear, secure, and fully documented, giving you complete peace of mind.</p>
                 </div>
                 <div className="why-choose-img-wrapper">
-                  <img src={imgTransparency} alt="Transparency" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={imgTransparency} alt="Complete Transparency" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.9)' }} />
                 </div>
               </div>
             </Reveal>
 
-            {/* Professionalism */}
+            {/* Professional Excellence */}
             <Reveal type="pop-up" delay={0.45} display="flex">
-              <div className="why-choose-card" style={{ background: '#ffffff', border: '2px solid var(--primary)', borderRadius: '0 60px 0 60px', boxShadow: '0 8px 30px rgba(212, 175, 55, 0.3)', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%' }}>
+              <div className="why-choose-card" style={{ background: 'rgba(15, 25, 20, 0.6)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255, 229, 0, 0.2)', borderBottom: '4px solid var(--primary)', borderRadius: '16px', boxShadow: '0 8px 30px rgba(0, 0, 0, 0.4)', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%' }}>
                 <div style={{ padding: '2.5rem 2rem 2rem 2rem', flex: 1 }}>
-                  <h4 style={{ color: 'var(--primary)', fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-serif)', textTransform: 'uppercase' }}>Professionalism</h4>
-                  <p style={{ color: '#164228', lineHeight: '1.6', fontSize: '0.95rem' }}>Our dedicated team of experts provides top-tier guidance, legal support, and hassle-free registration processes.</p>
+                  <h4 style={{ color: 'var(--primary)', fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-serif)', textTransform: 'uppercase' }}>Professional Excellence</h4>
+                  <p style={{ color: '#d1d5db', lineHeight: '1.6', fontSize: '0.95rem' }}>Our experienced team is committed to delivering exceptional service, expert guidance, and a seamless property investment experience.</p>
                 </div>
                 <div className="why-choose-img-wrapper">
-                  <img src={imgProfessionalism} alt="Professionalism" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={imgProfessionalism} alt="Professional Excellence" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.9)' }} />
                 </div>
               </div>
             </Reveal>

@@ -247,6 +247,9 @@
   .home-title {
     font-size: 3rem;
   }
+  .home-description {
+    font-size: 1.05rem;
+  }
   .home-container {
     gap: 2rem;
   }
@@ -292,10 +295,14 @@
   .home-title {
     font-size: 2.25rem;
   }
+  .home-description {
+    font-size: 0.95rem;
+  }
   .search-widget {
     flex-direction: column;
     align-items: stretch;
     gap: 1rem;
+    padding: 1rem;
   }
   .search-field {
     border-right: none;
@@ -309,6 +316,29 @@
   }
   .search-btn {
     justify-content: center;
+  }
+  .badge-top, .badge-bottom {
+    padding: 0.5rem 0.75rem;
+  }
+  .badge-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 0.85rem;
+  }
+  .floating-badge h4 {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 1.8rem;
+  }
+  .home-description {
+    font-size: 0.85rem;
+  }
+  .home-hero-image {
+    aspect-ratio: 1 / 1;
   }
 }
 
