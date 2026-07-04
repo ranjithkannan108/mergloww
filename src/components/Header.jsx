@@ -64,13 +64,13 @@ export default function Header() {
           <a href="/" onClick={(e) => handleNavClick(e, '/', 'about')} className="nav-link"><span>About</span></a>
           <Link to="/services" onClick={closeMenu} className="nav-link"><span>Services</span></Link>
           <a href="/" onClick={(e) => handleNavClick(e, '/', 'testimonials')} className="nav-link"><span>Testimonials</span></a>
-          <a href="/" onClick={(e) => handleNavClick(e, '/', 'contact')} className="nav-link"><span>Contact</span></a>
+          <Link to="/contact" onClick={closeMenu} className="nav-link"><span>Contact</span></Link>
         </nav>
 
         <div className="header-actions">
-          <a href="/" onClick={(e) => handleNavClick(e, '/', 'contact')} className="btn-primary glow-btn" style={{ textDecoration: 'none' }}>
+          <Link to="/contact" onClick={closeMenu} className="btn-primary glow-btn" style={{ textDecoration: 'none' }}>
             <span>Get in Touch</span>
-          </a>
+          </Link>
         </div>
 
         <button className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMenu} aria-label="Toggle Navigation">
@@ -85,10 +85,10 @@ export default function Header() {
         <a href="/" onClick={(e) => handleNavClick(e, '/', 'about')} className="mobile-link"><span>About</span></a>
         <Link to="/services" onClick={closeMenu} className="mobile-link"><span>Services</span></Link>
         <a href="/" onClick={(e) => handleNavClick(e, '/', 'testimonials')} className="mobile-link"><span>Testimonials</span></a>
-        <a href="/" onClick={(e) => handleNavClick(e, '/', 'contact')} className="mobile-link"><span>Contact</span></a>
-        <a href="/" className="btn-primary mobile-btn glow-btn" onClick={(e) => handleNavClick(e, '/', 'contact')} style={{ textDecoration: 'none', textAlign: 'center' }}>
+        <Link to="/contact" onClick={closeMenu} className="mobile-link"><span>Contact</span></Link>
+        <Link to="/contact" className="btn-primary mobile-btn glow-btn" onClick={closeMenu} style={{ textDecoration: 'none', textAlign: 'center' }}>
           <span>Get in Touch</span>
-        </a>
+        </Link>
       </nav>
     </header>
   );

@@ -1,5 +1,5 @@
 .contact-section {
-  padding: 80px 0;
+  padding: 40px 0;
   background-color: #ffffff;
   background-image: radial-gradient(rgba(212, 175, 55, 0.12) 1.5px, transparent 1.5px), radial-gradient(rgba(7, 47, 31, 0.08) 1.5px, transparent 1.5px);
   background-size: 32px 32px;
@@ -7,11 +7,15 @@
   color: #072F1F;
   border-bottom: 1px solid var(--border-color);
   position: relative;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .contact-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .contact-badge {
@@ -43,7 +47,7 @@
 .contact-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: 3.5rem;
+  gap: 2rem;
   align-items: stretch;
 }
 
@@ -52,14 +56,14 @@
   position: relative;
   border-radius: 32px;
   overflow: visible;
-  min-height: 480px;
+  min-height: 380px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: flex-end;
-  padding: 2.5rem;
+  padding: 1.5rem;
 }
 
 .contact-image-overlay {
@@ -116,13 +120,13 @@
 .contact-cards-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .contact-info-card {
   background: linear-gradient(180deg, rgba(7, 47, 31, 0.72) 0%, rgba(7, 47, 31, 0.92) 100%);
   border-radius: 24px;
-  padding: 2rem;
+  padding: 1.5rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   border: 2px solid rgba(212, 175, 55, 0.25);
   display: flex;
@@ -145,7 +149,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
   border: 1px solid rgba(212, 175, 55, 0.3);
 }
 

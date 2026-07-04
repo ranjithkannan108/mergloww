@@ -72,13 +72,18 @@ const HomePage = () => (
     <Home />
     <About />
     <Testimonials />
-    <Contact />
   </div>
 );
 
 const ServicesPage = () => (
   <div className="fade-in" style={{ paddingTop: '80px' }}>
     <Services />
+  </div>
+);
+
+const ContactPage = () => (
+  <div className="fade-in" style={{ paddingTop: '80px' }}>
+    <Contact />
   </div>
 );
 
@@ -96,6 +101,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/services/:serviceId" element={<div className="fade-in"><ServiceDetail /></div>} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>
         <Footer />
