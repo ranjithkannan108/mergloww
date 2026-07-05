@@ -2,52 +2,111 @@ import bannerPremiumPlots from '../assets/banner_premium_plots.png';
 import bannerFarmland from '../assets/banner_farmland.png';
 import bannerDtcp from '../assets/banner_dtcp.png';
 import bannerDocumentation from '../assets/banner_documentation.png';
-import bannerConsulting from '../assets/banner_consulting.png';
 
 export const servicesData = {
-  'premium-residential-plots': {
-    id: 'premium-residential-plots',
-    title: 'Premium Residential Plots',
+  'sri-sakthi-garden': {
+    id: 'sri-sakthi-garden',
+    title: 'Sri Sakthi Garden',
     image: bannerPremiumPlots,
-    tags: ['Residential', 'Villa Plots', 'Tamil Nadu'],
-    weHaveThisService: 'We offer well-planned residential villa plots in Tamil Nadu located in rapidly developing areas with excellent future appreciation potential.',
-    explainAboutService: 'Our premium residential plots are carefully selected to provide you with the perfect foundation for your dream home. We ensure all our properties are situated in high-growth corridors with access to essential amenities, educational institutions, and healthcare facilities. Whether you are looking to build immediately or hold for future appreciation, our plots offer unmatched security and value.',
-    whyUseMergloww: 'Mergloww Estates provides transparent documentation, Vastu-compliant layouts, and clear titles, ensuring your investment is secure and hassle-free.',
+    tags: ['Residential', 'Villa Plots', 'Guduvanchery'],
+    heading: 'DTCP & RERA APPROVED PLOTS IN GUDUVANCHERY',
+    description: "Discover a secure investment opportunity in one of Chennai's fastest-growing corridors. Located in Guduvanchery, this premium residential layout offers DTCP & RERA approved plots with excellent infrastructure, seamless connectivity, and exceptional appreciation potential.",
+    highlights: [
+      'Premium Blacktop Internal Roads',
+      'Avenue Tree Plantation',
+      'Solar Street Lights',
+      '24×7 Security',
+      'Reliable Water Supply',
+      'Compound Wall With Gated Community'
+    ],
+    landmarks: [
+      'Just 1 km From Guduvanchery Railway Station',
+      'Just 1 km From GST Road',
+      'Schools & Colleges – Nearby',
+      'Hospitals – Close Proximity',
+      'IT & Industrial Corridor – Easily Accessible',
+      'Public Transportation – Excellent Connectivity'
+    ],
+    details: [
+      { label: 'Total Plots', value: '42' },
+      { label: 'Plot Sizes', value: '800Sq.Ft Onwards' },
+      { label: 'Price', value: '₹5,100/Sq.Ft Onwards' }
+    ]
   },
-  'agricultural-farmland': {
-    id: 'agricultural-farmland',
-    title: 'Agricultural & Farmland Investments',
+  'sudiksha-garden': {
+    id: 'sudiksha-garden',
+    title: 'Sudiksha Garden',
     image: bannerFarmland,
-    tags: ['Farmland', 'Agriculture', 'Passive Income'],
-    weHaveThisService: 'Invest in fertile agricultural land and estates designed for long-term real estate growth, passive income, and sustainable living.',
-    explainAboutService: 'Farmland investments have consistently proven to be a robust asset class. Our carefully curated agricultural plots are tested for soil fertility and water availability. We also offer managed farmland options where agricultural experts help you cultivate crops, generating a steady stream of passive income while the land value appreciates.',
-    whyUseMergloww: 'We offer end-to-end support including soil testing, legal verification of agricultural zoning, and optional farm management services to maximize your returns.',
+    tags: ['Residential', 'DTCP Approved', 'Maduranthakam'],
+    heading: 'DTCP APPROVED PLOTS IN MADURANTHAKAM',
+    description: "A premium residential plot in the rapidly developing town of Maduranthagam, where affordability meets exceptional future growth. Developed with modern infrastructure and clear legal approvals, this DTCP-approved residential layout offers an ideal opportunity for both homebuyers and investors seeking long-term value.",
+    highlights: [
+      '30-Foot Blacktop Roads',
+      'Solar Street Lights',
+      '24×7 Security',
+      'Residential Surroundings',
+      'Children\'s Play Area'
+    ],
+    landmarks: [
+      'Easy access to Maduranthagam Town',
+      'Close to Schools & Colleges',
+      'Nearby Hospitals & Healthcare Facilities',
+      'Near IT Companies & Industrial Developments'
+    ],
+    details: [
+      { label: 'Phase 1', value: '115 Plots' },
+      { label: 'Phase 2', value: '126 Plots' },
+      { label: 'Plot Sizes', value: '600Sq.Ft Onwards' },
+      { label: 'Price', value: '₹1,600/Sq.Ft Onwards' }
+    ]
   },
-  'dtcp-approved-layouts': {
-    id: 'dtcp-approved-layouts',
-    title: 'DTCP Approved Layouts',
+  'sp-nagar': {
+    id: 'sp-nagar',
+    title: 'SP Nagar',
     image: bannerDtcp,
-    tags: ['DTCP', 'Government Approved', 'Infrastructure'],
-    weHaveThisService: 'We provide government-approved layouts with wide roads, drainage, electricity, and modern infrastructure.',
-    explainAboutService: 'Investing in DTCP (Directorate of Town and Country Planning) approved plots guarantees peace of mind. Our approved layouts adhere strictly to government norms regarding road width, public spaces, and essential infrastructure like underground drainage, street lighting, and water connections. This ensures your property is ready for construction and free from future legal or developmental hurdles.',
-    whyUseMergloww: 'Mergloww Estates exclusively deals in 100% legally compliant and approved layouts, safeguarding your investment against regulatory risks.',
+    tags: ['Investment', 'Gated Community', 'Walajabad'],
+    heading: 'DTCP & RERA APPROVED PLOTS IN WALAJABAD',
+    description: "A premium investment opportunity in Walajabad, one of Chennai's rapidly developing residential corridors. This DTCP & RERA-approved residential layout combines legal security, modern infrastructure, and exceptional appreciation potential, making it the ideal choice for homeowners and investors alike.",
+    highlights: [
+      '30-Foot Blacktop Roads',
+      '23-Foot Blacktop Internal Roads',
+      'Reliable Water Supply',
+      'Compound Wall with Gated Community'
+    ],
+    landmarks: [
+      'Just 1 km From Walajabad Railway Station',
+      'Just 1 km From Bus Stand',
+      'Registration Office - 5Mins',
+      'Just 1 km From Chennai State Highway'
+    ],
+    details: [
+      { label: 'Plot Sizes', value: '500Sq.Ft Onwards' },
+      { label: 'Price', value: '₹1,600/Sq.Ft Onwards' }
+    ]
   },
-  'property-documentation': {
-    id: 'property-documentation',
-    title: 'Property Documentation',
+  'heavanya-garden': {
+    id: 'heavanya-garden',
+    title: 'Heavanya Garden',
     image: bannerDocumentation,
-    tags: ['Legal', 'Verification', 'Registration'],
-    weHaveThisService: 'Complete legal verification and hassle-free registration support from our experienced legal team.',
-    explainAboutService: 'Navigating real estate documentation can be complex and time-consuming. Our dedicated legal team handles everything from encumbrance certificate (EC) verification, title deed scrutiny, patta transfer, to drafting sale agreements. We ensure that every document is meticulously verified to protect you from any future legal discrepancies.',
-    whyUseMergloww: 'Our in-house legal experts provide a completely transparent, stress-free registration process, saving you time and protecting you from fraud.',
-  },
-  'real-estate-consulting': {
-    id: 'real-estate-consulting',
-    title: 'Real Estate Consulting',
-    image: bannerConsulting,
-    tags: ['Consulting', 'Agent', 'Support'],
-    weHaveThisService: 'Dedicated real estate agent assistance before, during, and after your commercial or residential property purchase.',
-    explainAboutService: 'Our consulting services go beyond just selling properties. We act as your trusted advisors, helping you understand market trends, property valuations, and investment hotspots in Tamil Nadu. We provide personalized property recommendations based on your financial goals, whether you are looking for short-term gains, long-term wealth creation, or a place to call home.',
-    whyUseMergloww: 'With decades of local market expertise, Mergloww consultants offer unbiased advice tailored to your specific investment strategy and budget.',
+    tags: ['Premium Plots', 'North Chennai', 'Minjur'],
+    heading: 'DTCP & RERA APPROVED PLOTS IN MINJUR',
+    description: "Own a premium residential plot in Minjur, one of North Chennai's fastest-growing investment destinations. This DTCP & RERA-approved gated layout offers the perfect combination of legal security, excellent connectivity, and outstanding appreciation potential.",
+    highlights: [
+      '33-Foot Blacktop Roads',
+      'EB Connection',
+      'Sweet Ground Water Source',
+      'Compound Wall with Gated Community'
+    ],
+    landmarks: [
+      'Close to Minjur Railway Station',
+      'Close to CPRR(Chennai Peripheral Ring Road)',
+      'Bus Stand Nearby',
+      'Schools & Colleges in Close Proximity',
+      'Hospitals & Healthcare Facilities Nearby'
+    ],
+    details: [
+      { label: 'Plot Sizes', value: '700Sq.Ft Onwards' },
+      { label: 'Price', value: '₹1,750/Sq.Ft Onwards' }
+    ]
   }
 };

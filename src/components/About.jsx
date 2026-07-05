@@ -140,7 +140,7 @@ export default function About() {
           <Reveal type="fade" display="flex" style={{ justifyContent: 'center' }}>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem', width: '100%' }}>
               <h2 className="about-title glowing-title" style={{ fontSize: '1.25rem', marginBottom: '1.5rem' }}>
-                WHY CHOOSE MERGLOWW ?
+                WHY CHOOSE MERGLOWW ESTATES?
               </h2>
             </div>
           </Reveal>

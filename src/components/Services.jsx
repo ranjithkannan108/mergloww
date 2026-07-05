@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './About.css';
 import './Services.css';
 import Reveal from './Reveal';
+import SpiralTimeline from './SpiralTimeline';
 
 export default function Services() {
   const sectionRef = useRef(null);
@@ -57,12 +58,6 @@ export default function Services() {
       title: 'Property Documentation',
       description: 'Complete legal verification and hassle-free registration support from our experienced legal team.',
       icon: <FileCheck size={40} color="#072F1F" />
-    },
-    {
-      id: 'real-estate-consulting',
-      title: 'Real Estate Consulting',
-      description: 'Dedicated real estate agent assistance before, during, and after your commercial or residential property purchase.',
-      icon: <Headphones size={40} color="#072F1F" />
     }
   ];
 
@@ -81,69 +76,18 @@ export default function Services() {
         
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <Reveal type="fade">
-            <h2 className="glowing-title" style={{ marginBottom: '0.5rem' }}>
-              OUR SERVICES
+            <h2 className="glowing-title dim-to-bright" style={{ marginBottom: '1.5rem' }}>
+              OUR PROJECTS
             </h2>
           </Reveal>
           <Reveal type="fade" delay={0.15}>
-            <p style={{ color: '#ffffff', fontSize: '1.2rem', letterSpacing: '0.05em', opacity: 0.9 }}>
-              We Build Opportunities
+            <p className="dim-to-bright" style={{ color: '#ffffff', fontSize: '1.2rem', letterSpacing: '0.05em', opacity: 0.9 }}>
+              Explore Our Premium Projects
             </p>
           </Reveal>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
-          {services.map((service, index) => (
-            <Reveal key={index} type="pop-up" delay={index * 0.15} display="flex">
-              <div style={{ 
-                background: '#ffffff', 
-                borderRadius: '16px', 
-                padding: '1.2rem', 
-                boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
-                borderBottom: '4px solid var(--primary)',
-                transition: 'transform 0.3s ease',
-                cursor: 'pointer',
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                height: '100%'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-              >
-                <div style={{ 
-                  width: '50px', 
-                  height: '50px', 
-                  background: 'rgba(212, 175, 55, 0.1)', 
-                  borderRadius: '50%', 
-                  display: 'flex', 
-                  justifyContent: 'center', 
-                  alignItems: 'center', 
-                  marginBottom: '0.8rem',
-                  border: '2px solid var(--primary)'
-                }}>
-                  {React.cloneElement(service.icon, { size: 24 })}
-                </div>
-                <h3 style={{ color: '#072F1F', fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.4rem', fontFamily: 'var(--font-serif)' }}>
-                  {service.title}
-                </h3>
-                <p style={{ color: '#444444', fontSize: '0.85rem', lineHeight: '1.3', flex: 1, marginBottom: '1rem' }}>
-                  {service.description}
-                </p>
-                
-                <button 
-                  className="attractive-btn"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    navigate(`/services/${service.id}`);
-                  }}
-                >
-                  Learn More <span>→</span>
-                </button>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <SpiralTimeline />
 
       </div>
     </section>

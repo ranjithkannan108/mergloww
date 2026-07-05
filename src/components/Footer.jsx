@@ -66,7 +66,7 @@ export default function Footer() {
             <ul className="footer-links">
               <li><a href="/" onClick={(e) => handleNavClick(e, '/', '')} className="footer-link">Home</a></li>
               <li><a href="/" onClick={(e) => handleNavClick(e, '/', 'about')} className="footer-link">About Us</a></li>
-              <li><Link to="/services" className="footer-link">Services</Link></li>
+              <li><Link to="/services" className="footer-link">Projects</Link></li>
               <li><a href="/" onClick={(e) => handleNavClick(e, '/', 'testimonials')} className="footer-link">Testimonials</a></li>
               <li><Link to="/contact" className="footer-link">Contact Us</Link></li>
             </ul>
@@ -75,12 +75,12 @@ export default function Footer() {
           {/* Column 3: Offerings */}
           <div>
             <h4 className="footer-heading">Our Offerings</h4>
-            <ul className="footer-links">
-              <li><Link to="/services/premium-residential-plots" className="footer-link">Premium Residential Plots</Link></li>
-              <li><Link to="/services/agricultural-farmland" className="footer-link">Farmland Investments</Link></li>
-              <li><Link to="/services/dtcp-approved-layouts" className="footer-link">DTCP Approved Layouts</Link></li>
-              <li><Link to="/services/property-documentation" className="footer-link">Property Documentation</Link></li>
-              <li><Link to="/services/real-estate-consulting" className="footer-link">Real Estate Consulting</Link></li>
+            <ul className="footer-links" style={{ listStyleType: 'none', padding: 0 }}>
+              <li style={{ color: '#F8F9FA', opacity: 0.8, marginBottom: '0.5rem' }}>Premium Villa Plots</li>
+              <li style={{ color: '#F8F9FA', opacity: 0.8, marginBottom: '0.5rem' }}>Farmland Investments</li>
+              <li style={{ color: '#F8F9FA', opacity: 0.8, marginBottom: '0.5rem' }}>DTCP Approved Layouts</li>
+              <li style={{ color: '#F8F9FA', opacity: 0.8, marginBottom: '0.5rem' }}>Property Documentation</li>
+              <li style={{ color: '#F8F9FA', opacity: 0.8, marginBottom: '0.5rem' }}>Customer Support</li>
             </ul>
           </div>
 

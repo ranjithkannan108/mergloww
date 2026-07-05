@@ -85,18 +85,17 @@
 
 /* New Glassmorphism Sign Style */
 .thank-you-sign {
-  background: rgba(15, 25, 20, 0.7);
+  background: rgba(15, 25, 20, 0.85);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 229, 0, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.2);
   border-bottom: 4px solid var(--primary);
   border-radius: 16px;
   padding: 2rem;
   text-align: center;
   box-shadow: 0 8px 30px rgba(0,0,0,0.4);
   color: #ffffff;
-  width: calc(100% + 2rem);
-  margin-left: -1rem;
-  transform: translateY(20px);
+  width: 100%;
+  margin: 0;
 }
 
 .sign-title {
@@ -325,9 +324,8 @@
     padding: 1.5rem;
   }
   .thank-you-sign {
-    padding: 1rem;
-    width: calc(100% + 3rem + 20px);
-    margin-left: calc(-1.5rem - 10px);
-    transform: translateY(20px);
+    padding: 1.5rem;
+    width: 100%;
+    margin: 0;
   }
 }

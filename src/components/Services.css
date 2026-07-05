@@ -314,3 +314,11 @@
 .attractive-btn:hover span {
   transform: translateX(4px);
 }
+@keyframes dimToBrightText {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; text-shadow: 0 0 10px rgba(212, 175, 55, 0.8); }
+}
+
+.dim-to-bright {
+  animation: dimToBrightText 3s ease-in-out infinite;
+}
