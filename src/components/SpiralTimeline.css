@@ -22,61 +22,148 @@
   margin: 0 auto;
 }
 
-.spiral-svg-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.spiral-svg {
-  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
-}
-
 .spiral-items-wrapper {
   position: relative;
   z-index: 2;
   width: 100%;
-  padding-top: 150px;
-  padding-bottom: 150px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.timeline-road {
+  position: absolute;
+  top: 40px;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px; /* Width of the road */
+  border-left: 2px solid rgba(212, 175, 55, 0.5);
+  border-right: 2px solid rgba(212, 175, 55, 0.5);
+  z-index: 1; /* Make sure it's above the wrapper background but behind cards */
+}
+
+.timeline-road::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  background-image: linear-gradient(to bottom, rgba(212, 175, 55, 0.8) 50%, transparent 50%);
+  background-size: 100% 80px; /* 40px solid, 40px space - classic road style */
 }
 
 .spiral-item {
-  position: relative;
-  height: 500px;
   width: 100%;
+  display: flex;
+  position: relative;
+  z-index: 2;
+}
+
+.spiral-item.align-left .spiral-card::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: #D4AF37;
+  border-radius: 50%;
+  position: absolute;
+  right: -30px; /* distance from card to line */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.spiral-item.align-right .spiral-card::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: #D4AF37;
+  border-radius: 50%;
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.spiral-item.align-right {
+  justify-content: flex-start;
+  padding-left: calc(50% + 50px);
+}
+
+.spiral-item.align-left {
+  justify-content: flex-end;
+  padding-right: calc(50% + 50px);
 }
 
 .spiral-card {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  margin: 0;
+  position: relative;
   background: rgba(15, 25, 20, 0.85);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(212, 175, 55, 0.4);
   border-bottom: 4px solid #D4AF37;
-  padding: 24px;
+  padding: 16px;
   border-radius: 16px;
-  width: 280px;
+  width: 420px; /* Reduced card size to allow road */
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   box-shadow: 0 8px 30px rgba(0,0,0,0.6);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
+.spiral-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  background: rgba(15, 25, 20, 0.95);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  transform: translateY(-50%) rotate(45deg);
+  z-index: -1;
+}
+
+.spiral-item.align-left .spiral-card::before {
+  right: -15px; 
+  border-bottom: none;
+  border-left: none;
+}
+
+.spiral-item.align-right .spiral-card::before {
+  left: -15px;
+  border-top: none;
+  border-right: none;
+}
+
 .spiral-card:hover {
-  transform: translateY(-50%) scale(1.08);
+  transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
   border-color: rgba(212, 175, 55, 1);
   z-index: 10;
 }
 
-.spiral-item.right .spiral-card {
-  left: calc(70% + 20px);
+.spiral-card.reverse {
+  flex-direction: row-reverse;
 }
 
-.spiral-item.left .spiral-card {
-  right: calc(70% + 20px);
+.spiral-card-image {
+  margin-right: 20px;
+  -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+  mask-image: linear-gradient(to right, black 60%, transparent 100%);
+}
+
+.spiral-card.reverse .spiral-card-image {
+  margin-right: 0;
+  margin-left: 20px;
+  -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
+  mask-image: linear-gradient(to left, black 60%, transparent 100%);
 }
 
 .spiral-card h3 {
@@ -95,35 +182,36 @@
 }
 
 @media (max-width: 900px) {
-  .spiral-item.right .spiral-card {
-    left: calc(70% + 10px);
-    width: 240px;
+  .timeline-road {
+    display: none;
   }
-  .spiral-item.left .spiral-card {
-    right: calc(70% + 10px);
-    width: 240px;
+  .spiral-item {
+    justify-content: center !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .spiral-card::before {
+    display: none;
+  }
+  .spiral-card,
+  .spiral-card.reverse {
+    width: 400px;
+    flex-direction: column;
+  }
+  .spiral-card-image {
+    width: 100% !important;
+    height: 180px !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    margin-bottom: 16px !important;
+    flex: none !important;
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
   }
 }
 
 @media (max-width: 768px) {
-  .spiral-svg-wrapper {
-    opacity: 0.4; /* Fade background so it doesn't obstruct text if it overlaps */
-  }
-  .spiral-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   .spiral-card {
-    position: relative;
-    top: 0;
-    left: 0 !important;
-    right: 0 !important;
-    transform: none !important;
-    width: 85%;
-    margin: 0 auto;
-  }
-  .spiral-card:hover {
-    transform: translateY(-5px) !important;
+    width: 90%;
   }
 }
