@@ -150,18 +150,7 @@ export default function ServiceDetail() {
                     return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m9 12 2 2 4-4"></path></svg>;
                   };
 
-                  const getHighlightDescription = (text) => {
-                    const lower = text.toLowerCase();
-                    if (lower.includes('road')) return "Smooth, durable roads for excellent connectivity.";
-                    if (lower.includes('tree') || lower.includes('park') || lower.includes('avenue')) return "Lush greenery for a fresh, eco-friendly environment.";
-                    if (lower.includes('solar') || lower.includes('light')) return "Sustainable lighting for safety and energy efficiency.";
-                    if (lower.includes('securit')) return "Round-the-clock professional security and surveillance.";
-                    if (lower.includes('water')) return "Reliable water facilities to meet your daily needs effortlessly.";
-                    if (lower.includes('wall') || lower.includes('gated')) return "A fully secured compound wall for absolute privacy.";
-                    if (lower.includes('eb') || lower.includes('electric')) return "Ready-to-use electrical connections for modern living.";
-                    if (lower.includes('resident')) return "Serene and fast-developing neighborhood for your dream home.";
-                    return "Premium infrastructure designed for your absolute comfort.";
-                  };
+
 
                   return (
                     <div 
@@ -173,9 +162,6 @@ export default function ServiceDetail() {
                         {getHighlightIcon(item)}
                       </div>
                       <div className="highlight-title">{item}</div>
-                      <div className="highlight-description">
-                        {getHighlightDescription(item)}
-                      </div>
                       <div className="highlight-number">
                         {(idx + 1).toString().padStart(2, '0')}
                       </div>
@@ -219,7 +205,7 @@ export default function ServiceDetail() {
               </div>
             </div>
 
-            <div className="service-block block-highlight" style={{ width: '100%', marginBottom: '4rem' }}>
+            <div className="service-block block-highlight" style={{ width: '100%', marginBottom: '1rem' }}>
               <h3 style={{ textAlign: 'center', marginBottom: '2rem', color: '#D4AF37', fontSize: '2rem' }}>Project Details</h3>
               <div className="project-details-grid">
                 {service.details.map((item, idx) => (
@@ -253,9 +239,7 @@ export default function ServiceDetail() {
           </>
         )}
 
-        {/* CTA Card */}
         <div className="service-cta-card">
-          <h3>Interested in our services?</h3>
           <p>Get in touch with us instantly—we are ready to assist you!</p>
           <Link to="/contact" className="service-cta-btn">
             Book a Site Visit

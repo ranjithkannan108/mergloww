@@ -83,30 +83,5 @@ export const servicesData = {
       { label: 'Plot Sizes', value: '500Sq.Ft Onwards' },
       { label: 'Price', value: '₹1,600/Sq.Ft Onwards' }
     ]
-  },
-  'heavanya-garden': {
-    id: 'heavanya-garden',
-    title: 'Heavanya Garden',
-    image: bannerDocumentation,
-    tags: ['Premium Plots', 'North Chennai', 'Minjur'],
-    heading: 'DTCP & RERA APPROVED PLOTS IN MINJUR',
-    description: "Own a premium residential plot in Minjur, one of North Chennai's fastest-growing investment destinations. This DTCP & RERA-approved gated layout offers the perfect combination of legal security, excellent connectivity, and outstanding appreciation potential.",
-    highlights: [
-      '33-Foot Blacktop Roads',
-      'EB Connection',
-      'Sweet Ground Water Source',
-      'Compound Wall with Gated Community'
-    ],
-    landmarks: [
-      'Close to Minjur Railway Station',
-      'Close to CPRR(Chennai Peripheral Ring Road)',
-      'Bus Stand Nearby',
-      'Schools & Colleges in Close Proximity',
-      'Hospitals & Healthcare Facilities Nearby'
-    ],
-    details: [
-      { label: 'Plot Sizes', value: '700Sq.Ft Onwards' },
-      { label: 'Price', value: '₹1,750/Sq.Ft Onwards' }
-    ]
   }
 };

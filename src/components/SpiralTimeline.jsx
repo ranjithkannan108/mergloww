@@ -22,8 +22,57 @@ const GoldenLocationIcon = () => (
   </svg>
 );
 
+const DecorativeArt = () => (
+  <div style={{
+    position: 'absolute',
+    top: '50%',
+    right: '8vw', // On the right side
+    transform: 'translateY(-50%)',
+    width: '22vw',
+    maxWidth: '250px',
+    opacity: 0.12, 
+    zIndex: 0,
+    pointerEvents: 'none'
+  }}>
+    <svg viewBox="0 0 100 100" fill="none" stroke="#d4af37" strokeWidth="0.5">
+       <circle cx="50" cy="50" r="45" />
+       <circle cx="50" cy="50" r="35" strokeDasharray="2 4" />
+       <path d="M50 5 L50 95 M5 50 L95 50" />
+       <path d="M18 18 L82 82 M18 82 L82 18" strokeDasharray="1 3" />
+       <path d="M50 5 L60 40 L95 50 L60 60 L50 95 L40 60 L5 50 L40 40 Z" fill="rgba(212, 175, 55, 0.05)" />
+    </svg>
+  </div>
+);
+
+const ProjectWatermark = ({ index }) => {
+  const number = (index + 1).toString().padStart(2, '0');
+  return (
+    <div className="project-watermark">
+      <div className="watermark-number">
+        {number}
+      </div>
+      <div className="watermark-text">
+        PROJECT
+      </div>
+    </div>
+  );
+};
+
 export default function SpiralTimeline({ items }) {
   const navigate = useNavigate();
+  const wrapperRef = React.useRef(null);
+
+  const scrollLeft = () => {
+    if (wrapperRef.current) {
+      wrapperRef.current.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (wrapperRef.current) {
+      wrapperRef.current.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
+    }
+  };
 
   // Real project data
   const cards = items || [
@@ -53,27 +102,20 @@ export default function SpiralTimeline({ items }) {
       sizes: "500Sq.Ft Onwards",
       price: "₹1,600/Sq.Ft Onwards",
       image: imgSpNagar
-    },
-    { 
-      id: 'heavanya-garden',
-      title: "Heavanya Garden", 
-      location: "(Minjur, Tiruvallur)",
-      approval: "DTCP & RERA APPROVED",
-      sizes: "700Sq.Ft Onwards",
-      price: "₹1,750/Sq.Ft Onwards",
-      image: imgHeavanya
     }
   ];
 
   return (
     <div className="spiral-section">
       <div className="spiral-container">
-        <div className="spiral-items-wrapper">
-          <div className="timeline-road"></div>
+        <div className="spiral-items-wrapper" ref={wrapperRef}>
+          <div className="timeline-horizontal-road" style={{ width: `${cards.length * 100}vw` }}></div>
           {cards.map((card, index) => (
-            <div key={index} className={`spiral-item ${index % 2 === 0 ? 'align-left' : 'align-right'}`}>
-              <div className="timeline-center-wrapper">
-                <Reveal type="pop-up" delay={0.15} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div key={index} className="spiral-item">
+              <DecorativeArt />
+              <ProjectWatermark index={index} />
+              <Reveal type="pop-up" delay={0.1 + (index * 0.1)} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div className="timeline-horizontal-marker">
                   <div className="timeline-center-icon">
                     <GoldenLocationIcon />
                   </div>
@@ -82,19 +124,14 @@ export default function SpiralTimeline({ items }) {
                       {card.location.replace(/[()]/g, '')}
                     </div>
                   )}
-                </Reveal>
-              </div>
-              <Reveal 
-                type="pop-up" 
-                delay={0.1}
-              >
+                </div>
                 <div 
-                  className={`spiral-card ${index % 2 !== 0 ? 'reverse' : ''}`}
+                  className="spiral-card"
                   onClick={() => card.id && navigate(`/projects/${card.id}`)}
                   style={{ cursor: card.id ? 'pointer' : 'default' }}
                 >
                   {card.image && (
-                    <div className="spiral-card-image" style={{ position: 'relative', flex: '0 0 160px', height: '210px', borderRadius: '12px', overflow: 'hidden' }}>
+                    <div className="spiral-card-image">
                       <img 
                         src={card.image} 
                         alt={card.title} 
@@ -106,7 +143,7 @@ export default function SpiralTimeline({ items }) {
                       />
                     </div>
                   )}
-                  <div className="spiral-card-content" style={{ flex: '1', display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+                  <div className="spiral-card-content" style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
                     {card.icon && (
                       <div style={{ 
                         width: '50px', 
@@ -165,6 +202,55 @@ export default function SpiralTimeline({ items }) {
           ))}
         </div>
       </div>
+      
+      {/* Navigation Arrows */}
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginTop: '20px' }}>
+        <button 
+          onClick={scrollLeft}
+          style={{
+            background: 'rgba(15, 25, 20, 0.85)',
+            border: '1px solid rgba(212, 175, 55, 0.4)',
+            borderRadius: '50%',
+            width: '50px',
+            height: '50px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#D4AF37',
+            cursor: 'pointer',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.5)',
+            transition: 'all 0.3s ease'
+          }}
+          onMouseOver={(e) => { e.currentTarget.style.borderColor = '#D4AF37'; e.currentTarget.style.transform = 'scale(1.1)'; }}
+          onMouseOut={(e) => { e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.4)'; e.currentTarget.style.transform = 'scale(1)'; }}
+          aria-label="Previous Project"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button 
+          onClick={scrollRight}
+          style={{
+            background: 'rgba(15, 25, 20, 0.85)',
+            border: '1px solid rgba(212, 175, 55, 0.4)',
+            borderRadius: '50%',
+            width: '50px',
+            height: '50px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#D4AF37',
+            cursor: 'pointer',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.5)',
+            transition: 'all 0.3s ease'
+          }}
+          onMouseOver={(e) => { e.currentTarget.style.borderColor = '#D4AF37'; e.currentTarget.style.transform = 'scale(1.1)'; }}
+          onMouseOut={(e) => { e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.4)'; e.currentTarget.style.transform = 'scale(1)'; }}
+          aria-label="Next Project"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+
     </div>
   );
 }

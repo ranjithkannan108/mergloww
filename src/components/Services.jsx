@@ -30,10 +30,10 @@ export default function Services() {
             </p>
           </Reveal>
         </div>
-
-        <SpiralTimeline />
-
       </div>
+
+      <SpiralTimeline />
+
     </section>
   );
 }

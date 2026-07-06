@@ -47,7 +47,7 @@
 
 /* Main Content Area */
 .service-content-wrapper {
-  max-width: 1000px;
+  max-width: 1200px; /* Increased from 1000px to fit 6 cards in one row */
   margin: 0 auto;
   padding: 3rem 2rem;
   display: flex;
@@ -128,7 +128,7 @@
 
 /* CTA Card */
 .service-cta-card {
-  margin-top: 4rem;
+  margin-top: 1rem; /* Reduced from 4rem */
   text-align: center;
   padding: 3.5rem 2rem;
   background: rgba(15, 25, 20, 0.85);
@@ -201,15 +201,15 @@
 }
 
 .highlight-arch-card {
-  width: 120px;
-  min-height: 240px;
+  width: 160px; /* Increased from 120px */
+  min-height: 260px; /* Increased from 240px */
   background: rgba(15, 25, 20, 0.4);
   border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: 70px 70px 70px 70px;
+  border-radius: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 10px;
+  padding: 25px 15px; /* Increased padding */
   text-align: center;
   transition: all 0.3s ease;
   position: relative;
@@ -223,24 +223,24 @@
 }
 
 .highlight-icon-wrapper {
-  width: 40px;
-  height: 40px;
+  width: 50px; /* Increased from 40px */
+  height: 50px; /* Increased from 40px */
   border-radius: 50%;
   border: 1px solid #d4af37;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.8rem;
-  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
 .highlight-title {
   color: #d4af37;
-  font-size: 0.7rem;
+  font-size: 0.8rem; /* Increased from 0.7rem */
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  line-height: 1.3;
+  line-height: 1.4;
   font-family: var(--font-serif, serif);
 }
 
@@ -262,13 +262,13 @@
 }
 
 .landmark-item {
-  width: 120px;
+  width: 160px; /* Increased from 120px */
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   transition: all 0.3s ease;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .landmark-item:hover {
@@ -277,14 +277,14 @@
 
 .landmark-card-shape {
   width: 100%;
-  min-height: 120px;
+  min-height: 140px; /* Increased from 120px */
   background: rgba(15, 25, 20, 0.4);
   border: 1px solid rgba(212, 175, 55, 0.2);
   border-bottom: none;
-  border-radius: 16px 16px 0 0;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), 50% 100%, 0 calc(100% - 25px));
-  padding: 20px 10px;
-  padding-bottom: 35px;
+  border-radius: 20px 20px 0 0;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), 50% 100%, 0 calc(100% - 30px));
+  padding: 25px 15px; /* Increased padding */
+  padding-bottom: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -293,8 +293,8 @@
 }
 
 .landmark-icon-wrapper {
-  width: 50px;
-  height: 50px;
+  width: 60px; /* Increased from 50px */
+  height: 60px; /* Increased from 50px */
   border-radius: 50%;
   background: #071f11;
   border: 2px solid #d4af37;
@@ -302,7 +302,7 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  bottom: -25px;
+  bottom: -30px; /* Adjusted for larger circle */
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -312,8 +312,8 @@
 
 .landmark-title {
   color: #d4af37;
-  font-size: 0.7rem;
-  line-height: 1.4;
+  font-size: 0.8rem; /* Increased from 0.7rem */
+  line-height: 1.5;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -479,7 +479,8 @@
 }
 
 .highlight-description {
-  color: #9ca3af;
+  color: #d4af37;
+  opacity: 0.9;
   font-size: 0.65rem;
   line-height: 1.5;
   margin-top: 0.8rem;
