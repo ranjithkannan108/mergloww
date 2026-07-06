@@ -1,42 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Home as HomeIcon, Handshake, TrendingUp, HeartHandshake, SearchCheck } from 'lucide-react';
+import React from 'react';
 import './About.css';
 import Reveal from './Reveal';
-import aboutFamily from '../assets/about-indian-family.png';
-import imgCustomerSatisfaction from '../assets/why-customer-satisfaction.png';
-import imgLongTermValue from '../assets/why-long-term-value.png';
-import imgTransparency from '../assets/why-transparency.png';
-import imgProfessionalism from '../assets/why-professionalism.png';
+import aboutFamily from '../assets/about-indian-family_converted.webp';
+import imgCustomerSatisfaction from '../assets/why-customer-satisfaction_converted.webp';
+import imgLongTermValue from '../assets/why-long-term-value_converted.webp';
+import imgTransparency from '../assets/why-transparency_converted.webp';
+import imgProfessionalism from '../assets/why-professionalism_converted.webp';
 
 export default function About() {
-  const sectionRef = useRef(null);
-  const [isIntersecting, setIsIntersecting] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsIntersecting(entry.isIntersecting);
-      },
-      { 
-        threshold: 0.05, 
-        rootMargin: '0px 0px -40% 0px' 
-      }
-    );
-
-    const currentRef = sectionRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, []);
-
   return (
-    <section ref={sectionRef} id="about" className="section section-alt" style={{ 
+    <section id="about" className="section section-alt" style={{ 
       padding: '80px 0 80px 0',
       backgroundColor: '#071f11',
       backgroundImage: 'radial-gradient(circle at center, #184725 0%, #0a2914 60%, #041208 100%)',

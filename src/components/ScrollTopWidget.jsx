@@ -112,9 +112,8 @@ export default function ScrollTopWidget() {
           alignItems: 'center',
           justifyContent: 'center',
           color: 'var(--primary)',
-          transform: isHovered ? 'scale(1.2) rotate(-10deg)' : 'scale(1) rotate(0deg)',
-          // Counteract the rolling rotation of the outer container so the home icon stays upright
-          transform: `rotate(${-scrollProgress * 2.5}deg) ${isHovered ? 'scale(1.2)' : 'scale(1)'}`,
+          // Counteract the rolling rotation of the outer container so the home icon stays upright, and apply hover effects
+          transform: `rotate(${-scrollProgress * 2.5 + (isHovered ? -10 : 0)}deg) ${isHovered ? 'scale(1.2)' : 'scale(1)'}`,
           transition: 'transform 0.3s ease',
         }}
       >

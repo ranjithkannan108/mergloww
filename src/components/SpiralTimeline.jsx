@@ -1,11 +1,26 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Reveal from './Reveal';
 import './SpiralTimeline.css';
-import imgSriSakthi from '../assets/projects/sri-sakthi-garden.png';
-import imgSudiksha from '../assets/projects/sudiksha-garden.png';
-import imgSpNagar from '../assets/projects/sp-nagar.png';
-import imgHeavanya from '../assets/projects/heavanya-garden.png';
+import imgSriSakthi from '../assets/sri-sakthi-garden_converted.webp';
+import imgSudiksha from '../assets/sudiksha-garden_converted.webp';
+import imgSpNagar from '../assets/sp-nagar_converted.webp';
+import imgHeavanya from '../assets/heavanya-garden_converted.webp';
+
+const GoldenLocationIcon = () => (
+  <svg width="64" height="64" viewBox="0 0 24 24" fill="url(#goldGradient)" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0px 6px 8px rgba(0,0,0,0.6))' }}>
+    <defs>
+      <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#FFF2B2" />
+        <stop offset="25%" stopColor="#D4AF37" />
+        <stop offset="50%" stopColor="#E6C965" />
+        <stop offset="75%" stopColor="#AA7C11" />
+        <stop offset="100%" stopColor="#8A630B" />
+      </linearGradient>
+    </defs>
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+  </svg>
+);
 
 export default function SpiralTimeline({ items }) {
   const navigate = useNavigate();
@@ -57,6 +72,18 @@ export default function SpiralTimeline({ items }) {
           <div className="timeline-road"></div>
           {cards.map((card, index) => (
             <div key={index} className={`spiral-item ${index % 2 === 0 ? 'align-left' : 'align-right'}`}>
+              <div className="timeline-center-wrapper">
+                <Reveal type="pop-up" delay={0.15} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <div className="timeline-center-icon">
+                    <GoldenLocationIcon />
+                  </div>
+                  {card.location && (
+                    <div className="timeline-center-location">
+                      {card.location.replace(/[()]/g, '')}
+                    </div>
+                  )}
+                </Reveal>
+              </div>
               <Reveal 
                 type="pop-up" 
                 delay={0.1}

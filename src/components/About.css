@@ -557,3 +557,85 @@
     transform: translateY(0) rotate(0deg);
   }
 }
+
+/* Testimonial Marquee Styles (Moves Left to Right) */
+.testimonial-marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.testimonial-marquee-container {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Fading edges */
+.testimonial-marquee-wrapper::before,
+.testimonial-marquee-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.testimonial-marquee-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #041208 0%, transparent 100%);
+}
+.testimonial-marquee-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #041208 0%, transparent 100%);
+}
+
+.testimonial-marquee-content {
+  display: flex;
+  gap: 2.5rem;
+  /* Animate translate from -50% to 0 for left-to-right motion */
+  animation: scrollTestimonialMarquee 40s linear infinite;
+  padding: 10px 0;
+}
+
+.testimonial-marquee-content:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollTestimonialMarquee {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Make sure the testimonial cards in the marquee have a fixed width */
+.testimonial-marquee-content .testimonial-card {
+  width: 380px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .testimonial-marquee-content .testimonial-card {
+    width: 330px;
+  }
+  .testimonial-marquee-wrapper::before,
+  .testimonial-marquee-wrapper::after {
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-marquee-content .testimonial-card {
+    width: 290px;
+  }
+  .testimonial-marquee-wrapper::before,
+  .testimonial-marquee-wrapper::after {
+    width: 50px;
+  }
+}

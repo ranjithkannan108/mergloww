@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import heroBg from '../assets/hero-bg-textless.png';
+
+import heroBg from '../assets/hero-bg-textless_converted.webp';
 import './Home.css';
 
 export default function Home() {

@@ -250,6 +250,7 @@
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
+.swipe-rect {
   display: flex;
   align-items: center;
   gap: 0.85rem;

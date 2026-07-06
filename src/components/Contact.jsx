@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import Reveal from './Reveal';
-import contactImg from '../assets/about-indian-family.png';
+import contactImg from '../assets/about-indian-family_converted.webp';
 import './Contact.css';
 
 function SwipeSlider({ icon, label, href }) {

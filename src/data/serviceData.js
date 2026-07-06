@@ -1,7 +1,7 @@
-import bannerPremiumPlots from '../assets/banner_premium_plots.png';
-import bannerFarmland from '../assets/banner_farmland.png';
-import bannerDtcp from '../assets/banner_dtcp.png';
-import bannerDocumentation from '../assets/banner_documentation.png';
+import bannerPremiumPlots from '../assets/banner_premium_plots_converted.webp';
+import bannerFarmland from '../assets/banner_farmland_converted.webp';
+import bannerDtcp from '../assets/banner_dtcp_converted.webp';
+import bannerDocumentation from '../assets/banner_documentation_converted.webp';
 
 export const servicesData = {
   'sri-sakthi-garden': {
