@@ -1,7 +1,8 @@
 /* src/components/ServiceDetail.css */
 
 .service-detail-container {
-  padding-top: 80px; /* Offset for fixed header */
+  padding-top: 80px;
+  /* Offset for fixed header */
   min-height: 100vh;
   background-color: #071f11;
   background-image: radial-gradient(circle at center, #184725 0%, #0a2914 60%, #041208 100%);
@@ -42,12 +43,13 @@
   font-size: 2.8rem;
   font-weight: 800;
   letter-spacing: 0.05em;
-  text-shadow: 2px 4px 12px rgba(0,0,0,0.9), 0 0 25px rgba(0,0,0,0.6);
+  text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 0, 0, 0.6);
 }
 
 /* Main Content Area */
 .service-content-wrapper {
-  max-width: 1200px; /* Increased from 1000px to fit 6 cards in one row */
+  max-width: 1200px;
+  /* Increased from 1000px to fit 6 cards in one row */
   margin: 0 auto;
   padding: 3rem 2rem;
   display: flex;
@@ -88,8 +90,13 @@
 }
 
 @keyframes scrollDetailMarquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Content Blocks (Text only, no boxes) */
@@ -128,7 +135,8 @@
 
 /* CTA Card */
 .service-cta-card {
-  margin-top: 1rem; /* Reduced from 4rem */
+  margin-top: 1rem;
+  /* Reduced from 4rem */
   text-align: center;
   padding: 3.5rem 2rem;
   background: rgba(15, 25, 20, 0.85);
@@ -169,21 +177,22 @@
   text-decoration: none;
 }
 
-.service-cta-btn:hover {
-  /* No hover effects as requested previously */
-}
+
 
 /* Responsive */
 @media (max-width: 768px) {
   .service-hero-title {
     font-size: 2.2rem;
   }
+
   .service-content-wrapper {
     padding: 2rem 1rem;
   }
+
   .service-block {
     padding: 1.5rem;
   }
+
   .service-block h3 {
     font-size: 1.2rem;
   }
@@ -201,15 +210,18 @@
 }
 
 .highlight-arch-card {
-  width: 160px; /* Increased from 120px */
-  min-height: 260px; /* Increased from 240px */
+  width: 160px;
+  /* Increased from 120px */
+  min-height: 260px;
+  /* Increased from 240px */
   background: rgba(15, 25, 20, 0.4);
   border: 1px solid rgba(212, 175, 55, 0.2);
   border-radius: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 25px 15px; /* Increased padding */
+  padding: 25px 15px;
+  /* Increased padding */
   text-align: center;
   transition: all 0.3s ease;
   position: relative;
@@ -223,8 +235,10 @@
 }
 
 .highlight-icon-wrapper {
-  width: 50px; /* Increased from 40px */
-  height: 50px; /* Increased from 40px */
+  width: 50px;
+  /* Increased from 40px */
+  height: 50px;
+  /* Increased from 40px */
   border-radius: 50%;
   border: 1px solid #d4af37;
   display: flex;
@@ -236,7 +250,8 @@
 
 .highlight-title {
   color: #d4af37;
-  font-size: 0.8rem; /* Increased from 0.7rem */
+  font-size: 0.8rem;
+  /* Increased from 0.7rem */
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -262,7 +277,8 @@
 }
 
 .landmark-item {
-  width: 160px; /* Increased from 120px */
+  width: 160px;
+  /* Increased from 120px */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -277,13 +293,15 @@
 
 .landmark-card-shape {
   width: 100%;
-  min-height: 140px; /* Increased from 120px */
+  min-height: 140px;
+  /* Increased from 120px */
   background: rgba(15, 25, 20, 0.4);
   border: 1px solid rgba(212, 175, 55, 0.2);
   border-bottom: none;
   border-radius: 20px 20px 0 0;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), 50% 100%, 0 calc(100% - 30px));
-  padding: 25px 15px; /* Increased padding */
+  padding: 25px 15px;
+  /* Increased padding */
   padding-bottom: 45px;
   display: flex;
   align-items: center;
@@ -293,8 +311,10 @@
 }
 
 .landmark-icon-wrapper {
-  width: 60px; /* Increased from 50px */
-  height: 60px; /* Increased from 50px */
+  width: 60px;
+  /* Increased from 50px */
+  height: 60px;
+  /* Increased from 50px */
   border-radius: 50%;
   background: #071f11;
   border: 2px solid #d4af37;
@@ -302,17 +322,19 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  bottom: -30px; /* Adjusted for larger circle */
+  bottom: -30px;
+  /* Adjusted for larger circle */
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  box-shadow: 0 0 0 4px #071f11, 0 4px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 0 4px #071f11, 0 4px 10px rgba(0, 0, 0, 0.5);
   color: #d4af37;
 }
 
 .landmark-title {
   color: #d4af37;
-  font-size: 0.8rem; /* Increased from 0.7rem */
+  font-size: 0.8rem;
+  /* Increased from 0.7rem */
   line-height: 1.5;
   font-weight: 600;
   text-transform: uppercase;
@@ -332,7 +354,7 @@
   padding: 15px 20px;
   min-width: 180px;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
 
@@ -358,21 +380,29 @@
 }
 
 /* Hover Effects for Cards */
-.highlight-icon-wrapper { color: #d4af37; }
-.landmark-icon-wrapper { color: #d4af37; }
+.highlight-icon-wrapper {
+  color: #d4af37;
+}
+
+.landmark-icon-wrapper {
+  color: #d4af37;
+}
 
 .highlight-arch-card:hover {
   background: linear-gradient(135deg, #f3e5ab, #d4af37) !important;
   border-color: #d4af37 !important;
   box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4) !important;
 }
+
 .highlight-arch-card:hover .highlight-icon-wrapper {
   color: #072F1F !important;
   border-color: #072F1F !important;
 }
+
 .highlight-arch-card:hover .highlight-title {
   color: #072F1F !important;
 }
+
 .highlight-arch-card:hover .highlight-number {
   color: #072F1F !important;
   text-shadow: none !important;
@@ -383,12 +413,14 @@
   border-color: #d4af37 !important;
   box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4) !important;
 }
+
 .landmark-item:hover .landmark-icon-wrapper {
   color: #072F1F !important;
   background: linear-gradient(135deg, #f3e5ab, #d4af37) !important;
   border-color: #d4af37 !important;
   box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4) !important;
 }
+
 .landmark-item:hover .landmark-title {
   color: #072F1F !important;
   font-weight: 700 !important;
@@ -438,7 +470,7 @@
   justify-content: center;
   color: #d4af37;
   z-index: 2;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .landmark-wrapper:hover .landmark-circle-icon {
@@ -464,6 +496,7 @@
 .landmark-banner {
   filter: drop-shadow(0px 0px 1px rgba(212, 175, 55, 0.8));
 }
+
 .landmark-circle-icon {
   bottom: -25px !important;
 }
@@ -475,7 +508,7 @@
 
 .landmark-circle-icon {
   bottom: -25px !important;
-  box-shadow: 0 0 0 4px #071f11, 0 4px 10px rgba(0,0,0,0.5) !important;
+  box-shadow: 0 0 0 4px #071f11, 0 4px 10px rgba(0, 0, 0, 0.5) !important;
 }
 
 .highlight-description {
@@ -493,8 +526,15 @@
 }
 
 @keyframes floatHanging {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .highlight-arch-card {
@@ -542,7 +582,7 @@
   width: 100%;
   max-width: 500px;
   border-radius: 16px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
   border: 2px solid rgba(212, 175, 55, 0.3);
   object-fit: cover;
 }
@@ -569,12 +609,15 @@
 }
 
 @media (max-width: 992px) {
+
   .highlight-arch-card,
   .landmark-item {
     top: 0 !important;
     margin-bottom: 1.5rem;
   }
-  .landmarks-grid, .highlights-grid {
+
+  .landmarks-grid,
+  .highlights-grid {
     gap: 2rem;
   }
 }

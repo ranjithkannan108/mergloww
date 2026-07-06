@@ -127,6 +127,7 @@ function App() {
             <Route path="/services/:serviceId" element={<div className="fade-in"><ServiceDetail /></div>} />
             <Route path="/projects/:serviceId" element={<div className="fade-in"><ServiceDetail /></div>} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<HomePage />} />
           </Routes>
         </main>
         <Footer />
