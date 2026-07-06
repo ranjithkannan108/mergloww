@@ -90,17 +90,17 @@ export default function Footer() {
             
             <div className="footer-contact-item">
               <Phone size={20} className="footer-contact-icon" />
-              <span>+91 98765 43210</span>
+              <span>+91 9514949342</span>
             </div>
             
             <div className="footer-contact-item">
               <Mail size={20} className="footer-contact-icon" />
-              <span>support@merglowwestates.com</span>
+              <span>merglowwestatesofficial@gmail.com</span>
             </div>
             
             <div className="footer-contact-item">
               <MapPin size={24} className="footer-contact-icon" />
-              <span>No. 45, Prime Tower, 1st Floor, Main Road, Chennai - 600001</span>
+              <span>No.1/1, W BLOCK, GROUND FLOOR, IMAYAM COLONY, ANNA NAGAR WEST EXTENSION, CHENNAI - 600101.</span>
             </div>
           </div>
 

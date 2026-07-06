@@ -141,12 +141,12 @@ export default function Contact() {
               <SwipeSlider
                 icon={<Phone size={24} />}
                 label="Swipe to Call"
-                href="tel:+911234567890"
+                href="tel:+919514949342"
               />
               <SwipeSlider
                 icon={<Mail size={24} />}
                 label="Swipe to Email"
-                href="mailto:info@mergloww.com?subject=Regarding%20for%20Enquiries"
+                href="mailto:merglowwestatesofficial@gmail.com?subject=Regarding%20for%20Enquiries"
               />
               <SwipeSlider
                 icon={<MapPin size={24} />}

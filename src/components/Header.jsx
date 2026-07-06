@@ -122,7 +122,7 @@ export default function Header() {
                   <div className="flyer-icon"><Phone size={28} /></div>
                   <div className="flyer-text">
                     <span className="flyer-label">CALL US</span>
-                    <strong>+91 98765 43210</strong>
+                    <strong>+91 9514949342</strong>
                   </div>
                 </div>
                 
@@ -130,7 +130,7 @@ export default function Header() {
                   <div className="flyer-icon"><Mail size={28} /></div>
                   <div className="flyer-text">
                     <span className="flyer-label">EMAIL US</span>
-                    <strong>support@merglowwestates.com</strong>
+                    <strong>merglowwestatesofficial@gmail.com</strong>
                   </div>
                 </div>
                 
@@ -138,7 +138,7 @@ export default function Header() {
                   <div className="flyer-icon"><MapPin size={28} /></div>
                   <div className="flyer-text">
                     <span className="flyer-label">VISIT US</span>
-                    <strong>No. 45, Prime Tower, Chennai - 600001</strong>
+                    <strong>No.1/1, W BLOCK, GROUND FLOOR, IMAYAM COLONY, ANNA NAGAR WEST EXTENSION, CHENNAI - 600101.</strong>
                   </div>
                 </div>
               </div>
