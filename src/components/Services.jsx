@@ -11,13 +11,11 @@ export default function Services() {
       backgroundImage: 'radial-gradient(circle at center, #184725 0%, #0a2914 60%, #041208 100%)',
       color: '#ffffff', 
       minHeight: '80vh', 
-      padding: '40px 0',
-      position: 'relative',
-      overflow: 'hidden'
+      padding: '40px 0 0 0',
+      position: 'relative'
     }}>
 
       <div className="container">
-        
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <Reveal type="fade">
             <h2 className="glowing-title dim-to-bright" style={{ marginBottom: '1.5rem' }}>
