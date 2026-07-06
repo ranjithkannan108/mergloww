@@ -104,14 +104,7 @@ export default function Footer() {
 
         </div>
 
-        {/* Footer Bottom */}
-        <div className="footer-bottom">
-          <div>&copy; {new Date().getFullYear()} Mergloww Estates Private Limited. All rights reserved.</div>
-          <div className="footer-bottom-links">
-            <a href="#" className="footer-bottom-link">Privacy Policy</a>
-            <a href="#" className="footer-bottom-link">Terms & Conditions</a>
-          </div>
-        </div>
+
 
       </div>
     </footer>
