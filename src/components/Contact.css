@@ -57,6 +57,9 @@
   border-radius: 32px;
   overflow: visible;
   min-height: 380px;
+  width: 100%;
+  max-width: 550px; /* Limit maximum width so it stays proportional */
+  margin: 0 auto; /* Center it horizontally */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

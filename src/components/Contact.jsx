@@ -114,7 +114,7 @@ export default function Contact() {
         <div className="contact-grid">
 
           {/* Left Side: Image Card */}
-          <Reveal type="slide-right" duration={1.5} display="flex">
+          <Reveal type="slide-right" duration={1.5}>
             <div className="contact-image-card" style={{ backgroundImage: `url(${contactImg})` }}>
               <div className="contact-image-overlay"></div>
               <div className="contact-image-content">
@@ -127,7 +127,7 @@ export default function Contact() {
           </Reveal>
 
           {/* Right Side: Description + Swipe Sliders */}
-          <Reveal type="slide-left" duration={1.5} display="flex">
+          <Reveal type="slide-left" duration={1.5}>
             <div className="contact-right-panel">
 
               {/* Description */}
