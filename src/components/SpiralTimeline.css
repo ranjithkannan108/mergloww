@@ -1,8 +1,8 @@
 .timeline-container {
   position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
+  max-width: 1400px;
+  margin: 4rem auto;
+  padding: 0 2rem;
 }
 
 .timeline-line {
@@ -10,20 +10,30 @@
   top: 0;
   bottom: 0;
   left: 50%;
-  width: 2px;
-  background-color: rgba(212, 175, 55, 0.3);
+  width: 3px;
+  background-color: rgba(212, 175, 55, 0.7);
   transform: translateX(-50%);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
 }
 
 .timeline-line-filled {
   position: absolute;
   top: 0;
   left: 50%;
-  width: 2px;
+  width: 4px;
   background-color: #D4AF37;
   transform: translateX(-50%);
   box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
   transition: height 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); /* Smooth scroll */
+}
+
+.wavy-line-svg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .timeline-spark-container {
@@ -37,7 +47,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: top 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); /* Smooth following */
 }
 
 .timeline-spark {
@@ -70,7 +79,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 4rem;
+  height: 600px;
+  margin-bottom: 0;
   width: 100%;
   position: relative;
   transition: all 0.4s ease;
@@ -108,8 +118,35 @@
   opacity: 1;
 }
 
-.timeline-item.left-card .timeline-content-wrapper { justify-content: flex-end; }
-.timeline-item.right-card .timeline-content-wrapper { justify-content: flex-start; }
+.timeline-item.left-card .timeline-content-wrapper { 
+  justify-content: flex-end; 
+  padding-right: 5rem;
+}
+.timeline-item.right-card .timeline-content-wrapper { 
+  justify-content: flex-start; 
+  padding-left: 5rem; 
+}
+
+.timeline-item.left-card .timeline-title-wrapper {
+  padding-left: 5rem;
+  align-items: center;
+}
+.timeline-item.right-card .timeline-title-wrapper {
+  padding-right: 5rem;
+  align-items: center;
+}
+
+.timeline-item.left-card .timeline-side-title,
+.timeline-item.left-card .timeline-side-location-text {
+  text-align: center;
+  padding: 0;
+}
+
+.timeline-item.right-card .timeline-side-title,
+.timeline-item.right-card .timeline-side-location-text {
+  text-align: center;
+  padding: 0;
+}
 /* Removed align overrides for title wrapper as we center the column now */
 
 .timeline-center {
@@ -175,7 +212,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 320px; /* Reduced width */
+  max-width: 360px;
   position: relative;
 }
 
@@ -212,7 +249,7 @@
 }
 
 .timeline-card-image {
-  height: 160px; /* Reduced height */
+  height: 200px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

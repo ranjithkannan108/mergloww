@@ -8,20 +8,25 @@ import imgSpNagar from '../assets/sp-nagar_converted.webp';
 export default function SpiralTimeline({ items }) {
   const navigate = useNavigate();
   const containerRef = useRef(null);
+  const sparkRef = useRef(null);
+  const glowRef = useRef(null);
   const itemRefs = useRef([]);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [activeIndex, setActiveIndex] = useState(-1);
 
-  // Real project data
   const cards = items || [
+    {
+      id: 'upcoming',
+      title: "Upcoming Project",
+      isUpcoming: true
+    },
     { 
-      id: 'sri-sakthi-garden',
-      title: "Sri Sakthi Garden", 
-      location: "(Guduvanchery, Chennai)",
+      id: 'sp-nagar',
+      title: "SP Nagar", 
+      location: "(Walajabad, Chengalpattu)",
       approval: "DTCP & RERA APPROVED",
-      sizes: "800Sq.Ft Onwards",
-      price: "₹5,100/Sq.Ft Onwards",
-      image: imgSriSakthi
+      sizes: "500Sq.Ft Onwards",
+      price: "₹1,600/Sq.Ft Onwards",
+      image: imgSpNagar
     },
     { 
       id: 'sudiksha-garden',
@@ -33,18 +38,13 @@ export default function SpiralTimeline({ items }) {
       image: imgSudiksha
     },
     { 
-      id: 'sp-nagar',
-      title: "SP Nagar", 
-      location: "(Walajabad, Chengalpattu)",
+      id: 'sri-sakthi-garden',
+      title: "Sri Sakthi Garden", 
+      location: "(Guduvanchery, Chennai)",
       approval: "DTCP & RERA APPROVED",
-      sizes: "500Sq.Ft Onwards",
-      price: "₹1,600/Sq.Ft Onwards",
-      image: imgSpNagar
-    },
-    {
-      id: 'upcoming',
-      title: "Upcoming Project",
-      isUpcoming: true
+      sizes: "800Sq.Ft Onwards",
+      price: "₹5,100/Sq.Ft Onwards",
+      image: imgSriSakthi
     }
   ];
 
@@ -62,7 +62,31 @@ export default function SpiralTimeline({ items }) {
       const sparkY = sparkPosition - containerRect.top;
       let progress = sparkY / containerRect.height;
       progress = Math.max(0, Math.min(1, progress));
-      setScrollProgress(progress);
+      
+      // Calculate X offset for the spark to follow the sine wave
+      let offsetX = 0;
+      if (sparkY > 300) {
+        const yMod = (sparkY - 300) % 600;
+        if (yMod <= 300) {
+          const t = yMod / 300;
+          offsetX = -(400 * t * (1 - t));
+        } else {
+          const t = (yMod - 300) / 300;
+          offsetX = 400 * t * (1 - t);
+        }
+      }
+      
+      if (sparkRef.current) {
+        sparkRef.current.style.top = `${progress * 100}%`;
+        sparkRef.current.style.left = `calc(50% ${offsetX >= 0 ? '+' : '-'} ${Math.abs(offsetX)}px)`;
+      }
+      if (glowRef.current) {
+        if (sparkY <= 300) {
+          glowRef.current.style.height = '0px';
+        } else {
+          glowRef.current.style.height = `${sparkY - 300}px`;
+        }
+      }
       
       // Determine which item is active (intersecting with the spark)
       let newActiveIndex = -1;
@@ -89,13 +113,26 @@ export default function SpiralTimeline({ items }) {
   return (
     <div className="timeline-container" ref={containerRef}>
       <div className="timeline-line">
+        <svg className="wavy-line-svg" width="500" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <defs>
+            <pattern id="sineWave" x="0" y="0" width="500" height="600" patternUnits="userSpaceOnUse">
+              <path d="M 250 0 Q 450 150 250 300 T 250 600" fill="none" stroke="rgba(212, 175, 55, 0.2)" strokeWidth="2" strokeDasharray="6,6" />
+            </pattern>
+            <pattern id="sineWaveGlow" x="0" y="0" width="500" height="600" patternUnits="userSpaceOnUse">
+              <path d="M 250 0 Q 450 150 250 300 T 250 600" fill="none" stroke="#D4AF37" strokeWidth="4" />
+            </pattern>
+          </defs>
+          <rect x="0" y="300" width="100%" height="calc(100% - 300px)" fill="url(#sineWave)" />
+          <rect ref={glowRef} x="0" y="300" width="100%" height="0px" fill="url(#sineWaveGlow)" />
+        </svg>
+
         <div 
-          className="timeline-line-filled"
-          style={{ height: `${scrollProgress * 100}%` }}
-        ></div>
-        <div 
+          ref={sparkRef}
           className="timeline-spark-container"
-          style={{ top: `${scrollProgress * 100}%` }}
+          style={{ 
+            top: '0%',
+            left: '50%'
+          }}
         >
           <div className="timeline-spark"></div>
         </div>
@@ -166,7 +203,7 @@ export default function SpiralTimeline({ items }) {
                         navigate(`/projects/${card.id}`);
                       }}
                     >
-                      Learn More <span>→</span>
+                      View More <span>→</span>
                     </button>
                   </div>
                 </div>
@@ -175,7 +212,7 @@ export default function SpiralTimeline({ items }) {
 
             <div className="timeline-center">
               <div className="timeline-circle">
-                {(index + 1).toString().padStart(2, '0')}
+                {String(cards.length - index).padStart(2, '0')}
               </div>
             </div>
 

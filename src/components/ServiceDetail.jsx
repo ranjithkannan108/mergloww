@@ -124,8 +124,8 @@ export default function ServiceDetail() {
         {service.heading ? (
           <>
             <div className="service-block">
-              <h3>{service.heading}</h3>
-              <p style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>{service.description}</p>
+              <h3 style={{ textAlign: 'center' }}>{service.heading}</h3>
+              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'left', padding: '0 1rem', marginTop: '1.5rem', textIndent: '3rem' }}>{service.description}</p>
             </div>
             
             <div className="service-block" style={{ width: '100%', marginTop: '3rem', marginBottom: '6rem' }}>
