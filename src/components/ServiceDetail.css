@@ -223,7 +223,7 @@
   padding: 25px 15px;
   /* Increased padding */
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
 
@@ -283,7 +283,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 40px;
 }
 
@@ -307,7 +307,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .landmark-icon-wrapper {
@@ -355,7 +355,7 @@
   min-width: 180px;
   text-align: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-detail-card:hover {
@@ -430,7 +430,7 @@
   position: relative;
   width: 160px;
   margin-bottom: 40px;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .landmark-wrapper:hover {
@@ -609,15 +609,32 @@
 }
 
 @media (max-width: 992px) {
-
   .highlight-arch-card,
   .landmark-item {
-    top: 0 !important;
     margin-bottom: 1.5rem;
   }
 
   .landmarks-grid,
   .highlights-grid {
-    gap: 2rem;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .highlights-grid,
+  .landmarks-grid {
+    gap: 1rem;
+  }
+
+  .highlight-arch-card,
+  .landmark-item {
+    width: 140px;
+    min-height: 220px;
+    padding: 15px 10px;
+  }
+  
+  .project-detail-card {
+    width: 100%;
+    min-width: unset;
   }
 }

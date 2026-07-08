@@ -83,7 +83,7 @@
   margin-bottom: 0;
   width: 100%;
   position: relative;
-  transition: all 0.4s ease;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Left card: Card on the left, Title on the right */
@@ -99,7 +99,7 @@
 .timeline-content-wrapper {
   width: 45%;
   display: flex;
-  transition: all 0.4s ease;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0; /* Fade inactive items */
 }
 
@@ -109,7 +109,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: all 0.4s ease;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0; /* Fade inactive items */
 }
 
@@ -208,7 +208,7 @@
   overflow: hidden;
   box-shadow: 0 15px 40px rgba(0,0,0,0.5);
   color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -390,7 +390,7 @@
 .timeline-side-title,
 .timeline-side-location-text,
 .timeline-side-location-icon svg {
-  transition: all 0.4s ease;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .timeline-item.glow-active .timeline-circle {
@@ -417,43 +417,157 @@
 }
 
 @media (max-width: 768px) {
+  .timeline-container {
+    padding: 0 5px;
+    overflow-x: hidden;
+  }
+
+  /* Keep the central line in the middle like PC */
   .timeline-line {
-    left: 25px;
+    left: 50%;
   }
   
+  /* Keep alternating row layout */
   .timeline-item, .timeline-item.left-card, .timeline-item.right-card {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    height: auto;
+    min-height: 250px;
+    margin-bottom: 3rem;
   }
   
+  .timeline-item.right-card {
+    flex-direction: row-reverse;
+  }
+  
+  /* Make left and right wrappers 50% width */
+  .timeline-content-wrapper, .timeline-title-wrapper {
+    width: 50%;
+    margin-left: 0;
+    justify-content: center !important;
+  }
+  
+  .timeline-item.left-card .timeline-content-wrapper { 
+    padding-right: 15px !important;
+    padding-left: 0 !important;
+  }
+  .timeline-item.right-card .timeline-content-wrapper { 
+    padding-left: 15px !important; 
+    padding-right: 0 !important;
+  }
+  
+  .timeline-item.left-card .timeline-title-wrapper {
+    padding-left: 15px !important;
+    padding-right: 0 !important;
+  }
+  .timeline-item.right-card .timeline-title-wrapper {
+    padding-right: 15px !important;
+    padding-left: 0 !important;
+  }
+
+  /* Scale the central circle down */
   .timeline-center {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 50px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    z-index: 5;
   }
   
   .timeline-circle {
-    width: 55px;
-    height: 55px;
-    font-size: 1.4rem;
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
   }
   
-  .timeline-content-wrapper, .timeline-title-wrapper {
-    width: calc(100% - 60px);
-    margin-left: 60px;
-    justify-content: flex-start !important;
-  }
-  
-  .timeline-title-wrapper {
-    margin-bottom: 1.2rem;
-    margin-top: 0.5rem;
-  }
-  
+  /* Scale fonts down so it fits */
   .timeline-side-title {
-    font-size: 1.5rem;
-    text-align: left;
-    padding: 0;
+    font-size: 0.9rem;
+    text-align: center !important;
+    padding: 0 !important;
+  }
+  
+  .timeline-side-location-text {
+    font-size: 0.7rem;
+    text-align: center !important;
+  }
+
+  .timeline-side-location-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Shrink the card details */
+  .timeline-card {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  .timeline-card-image {
+    height: 100px;
+  }
+
+  .timeline-card-details {
+    padding: 0.5rem;
+  }
+
+  .timeline-card-details h3 {
+    font-size: 0.8rem;
+  }
+  
+  .project-location {
+    font-size: 0.65rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .project-approval {
+    font-size: 0.55rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .project-specs {
+    padding: 0.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-specs p {
+    font-size: 0.6rem;
+  }
+  
+  .timeline-btn {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.65rem;
+  }
+  
+  .upcoming-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .upcoming-subtitle {
+    font-size: 0.6rem;
+  }
+
+  .upcoming-content {
+    padding: 1rem;
+  }
+
+  .upcoming-divider svg {
+    width: 120px;
+    height: 12px;
+  }
+  
+  .upcoming-card {
+    min-height: 150px;
+  }
+  
+  /* Keep the wavy line but scale it down horizontally so it fits */
+  .wavy-line-svg {
+    display: block;
+    transform: translateX(-50%) scaleX(0.5);
+  }
+  
+  .timeline-spark-container {
+    display: flex;
+    transform: translate(-50%, -50%) scale(0.6);
   }
 }
-
