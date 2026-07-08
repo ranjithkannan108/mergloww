@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { servicesData } from '../data/serviceData';
+import Reveal from './Reveal';
 import './ServiceDetail.css';
 
 const ScrambleText = ({ text }) => {
@@ -153,19 +154,23 @@ export default function ServiceDetail() {
 
 
                   return (
-                    <div 
+                    <Reveal 
                       key={idx} 
-                      className="highlight-arch-card"
-                      style={{ top: `${offsetY}px` }}
+                      type="shuffle" 
+                      delay={idx * 0.1} 
+                      display="inline-flex"
+                      style={{ position: 'relative', top: `${offsetY}px` }}
                     >
-                      <div className="highlight-icon-wrapper">
-                        {getHighlightIcon(item)}
+                      <div className="highlight-arch-card">
+                        <div className="highlight-icon-wrapper">
+                          {getHighlightIcon(item)}
+                        </div>
+                        <div className="highlight-title">{item}</div>
+                        <div className="highlight-number">
+                          {(idx + 1).toString().padStart(2, '0')}
+                        </div>
                       </div>
-                      <div className="highlight-title">{item}</div>
-                      <div className="highlight-number">
-                        {(idx + 1).toString().padStart(2, '0')}
-                      </div>
-                    </div>
+                    </Reveal>
                   );
                 })}
               </div>
@@ -188,18 +193,22 @@ export default function ServiceDetail() {
                   };
 
                   return (
-                    <div 
+                    <Reveal 
                       key={idx} 
-                      className="landmark-item"
-                      style={{ top: `${offsetY}px` }}
+                      type="shuffle" 
+                      delay={idx * 0.1} 
+                      display="inline-flex"
+                      style={{ position: 'relative', top: `${offsetY}px` }}
                     >
-                      <div className="landmark-card-shape">
-                        <div className="landmark-title">{item}</div>
+                      <div className="landmark-item">
+                        <div className="landmark-card-shape">
+                          <div className="landmark-title">{item}</div>
+                        </div>
+                        <div className="landmark-icon-wrapper">
+                          {getLandmarkIcon(item)}
+                        </div>
                       </div>
-                      <div className="landmark-icon-wrapper">
-                        {getLandmarkIcon(item)}
-                      </div>
-                    </div>
+                    </Reveal>
                   );
                 })}
               </div>

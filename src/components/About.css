@@ -261,12 +261,7 @@
 }
 
 .why-choose-card {
-  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease !important;
-}
-
-.why-choose-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6) !important;
+  /* Transitions and hover animations removed */
 }
 
 .testimonial-card {

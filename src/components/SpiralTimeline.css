@@ -418,156 +418,138 @@
 
 @media (max-width: 768px) {
   .timeline-container {
-    padding: 0 5px;
+    padding: 0 1rem;
     overflow-x: hidden;
   }
 
-  /* Keep the central line in the middle like PC */
   .timeline-line {
-    left: 50%;
+    left: 20px;
   }
   
-  /* Keep alternating row layout */
   .timeline-item, .timeline-item.left-card, .timeline-item.right-card {
-    flex-direction: row;
+    flex-direction: column;
+    align-items: flex-start;
     height: auto;
-    min-height: 250px;
+    min-height: 350px;
     margin-bottom: 3rem;
   }
   
-  .timeline-item.right-card {
-    flex-direction: row-reverse;
-  }
-  
-  /* Make left and right wrappers 50% width */
   .timeline-content-wrapper, .timeline-title-wrapper {
-    width: 50%;
-    margin-left: 0;
-    justify-content: center !important;
+    width: calc(100% - 40px);
+    margin-left: 40px;
+    justify-content: flex-start !important;
   }
   
-  .timeline-item.left-card .timeline-content-wrapper { 
-    padding-right: 15px !important;
-    padding-left: 0 !important;
-  }
+  .timeline-item.left-card .timeline-content-wrapper,
   .timeline-item.right-card .timeline-content-wrapper { 
-    padding-left: 15px !important; 
-    padding-right: 0 !important;
+    padding: 0 !important;
   }
   
-  .timeline-item.left-card .timeline-title-wrapper {
-    padding-left: 15px !important;
-    padding-right: 0 !important;
-  }
+  .timeline-item.left-card .timeline-title-wrapper,
   .timeline-item.right-card .timeline-title-wrapper {
-    padding-right: 15px !important;
-    padding-left: 0 !important;
+    padding: 0 !important;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+    align-items: flex-start !important;
   }
 
-  /* Scale the central circle down */
   .timeline-center {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: 0;
+    top: 0;
     width: 40px;
-    z-index: 5;
+    transform: none;
   }
   
   .timeline-circle {
-    width: 35px;
-    height: 35px;
-    font-size: 0.9rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
   }
   
-  /* Scale fonts down so it fits */
   .timeline-side-title {
-    font-size: 0.9rem;
-    text-align: center !important;
+    font-size: 1.5rem;
+    text-align: left !important;
     padding: 0 !important;
   }
   
   .timeline-side-location-text {
-    font-size: 0.7rem;
-    text-align: center !important;
+    font-size: 1rem;
+    text-align: left !important;
   }
 
   .timeline-side-location-icon svg {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
   }
 
-  /* Shrink the card details */
   .timeline-card {
     max-width: 100%;
-    border-radius: 8px;
+    border-radius: 12px;
   }
   
   .timeline-card-image {
-    height: 100px;
+    height: 180px;
   }
 
   .timeline-card-details {
-    padding: 0.5rem;
+    padding: 1.5rem;
   }
 
   .timeline-card-details h3 {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
   
   .project-location {
-    font-size: 0.65rem;
-    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
   }
   
   .project-approval {
-    font-size: 0.55rem;
-    margin-bottom: 0.4rem;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
   }
   
   .project-specs {
-    padding: 0.4rem;
-    margin-bottom: 0.5rem;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
   }
 
   .project-specs p {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
   
   .timeline-btn {
-    padding: 0.3rem 0.5rem;
-    font-size: 0.65rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
   }
   
   .upcoming-content h3 {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
   }
   
   .upcoming-subtitle {
-    font-size: 0.6rem;
+    font-size: 0.85rem;
   }
 
   .upcoming-content {
-    padding: 1rem;
+    padding: 2rem;
   }
 
   .upcoming-divider svg {
-    width: 120px;
-    height: 12px;
+    width: 180px;
+    height: 16px;
   }
   
   .upcoming-card {
-    min-height: 150px;
+    min-height: 250px;
   }
   
-  /* Keep the wavy line but scale it down horizontally so it fits */
   .wavy-line-svg {
-    display: block;
-    transform: translateX(-50%) scaleX(0.5);
+    display: none;
   }
   
   .timeline-spark-container {
-    display: flex;
-    transform: translate(-50%, -50%) scale(0.6);
+    display: none;
   }
 }

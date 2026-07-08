@@ -49,6 +49,9 @@ export default function Reveal({ children, duration = 1.4, delay = 0, type = 'fa
     } else if (type === 'pop-up') { // pop up (scale + fade)
       initialTransform = 'scale(0.8) translateY(20px)';
       visibleTransform = 'scale(1) translateY(0)';
+    } else if (type === 'shuffle') { // like dealing cards
+      initialTransform = 'translateX(-100px) translateY(50px) rotate(-15deg) scale(0.6)';
+      visibleTransform = 'translateX(0) translateY(0) rotate(0deg) scale(1)';
     }
 
     return {

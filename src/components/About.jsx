@@ -119,7 +119,7 @@ export default function About() {
           </Reveal>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
             {/* Trust & Integrity */}
-            <Reveal type="pop-up" delay={0} display="flex">
+            <Reveal type="shuffle" delay={0} display="flex">
               <div className="why-choose-card" style={{ background: 'rgba(15, 25, 20, 0.6)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255, 229, 0, 0.2)', borderBottom: '4px solid var(--primary)', borderRadius: '16px', boxShadow: '0 8px 30px rgba(0, 0, 0, 0.4)', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%' }}>
                 <div style={{ padding: '2.5rem 2rem 2rem 2rem', flex: 1 }}>
                   <h4 style={{ color: 'var(--primary)', fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-serif)', textTransform: 'uppercase' }}>Trust & Integrity</h4>
@@ -132,7 +132,7 @@ export default function About() {
             </Reveal>
 
             {/* Long-Term Value */}
-            <Reveal type="pop-up" delay={0.15} display="flex">
+            <Reveal type="shuffle" delay={0.2} display="flex">
               <div className="why-choose-card" style={{ background: 'rgba(15, 25, 20, 0.6)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255, 229, 0, 0.2)', borderBottom: '4px solid var(--primary)', borderRadius: '16px', boxShadow: '0 8px 30px rgba(0, 0, 0, 0.4)', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%' }}>
                 <div style={{ padding: '2.5rem 2rem 2rem 2rem', flex: 1 }}>
                   <h4 style={{ color: 'var(--primary)', fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-serif)', textTransform: 'uppercase' }}>Long-Term Value</h4>
@@ -145,7 +145,7 @@ export default function About() {
             </Reveal>
 
             {/* Complete Transparency */}
-            <Reveal type="pop-up" delay={0.3} display="flex">
+            <Reveal type="shuffle" delay={0.4} display="flex">
               <div className="why-choose-card" style={{ background: 'rgba(15, 25, 20, 0.6)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255, 229, 0, 0.2)', borderBottom: '4px solid var(--primary)', borderRadius: '16px', boxShadow: '0 8px 30px rgba(0, 0, 0, 0.4)', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%' }}>
                 <div style={{ padding: '2.5rem 2rem 2rem 2rem', flex: 1 }}>
                   <h4 style={{ color: 'var(--primary)', fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-serif)', textTransform: 'uppercase' }}>Complete Transparency</h4>
@@ -158,7 +158,7 @@ export default function About() {
             </Reveal>
 
             {/* Professional Excellence */}
-            <Reveal type="pop-up" delay={0.45} display="flex">
+            <Reveal type="shuffle" delay={0.6} display="flex">
               <div className="why-choose-card" style={{ background: 'rgba(15, 25, 20, 0.6)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255, 229, 0, 0.2)', borderBottom: '4px solid var(--primary)', borderRadius: '16px', boxShadow: '0 8px 30px rgba(0, 0, 0, 0.4)', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%' }}>
                 <div style={{ padding: '2.5rem 2rem 2rem 2rem', flex: 1 }}>
                   <h4 style={{ color: 'var(--primary)', fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-serif)', textTransform: 'uppercase' }}>Professional Excellence</h4>

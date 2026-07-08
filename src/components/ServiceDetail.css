@@ -205,7 +205,7 @@
 .highlights-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
+  gap: 2rem;
   justify-content: center;
 }
 
@@ -271,7 +271,7 @@
 .landmarks-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2.5rem;
   justify-content: center;
   margin-top: 2rem;
 }
@@ -342,18 +342,21 @@
 }
 
 .project-details-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .project-detail-card {
   background: linear-gradient(135deg, #f3e5ab, #d4af37);
   border-radius: 16px;
-  padding: 15px 20px;
-  min-width: 180px;
+  padding: 15px;
+  width: 100%;
   text-align: center;
+  box-sizing: border-box;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -611,6 +614,7 @@
 @media (max-width: 992px) {
   .highlight-arch-card,
   .landmark-item {
+    top: 0 !important;
     margin-bottom: 1.5rem;
   }
 
@@ -623,18 +627,28 @@
 @media (max-width: 480px) {
   .highlights-grid,
   .landmarks-grid {
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .highlight-arch-card,
   .landmark-item {
-    width: 140px;
-    min-height: 220px;
-    padding: 15px 10px;
+    width: 100%;
+    max-width: 300px;
+    min-height: 200px;
+    padding: 20px 15px;
+    margin: 0 auto 1.5rem auto;
   }
   
-  .project-detail-card {
-    width: 100%;
-    min-width: unset;
+  .project-details-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .detail-value {
+    font-size: 1.1rem;
+  }
+  
+  .detail-label {
+    font-size: 0.8rem;
   }
 }
