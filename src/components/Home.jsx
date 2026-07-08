@@ -1,6 +1,6 @@
 import React from 'react';
 
-import heroBg from '../assets/hero-bg-textless_converted.webp';
+import heroBg from '../assets/Home page.webp';
 import './Home.css';
 
 export default function Home() {
@@ -21,16 +21,7 @@ export default function Home() {
       <div 
         className="animate-hero-bg"
         style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          zIndex: 0
+          backgroundImage: `url(${heroBg})`
         }}
       ></div>
 

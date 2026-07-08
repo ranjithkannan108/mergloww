@@ -439,3 +439,26 @@
   }
 }
 
+.animate-hero-bg {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .animate-hero-bg {
+    background-position: 70% center;
+  }
+}
+
+@media (max-width: 480px) {
+  .animate-hero-bg {
+    background-position: 80% center;
+  }
+}
