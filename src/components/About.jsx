@@ -2,10 +2,10 @@ import React from 'react';
 import './About.css';
 import Reveal from './Reveal';
 import aboutFamily from '../assets/about-indian-family_converted.webp';
-import imgCustomerSatisfaction from '../assets/why-customer-satisfaction_converted.webp';
-import imgLongTermValue from '../assets/why-long-term-value_converted.webp';
-import imgTransparency from '../assets/why-transparency_converted.webp';
-import imgProfessionalism from '../assets/why-professionalism_converted.webp';
+import imgCustomerSatisfaction from '../assets/trust_integrity.png';
+import imgLongTermValue from '../assets/long_term_value.png';
+import imgTransparency from '../assets/complete_transparency.png';
+import imgProfessionalism from '../assets/professional_excellence.png';
 
 export default function About() {
   return (

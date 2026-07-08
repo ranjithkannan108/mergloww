@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SpiralTimeline.css';
-import imgSriSakthi from '../assets/sri-sakthi-garden_converted.webp';
-import imgSudiksha from '../assets/sudiksha-garden_converted.webp';
-import imgSpNagar from '../assets/sp-nagar_converted.webp';
+import imgSriSakthi from '../assets/SRI SAKTHI GARDEN.webp';
+import imgSudiksha from '../assets/SUDIKSHA GARDEN.webp';
+import imgSpNagar from '../assets/SP NAGAR.webp';
 
 export default function SpiralTimeline({ items }) {
   const navigate = useNavigate();

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Phone, Mail, MapPin } from 'lucide-react';
-import heroBg from '../assets/hero-bg_converted.webp';
+import heroBg from '../assets/Home page 2.webp';
 import './Header.css';
 
 export default function Header() {

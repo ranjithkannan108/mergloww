@@ -418,138 +418,113 @@
 
 @media (max-width: 768px) {
   .timeline-container {
-    padding: 0 1rem;
+    padding: 0 0.2rem;
     overflow-x: hidden;
-  }
-
-  .timeline-line {
-    left: 20px;
-  }
-  
-  .timeline-item, .timeline-item.left-card, .timeline-item.right-card {
-    flex-direction: column;
-    align-items: flex-start;
-    height: auto;
-    min-height: 350px;
-    margin-bottom: 3rem;
   }
   
   .timeline-content-wrapper, .timeline-title-wrapper {
-    width: calc(100% - 40px);
-    margin-left: 40px;
-    justify-content: flex-start !important;
-  }
-  
-  .timeline-item.left-card .timeline-content-wrapper,
-  .timeline-item.right-card .timeline-content-wrapper { 
-    padding: 0 !important;
-  }
-  
-  .timeline-item.left-card .timeline-title-wrapper,
-  .timeline-item.right-card .timeline-title-wrapper {
-    padding: 0 !important;
-    margin-bottom: 1.5rem;
-    margin-top: 0.5rem;
-    align-items: flex-start !important;
+    width: 45%;
+    transform: scale(0.75);
+    transform-origin: center;
   }
 
-  .timeline-center {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 40px;
-    transform: none;
+  .timeline-item.left-card .timeline-content-wrapper { 
+    padding-right: 0.5rem;
+    transform-origin: right center;
   }
-  
+  .timeline-item.right-card .timeline-content-wrapper { 
+    padding-left: 0.5rem; 
+    transform-origin: left center;
+  }
+  .timeline-item.left-card .timeline-title-wrapper {
+    padding-left: 0.5rem;
+    transform-origin: left center;
+  }
+  .timeline-item.right-card .timeline-title-wrapper {
+    padding-right: 0.5rem;
+    transform-origin: right center;
+  }
+
   .timeline-circle {
-    width: 40px;
-    height: 40px;
-    font-size: 1.1rem;
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+    border-width: 1px;
   }
-  
+
   .timeline-side-title {
-    font-size: 1.5rem;
-    text-align: left !important;
-    padding: 0 !important;
+    font-size: 1rem;
+    padding: 0;
   }
   
   .timeline-side-location-text {
-    font-size: 1rem;
-    text-align: left !important;
+    font-size: 0.7rem;
   }
 
   .timeline-side-location-icon svg {
-    width: 40px;
-    height: 40px;
+    width: 24px;
+    height: 24px;
   }
 
   .timeline-card {
     max-width: 100%;
-    border-radius: 12px;
+    border-radius: 8px;
   }
   
   .timeline-card-image {
-    height: 180px;
+    height: 100px;
   }
 
   .timeline-card-details {
-    padding: 1.5rem;
+    padding: 0.5rem;
   }
 
   .timeline-card-details h3 {
-    font-size: 1.2rem;
+    font-size: 0.85rem;
   }
   
   .project-location {
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.6rem;
+    margin-bottom: 0.3rem;
   }
   
   .project-approval {
-    font-size: 0.75rem;
-    margin-bottom: 1rem;
+    font-size: 0.5rem;
+    margin-bottom: 0.4rem;
   }
   
   .project-specs {
-    padding: 0.8rem;
-    margin-bottom: 1.5rem;
+    padding: 0.3rem;
+    margin-bottom: 0.5rem;
   }
 
   .project-specs p {
-    font-size: 0.8rem;
+    font-size: 0.5rem;
   }
   
   .timeline-btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.6rem;
   }
   
   .upcoming-content h3 {
-    font-size: 1.5rem;
+    font-size: 0.9rem;
   }
   
   .upcoming-subtitle {
-    font-size: 0.85rem;
+    font-size: 0.55rem;
   }
 
   .upcoming-content {
-    padding: 2rem;
+    padding: 0.8rem;
   }
 
   .upcoming-divider svg {
-    width: 180px;
-    height: 16px;
+    width: 80px;
+    height: 8px;
   }
   
   .upcoming-card {
-    min-height: 250px;
-  }
-  
-  .wavy-line-svg {
-    display: none;
-  }
-  
-  .timeline-spark-container {
-    display: none;
+    min-height: 120px;
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import heroBg from '../assets/Home page.webp';
+import heroBg from '../assets/Home page 2.webp';
 import './Home.css';
 
 export default function Home() {

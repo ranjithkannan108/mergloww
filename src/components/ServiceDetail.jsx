@@ -4,6 +4,14 @@ import { servicesData } from '../data/serviceData';
 import Reveal from './Reveal';
 import './ServiceDetail.css';
 
+import img24x7Security from '../assets/24x7 security.png';
+import img30FeetRoad from '../assets/30 Feet road.png';
+import imgCompoundWall from '../assets/Compound wall with gated community.png';
+import imgSolarStreetLight from '../assets/Solar street light.png';
+import imgAvenueTrees from '../assets/avenue trees.png';
+import imgPlayArea from '../assets/play area.png';
+import imgResidentialSurroundings from '../assets/residential surroundings.png';
+import imgWaterFacility from '../assets/water facility.png';
 const ScrambleText = ({ text }) => {
   const [display, setDisplay] = useState(text);
   const [isVisible, setIsVisible] = useState(false);
@@ -130,28 +138,25 @@ export default function ServiceDetail() {
             </div>
             
             <div className="service-block" style={{ width: '100%', marginTop: '3rem', marginBottom: '6rem' }}>
-              <h3 style={{ textAlign: 'center', marginBottom: '1rem', color: '#D4AF37', fontSize: '2rem' }}>Project Highlights</h3>
+              <h3 style={{ textAlign: 'center', marginBottom: '4rem', color: '#D4AF37', fontSize: '2rem' }}>Project Highlights</h3>
               <div className="highlights-grid">
                 {service.highlights.map((item, idx) => {
-                  const center = (service.highlights.length - 1) / 2;
-                  const distance = Math.abs(idx - center);
-                  const offsetY = distance * 40; // 40px staggered drop per step away from center
 
-                  // Select a relevant icon image based on the text
-                  const getHighlightIcon = (text) => {
+                  // Get the relevant background image based on the text
+                  const getHighlightImage = (text) => {
                     const lower = text.toLowerCase();
-                    if (lower.includes('water')) return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>;
-                    if (lower.includes('solar') || lower.includes('light')) return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>;
-                    if (lower.includes('securit')) return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>;
-                    if (lower.includes('wall') || lower.includes('gated')) return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>;
-                    if (lower.includes('tree') || lower.includes('avenue') || lower.includes('park')) return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 14c-1.66 0-3-1.34-3-3V5c0-1.66 1.34-3 3-3s3 1.34 3 3v6c0 1.66-1.34 3-3 3z"></path><path d="M7 14c-1.66 0-3-1.34-3-3V5c0-1.66 1.34-3 3-3s3 1.34 3 3v6c0 1.66-1.34 3-3 3z"></path><path d="M12 22v-8"></path><path d="M12 14c-2.21 0-4-1.79-4-4V6c0-2.21 1.79-4 4-4s4 1.79 4 4v4c0 2.21-1.79 4-4 4z"></path></svg>;
-                    if (lower.includes('road')) return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>;
-                    if (lower.includes('eb') || lower.includes('electric')) return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>;
-                    if (lower.includes('resident')) return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg>;
-                    return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m9 12 2 2 4-4"></path></svg>;
+                    if (lower.includes('water')) return imgWaterFacility;
+                    if (lower.includes('solar') || lower.includes('light')) return imgSolarStreetLight;
+                    if (lower.includes('securit')) return img24x7Security;
+                    if (lower.includes('wall') || lower.includes('gated')) return imgCompoundWall;
+                    if (lower.includes('tree') || lower.includes('avenue')) return imgAvenueTrees;
+                    if (lower.includes('road')) return img30FeetRoad;
+                    if (lower.includes('play') || lower.includes('park')) return imgPlayArea;
+                    if (lower.includes('resident')) return imgResidentialSurroundings;
+                    return null;
                   };
 
-
+                  const bgImage = getHighlightImage(item);
 
                   return (
                     <Reveal 
@@ -159,16 +164,28 @@ export default function ServiceDetail() {
                       type="shuffle" 
                       delay={idx * 0.1} 
                       display="inline-flex"
-                      style={{ position: 'relative', top: `${offsetY}px` }}
                     >
-                      <div className="highlight-arch-card">
-                        <div className="highlight-icon-wrapper">
-                          {getHighlightIcon(item)}
+                      <div className="highlight-wrapper">
+                        <div className="highlight-arch-card bg-highlight-card">
+                          <div 
+                            className="bg-image-layer"
+                            style={{ 
+                              backgroundImage: bgImage ? `url("${bgImage}")` : 'none',
+                            }}
+                          ></div>
+                          <div className="bg-highlight-overlay"></div>
+                          
+                          <div className="highlight-crown">
+                            <svg viewBox="0 0 60 40" className="crown-svg">
+                              <path d="M5 40 L0 5 L20 20 L30 0 L40 20 L60 5 L55 40 Z" fill="#d4af37" />
+                            </svg>
+                            <div className="highlight-number">
+                              {(idx + 1).toString().padStart(2, '0')}
+                            </div>
+                          </div>
                         </div>
+
                         <div className="highlight-title">{item}</div>
-                        <div className="highlight-number">
-                          {(idx + 1).toString().padStart(2, '0')}
-                        </div>
                       </div>
                     </Reveal>
                   );
@@ -180,8 +197,6 @@ export default function ServiceDetail() {
               <h3 style={{ textAlign: 'center', marginBottom: '1rem', color: '#D4AF37', fontSize: '2rem' }}>Nearby Landmarks</h3>
               <div className="landmarks-grid">
                 {service.landmarks.map((item, idx) => {
-                  const offsetY = idx % 2 === 1 ? 40 : 0; // One card up, one card down (alternating)
-
                   const getLandmarkIcon = (text) => {
                     const lower = text.toLowerCase();
                     if (lower.includes('railway') || lower.includes('train')) return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="16" rx="2" ry="2"></rect><path d="M4 11h16"></path><path d="M12 3v8"></path><path d="m8 19-2 3"></path><path d="m18 22-2-3"></path><path d="M8 15h0"></path><path d="M16 15h0"></path></svg>;
@@ -198,7 +213,6 @@ export default function ServiceDetail() {
                       type="shuffle" 
                       delay={idx * 0.1} 
                       display="inline-flex"
-                      style={{ position: 'relative', top: `${offsetY}px` }}
                     >
                       <div className="landmark-item">
                         <div className="landmark-card-shape">
