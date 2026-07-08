@@ -105,16 +105,23 @@ export default function MouseTrail() {
     }
 
     const handleMouseMove = (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
+      let x, y;
+      if (e.touches && e.touches.length > 0) {
+        x = e.touches[0].clientX;
+        y = e.touches[0].clientY;
+      } else {
+        x = e.clientX;
+        y = e.clientY;
+      }
 
-      // Spawn a burst of sprinkles on every mouse move
+      // Spawn a burst of sprinkles on every mouse/touch move
       for (let i = 0; i < 4; i++) {
         cursorParticles.push(new CursorParticle(x, y));
       }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchmove', handleMouseMove, { passive: true });
 
     // Animation loop
     const animate = () => {
@@ -157,6 +164,7 @@ export default function MouseTrail() {
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleMouseMove);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
