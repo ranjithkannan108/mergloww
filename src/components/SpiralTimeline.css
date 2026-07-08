@@ -418,113 +418,148 @@
 
 @media (max-width: 768px) {
   .timeline-container {
-    padding: 0 0.2rem;
+    padding: 0 1rem;
     overflow-x: hidden;
   }
+
+  .timeline-line {
+    display: block;
+    left: 50%;
+    background-color: rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+    z-index: 0;
+  }
   
-  .timeline-content-wrapper, .timeline-title-wrapper {
-    width: 45%;
-    transform: scale(0.75);
-    transform-origin: center;
+  .timeline-item, .timeline-item.left-card, .timeline-item.right-card {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    min-height: auto;
+    margin-bottom: 3rem;
   }
-
-  .timeline-item.left-card .timeline-content-wrapper { 
-    padding-right: 0.5rem;
-    transform-origin: right center;
+  
+  .timeline-content-wrapper {
+    width: 100%;
+    margin-left: 0;
+    justify-content: center !important;
+    order: 3;
   }
+  
+  .timeline-item.left-card .timeline-content-wrapper,
   .timeline-item.right-card .timeline-content-wrapper { 
-    padding-left: 0.5rem; 
-    transform-origin: left center;
+    padding: 0 !important;
   }
-  .timeline-item.left-card .timeline-title-wrapper {
-    padding-left: 0.5rem;
-    transform-origin: left center;
-  }
+  
+  .timeline-item.left-card .timeline-title-wrapper,
   .timeline-item.right-card .timeline-title-wrapper {
-    padding-right: 0.5rem;
-    transform-origin: right center;
+    display: flex; /* Show the external title wrapper */
+    width: 100%;
+    padding: 0 !important;
+    margin-bottom: 1.5rem;
+    align-items: center !important;
+    order: 2;
   }
 
+  .timeline-center {
+    display: flex; /* Show the circle numbers */
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    transform: none;
+    justify-content: center;
+    margin-bottom: 1rem;
+    order: 1;
+  }
+  
   .timeline-circle {
-    width: 30px;
-    height: 30px;
-    font-size: 0.8rem;
-    border-width: 1px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
   }
-
+  
   .timeline-side-title {
-    font-size: 1rem;
-    padding: 0;
+    font-size: 1.8rem;
+    text-align: center !important;
+    padding: 0 !important;
   }
   
   .timeline-side-location-text {
-    font-size: 0.7rem;
+    font-size: 1rem;
+    text-align: center !important;
   }
 
   .timeline-side-location-icon svg {
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
   }
 
   .timeline-card {
     max-width: 100%;
-    border-radius: 8px;
+    border-radius: 16px;
+    width: 100%;
   }
   
   .timeline-card-image {
-    height: 100px;
+    height: 240px; /* Larger, more premium image on mobile */
   }
 
   .timeline-card-details {
-    padding: 0.5rem;
+    padding: 1.5rem;
   }
 
-  .timeline-card-details h3 {
-    font-size: 0.85rem;
-  }
-  
-  .project-location {
-    font-size: 0.6rem;
-    margin-bottom: 0.3rem;
+  .timeline-card-details h3,
+  .timeline-card-details .project-location {
+    display: none; /* Hide duplicate title and location inside the card on mobile */
   }
   
   .project-approval {
-    font-size: 0.5rem;
-    margin-bottom: 0.4rem;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
   }
   
   .project-specs {
-    padding: 0.3rem;
-    margin-bottom: 0.5rem;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
   }
 
   .project-specs p {
-    font-size: 0.5rem;
+    font-size: 0.8rem;
   }
   
   .timeline-btn {
-    padding: 0.3rem 0.5rem;
-    font-size: 0.6rem;
-  }
-  
-  .upcoming-content h3 {
+    padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
   }
   
+  .upcoming-content h3 {
+    font-size: 1.5rem;
+  }
+  
   .upcoming-subtitle {
-    font-size: 0.55rem;
+    font-size: 0.85rem;
   }
 
   .upcoming-content {
-    padding: 0.8rem;
+    padding: 2rem;
   }
 
   .upcoming-divider svg {
-    width: 80px;
-    height: 8px;
+    width: 180px;
+    height: 16px;
   }
   
   .upcoming-card {
-    min-height: 120px;
+    min-height: 250px;
+  }
+  
+  .wavy-line-svg {
+    display: none;
+  }
+  
+  .timeline-spark-container {
+    display: flex; /* Show spark on mobile */
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
   }
 }

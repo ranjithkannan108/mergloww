@@ -78,7 +78,9 @@ export default function SpiralTimeline({ items }) {
       
       if (sparkRef.current) {
         sparkRef.current.style.top = `${progress * 100}%`;
-        sparkRef.current.style.left = `calc(50% ${offsetX >= 0 ? '+' : '-'} ${Math.abs(offsetX)}px)`;
+        const isMobile = window.innerWidth <= 768;
+        const finalOffsetX = isMobile ? 0 : offsetX;
+        sparkRef.current.style.left = `calc(50% ${finalOffsetX >= 0 ? '+' : '-'} ${Math.abs(finalOffsetX)}px)`;
       }
       if (glowRef.current) {
         if (sparkY <= 300) {
