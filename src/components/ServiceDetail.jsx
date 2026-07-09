@@ -11,6 +11,12 @@ import imgCompoundWall from '../assets/Compound wall with gated community.png';
 import imgSolarStreetLight from '../assets/Solar street light.png';
 import bannerSudiksha from '../assets/Banner Image Sudiksha garden.webp';
 import bannerSpNagar from '../assets/Banner Image SP Nagar.webp';
+import railwayLandmark from '../assets/railway_landmark.png';
+import busLandmark from '../assets/bus_landmark.png';
+import schoolLandmark from '../assets/school_landmark.png';
+import hospitalLandmark from '../assets/hospital_landmark.png';
+import itLandmark from '../assets/it_landmark.png';
+import locationLandmark from '../assets/location_landmark.png';
 import imgResidentialSurroundings from '../assets/residential surroundings.png';
 import imgWaterFacility from '../assets/water facility.png';
 const ScrambleText = ({ text }) => {
@@ -187,6 +193,16 @@ export default function ServiceDetail() {
                     return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>;
                   };
 
+                  const getLandmarkImage = (text) => {
+                    const lower = text.toLowerCase();
+                    if (lower.includes('railway') || lower.includes('train')) return railwayLandmark;
+                    if (lower.includes('bus')) return busLandmark;
+                    if (lower.includes('school') || lower.includes('college') || lower.includes('education')) return schoolLandmark;
+                    if (lower.includes('hospital') || lower.includes('health')) return hospitalLandmark;
+                    if (lower.includes('it ') || lower.includes('industr') || lower.includes('compan')) return itLandmark;
+                    return locationLandmark;
+                  };
+
                   return (
                     <Reveal 
                       key={idx} 
@@ -195,8 +211,13 @@ export default function ServiceDetail() {
                       display="inline-flex"
                     >
                       <div className="landmark-item">
-                        <div className="landmark-card-shape">
-                          <div className="landmark-title">{item}</div>
+                        <div className="landmark-card-shape" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+                          <div style={{ width: '100%', height: '120px' }}>
+                            <img src={getLandmarkImage(item)} alt="landmark" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                          </div>
+                          <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '15px 15px 45px 15px' }}>
+                            <div className="landmark-title">{item}</div>
+                          </div>
                         </div>
                         <div className="landmark-icon-wrapper">
                           {getLandmarkIcon(item)}
