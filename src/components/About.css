@@ -903,16 +903,20 @@
 /* Our Promises Section */
 .promises-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+.promises-grid > div {
+  height: 100%;
 }
 
 .promise-card {
   background: rgba(7, 47, 31, 0.8);
   border-radius: 16px;
-  padding: 3rem 2rem;
+  padding: 3rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -921,6 +925,8 @@
   gap: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(212, 175, 55, 0.3);
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .promise-card:hover {
@@ -956,9 +962,17 @@
   transform: scale(1.05);
 }
 
+@media (max-width: 992px) {
+  .promises-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 1rem;
+  }
+}
+
 @media (max-width: 600px) {
   .promises-grid {
     grid-template-columns: 1fr;
+    padding: 0 1rem;
   }
 }
 

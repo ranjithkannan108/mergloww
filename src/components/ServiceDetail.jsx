@@ -9,8 +9,14 @@ import img24x7Security from '../assets/24x7 security.png';
 import img30FeetRoad from '../assets/30 Feet road.png';
 import imgCompoundWall from '../assets/Compound wall with gated community.png';
 import imgSolarStreetLight from '../assets/Solar street light.png';
-import imgAvenueTrees from '../assets/avenue trees.png';
-import imgPlayArea from '../assets/play area.png';
+import bannerSudiksha from '../assets/Banner Image Sudiksha garden.webp';
+import bannerSpNagar from '../assets/Banner Image SP Nagar.webp';
+import railwayLandmark from '../assets/railway_landmark.png';
+import busLandmark from '../assets/bus_landmark.png';
+import schoolLandmark from '../assets/school_landmark.png';
+import hospitalLandmark from '../assets/hospital_landmark.png';
+import itLandmark from '../assets/it_landmark.png';
+import locationLandmark from '../assets/location_landmark.png';
 import imgResidentialSurroundings from '../assets/residential surroundings.png';
 import imgWaterFacility from '../assets/water facility.png';
 const ScrambleText = ({ text }) => {
@@ -177,14 +183,14 @@ export default function ServiceDetail() {
               <h3 style={{ textAlign: 'center', marginBottom: '1rem', color: '#D4AF37', fontSize: '2rem' }}>Nearby Landmarks</h3>
               <div className="landmarks-grid">
                 {service.landmarks.map((item, idx) => {
-                  const getLandmarkIcon = (text) => {
+                  const getLandmarkImage = (text) => {
                     const lower = text.toLowerCase();
-                    if (lower.includes('railway') || lower.includes('train')) return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="16" rx="2" ry="2"></rect><path d="M4 11h16"></path><path d="M12 3v8"></path><path d="m8 19-2 3"></path><path d="m18 22-2-3"></path><path d="M8 15h0"></path><path d="M16 15h0"></path></svg>;
-                    if (lower.includes('bus')) return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8 6v6"></path><path d="M15 6v6"></path><path d="M2 12h19.6"></path><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"></path><circle cx="7" cy="18" r="2"></circle><path d="M9 18h5"></path><circle cx="16" cy="18" r="2"></circle></svg>;
-                    if (lower.includes('school') || lower.includes('college') || lower.includes('education')) return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>;
-                    if (lower.includes('hospital') || lower.includes('health')) return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>;
-                    if (lower.includes('it ') || lower.includes('industr')) return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>;
-                    return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>;
+                    if (lower.includes('railway') || lower.includes('train')) return railwayLandmark;
+                    if (lower.includes('bus')) return busLandmark;
+                    if (lower.includes('school') || lower.includes('college') || lower.includes('education')) return schoolLandmark;
+                    if (lower.includes('hospital') || lower.includes('health')) return hospitalLandmark;
+                    if (lower.includes('it ') || lower.includes('industr') || lower.includes('compan')) return itLandmark;
+                    return locationLandmark;
                   };
 
                   return (
@@ -194,12 +200,17 @@ export default function ServiceDetail() {
                       delay={idx * 0.1} 
                       display="inline-flex"
                     >
-                      <div className="landmark-item">
-                        <div className="landmark-card-shape">
-                          <div className="landmark-title">{item}</div>
+                      <div className="landmark-item" style={{ overflow: 'hidden' }}>
+                        <div className="landmark-card-shape" style={{ 
+                          backgroundImage: `linear-gradient(rgba(4, 18, 8, 0.7), rgba(4, 18, 8, 0.85)), url(${getLandmarkImage(item)})`, 
+                          backgroundSize: 'cover', 
+                          backgroundPosition: 'center',
+                          border: '1px solid rgba(212, 175, 55, 0.4)'
+                        }}>
+                          <div className="landmark-title" style={{ color: '#fff', textShadow: '0 2px 4px rgba(0,0,0,0.8)', zIndex: 2, position: 'relative' }}>{item}</div>
                         </div>
-                        <div className="landmark-icon-wrapper">
-                          {getLandmarkIcon(item)}
+                        <div className="landmark-icon-wrapper" style={{ overflow: 'hidden' }}>
+                          <img src={getLandmarkImage(item)} alt="landmark" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
                         </div>
                       </div>
                     </Reveal>
