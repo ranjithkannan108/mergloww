@@ -617,3 +617,310 @@
     width: 50px;
   }
 }
+
+/* Demo Shapes for Services */
+.demo-service-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding: 2rem;
+}
+
+/* 1. Hexagon */
+.service-shape-hexagon {
+  width: 200px;
+  height: 220px;
+  background: rgba(15, 25, 20, 0.8);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: var(--primary);
+  font-weight: bold;
+  border: 2px solid var(--primary); /* border won't work well with clip-path, using a wrapper approach in React */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.service-shape-hexagon:hover {
+  transform: translateY(-10px) scale(1.05);
+  background: rgba(212, 175, 55, 0.2);
+}
+
+/* 2. Floating Glass */
+.service-shape-glass {
+  width: 200px;
+  height: 150px;
+  background: rgba(15, 25, 20, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--primary);
+  font-weight: bold;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  animation: floatCard 4s ease-in-out infinite;
+  cursor: pointer;
+}
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* 3. Diamond */
+.service-shape-diamond-wrapper {
+  width: 160px;
+  height: 160px;
+  background: rgba(15, 25, 20, 0.8);
+  border: 2px solid var(--primary);
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(212,175,55,0.2);
+}
+.service-shape-diamond-wrapper:hover {
+  background: rgba(212, 175, 55, 0.2);
+  box-shadow: 0 0 30px rgba(212,175,55,0.4);
+}
+.service-shape-diamond-content {
+  transform: rotate(-45deg);
+  color: var(--primary);
+  font-weight: bold;
+  text-align: center;
+  width: 140px;
+}
+
+/* 4. Accordion Panel */
+.service-shape-accordion {
+  width: 80px;
+  height: 250px;
+  background: rgba(15, 25, 20, 0.8);
+  border: 1px solid var(--primary);
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+.service-shape-accordion:hover {
+  width: 250px;
+  background: rgba(15, 25, 20, 0.95);
+}
+.service-shape-accordion-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: var(--primary);
+  font-weight: bold;
+  white-space: nowrap;
+  transition: all 0.5s ease;
+}
+.service-shape-accordion:hover .service-shape-accordion-text {
+  writing-mode: horizontal-tb;
+  white-space: normal;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+/* 5. Circle Badge */
+.service-shape-circle {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle at center, rgba(15, 25, 20, 0.9), rgba(4, 18, 8, 0.9));
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: var(--primary);
+  font-weight: bold;
+  box-shadow: 0 0 25px rgba(212,175,55,0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.service-shape-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px rgba(212,175,55,0.5);
+}
+
+
+/* Custom Vertical Service Card (Based on User Image) */
+.service-card-vertical {
+  width: 250px;
+  height: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.4s ease;
+  cursor: pointer;
+  background-color: transparent; /* Changed to transparent since gradient is on bottom */
+}
+
+.service-card-vertical:hover {
+  transform: translateY(-12px);
+}
+
+/* Top half */
+.service-card-top {
+  height: 70%;
+  background-color: #0a1f13;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.4s ease;
+}
+
+.service-card-vertical:hover .service-card-top {
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+}
+
+.service-card-top img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.5s ease, transform 0.8s ease;
+}
+
+.service-card-vertical:hover .service-card-top img {
+  transform: scale(1.1);
+}
+
+.service-card-top-icon {
+  position: relative;
+  z-index: 2;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+}
+
+/* Wavy Divider SVG */
+.service-card-wave {
+  position: absolute;
+  bottom: 35%; /* Same as bottom section height */
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  transform: translateY(98%);
+  z-index: 10;
+}
+
+.service-card-wave svg {
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 60px;
+}
+
+.service-card-wave svg path {
+  fill: #113A24; /* Matches bottom section */
+}
+.service-card-wave svg .layer1 {
+  fill: rgba(17, 58, 36, 0.6); /* Green for layered effect */
+}
+
+/* Bottom half */
+.service-card-bottom {
+  height: 30%;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  z-index: 5;
+  position: relative;
+}
+
+.service-card-title {
+  color: var(--primary); /* Gold text on green background */
+  font-weight: 800;
+  font-size: 1rem;
+  font-family: var(--font-serif);
+  line-height: 1.3;
+  text-align: center;
+  margin: 0 0 0.25rem 0;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.service-card-desc {
+  color: #d1d5db;
+  font-size: 0.75rem;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0;
+}
+
+
+.yellow-pill-title {
+  background: linear-gradient(90deg, #FFE500 0%, #FFF68F 50%, #FFE500 100%);
+  color: #000;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 0.6rem 2rem;
+  border-radius: 50px;
+  display: inline-block;
+  box-shadow: 0 0 20px rgba(255, 229, 0, 0.3);
+  text-shadow: none;
+  margin-bottom: 1.5rem;
+  border: none;
+}
+
+.fan-out-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.25rem;
+  justify-content: center;
+  padding-bottom: 2rem;
+  max-width: 100%;
+  position: relative;
+  min-height: 350px;
+}
+
+@media (max-width: 1100px) {
+  .fan-out-container {
+    flex-wrap: wrap;
+    min-height: auto;
+  }
+  
+  .service-card-vertical {
+    transform: none !important;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .fan-out-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .service-card-vertical {
+    max-width: 320px;
+  }
+}

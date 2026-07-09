@@ -1,12 +1,12 @@
-import bannerPremiumPlots from '../assets/banner_premium_plots_converted.webp';
-import bannerFarmland from '../assets/banner_farmland_converted.webp';
-import bannerDtcp from '../assets/banner_dtcp_converted.webp';
+import bannerSriSakthi from '../assets/Banner Image Sri Sakthi garden.webp';
+import bannerSudiksha from '../assets/Banner Image Sudiksha garden.webp';
+import bannerSpNagar from '../assets/Banner Image SP Nagar.webp';
 
 export const servicesData = {
   'sri-sakthi-garden': {
     id: 'sri-sakthi-garden',
     title: 'Sri Sakthi Garden',
-    image: bannerPremiumPlots,
+    image: bannerSriSakthi,
     tags: ['Residential', 'Villa Plots', 'Guduvanchery'],
     heading: 'DTCP & RERA APPROVED PLOTS IN GUDUVANCHERY',
     description: "Discover a secure investment opportunity in one of Chennai's fastest-growing corridors. Located in Guduvanchery, this premium residential layout offers DTCP & RERA approved plots with excellent infrastructure, seamless connectivity, and exceptional appreciation potential.",
@@ -35,7 +35,7 @@ export const servicesData = {
   'sudiksha-garden': {
     id: 'sudiksha-garden',
     title: 'Sudiksha Garden',
-    image: bannerFarmland,
+    image: bannerSudiksha,
     tags: ['Residential', 'DTCP Approved', 'Maduranthakam'],
     heading: 'DTCP APPROVED PLOTS IN MADURANTHAKAM',
     description: "A premium residential plot in the rapidly developing town of Maduranthagam, where affordability meets exceptional future growth. Developed with modern infrastructure and clear legal approvals, this DTCP-approved residential layout offers an ideal opportunity for both homebuyers and investors seeking long-term value.",
@@ -62,7 +62,7 @@ export const servicesData = {
   'sp-nagar': {
     id: 'sp-nagar',
     title: 'SP Nagar',
-    image: bannerDtcp,
+    image: bannerSpNagar,
     tags: ['Investment', 'Gated Community', 'Walajabad'],
     heading: 'DTCP & RERA APPROVED PLOTS IN WALAJABAD',
     description: "A premium investment opportunity in Walajabad, one of Chennai's rapidly developing residential corridors. This DTCP & RERA-approved residential layout combines legal security, modern infrastructure, and exceptional appreciation potential, making it the ideal choice for homeowners and investors alike.",

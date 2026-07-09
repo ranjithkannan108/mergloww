@@ -7,6 +7,79 @@ import imgLongTermValue from '../assets/long_term_value.png';
 import imgTransparency from '../assets/complete_transparency.png';
 import imgProfessionalism from '../assets/professional_excellence.png';
 
+// Images for services
+import bannerPremiumPlots from '../assets/srv_premium_villa.png';
+import bannerFarmland from '../assets/srv_farmland.png';
+import bannerDtcp from '../assets/srv_dtcp_layout.png';
+import imgDocs from '../assets/srv_property_docs.png';
+import imgSupport from '../assets/srv_customer_support.png';
+
+const FanOutCards = ({ services }) => {
+  const ref = React.useRef(null);
+  const [isFannedOut, setIsFannedOut] = React.useState(false);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsFannedOut(entry.isIntersecting);
+      },
+      {
+        threshold: 0,
+        rootMargin: '0px 0px -40% 0px'
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    return () => {
+      if (ref.current) observer.unobserve(ref.current);
+    };
+  }, []);
+
+  return (
+    <div 
+      ref={ref}
+      className="fan-out-container"
+    >
+      {services.map((service, index) => {
+        const offsetIndex = 2 - index; 
+        const translateX = isFannedOut ? 0 : offsetIndex * 270;
+        const rotate = isFannedOut ? 0 : offsetIndex * -8;
+        const scale = isFannedOut ? 1 : 0.85;
+        
+        return (
+          <div 
+            key={index} 
+            className="service-card-vertical"
+            style={{
+              transform: `translateX(${translateX}px) rotate(${rotate}deg) scale(${scale})`,
+              opacity: isFannedOut ? 1 : (index === 2 ? 1 : 0.2),
+              transition: `transform 1.2s cubic-bezier(0.22, 1, 0.36, 1) ${isFannedOut ? Math.abs(offsetIndex) * 0.15 : 0}s, opacity 1s ease ${isFannedOut ? Math.abs(offsetIndex) * 0.15 : 0}s`,
+              zIndex: isFannedOut ? 1 : 10 - Math.abs(offsetIndex),
+              flexShrink: 0
+            }}
+          >
+            <div className="service-card-top">
+              <img src={service.img} alt={service.title} />
+            </div>
+            <div className="service-card-bottom">
+              <h3 className="service-card-title">{service.title}</h3>
+              <div style={{ display: 'flex', gap: '4px', marginTop: '6px' }}>
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 export default function About() {
   return (
     <section id="about" className="section section-alt" style={{ 
@@ -55,6 +128,25 @@ export default function About() {
             </Reveal>
           </div>
           
+        </div>
+
+        {/* Services Section */}
+        <div style={{ marginBottom: '6rem', marginTop: '2rem' }}>
+          <Reveal type="fade" display="flex" style={{ justifyContent: 'center' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem', width: '100%' }}>
+              <h2 className="about-title glowing-title" style={{ fontSize: '1.25rem', marginBottom: '1.5rem', textAlign: 'center' }}>
+                OUR SERVICES
+              </h2>
+            </div>
+          </Reveal>
+          
+          <FanOutCards services={[
+            { title: "Premium Villa Plots", desc: "Build your dream home on our carefully selected, premium plots.", img: bannerPremiumPlots },
+            { title: "Farmland Investments", desc: "Secure your future with high-yield, fertile farmland opportunities.", img: bannerFarmland },
+            { title: "DTCP Approved Layouts", desc: "Invest with confidence in our fully compliant and legally clear layouts.", img: bannerDtcp },
+            { title: "Property Documentation", desc: "Hassle-free, transparent, and completely secure legal processes.", img: imgDocs },
+            { title: "Customer Support", desc: "Dedicated guidance and support at every step of your journey.", img: imgSupport }
+          ]} />
         </div>
 
         {/* Vision & Mission Section - Static Banners with Sunset & Landscape Backgrounds */}

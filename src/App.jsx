@@ -73,7 +73,6 @@ const HomePage = () => (
     <Home />
     <About />
     <Testimonials />
-    <Contact />
   </div>
 );
 

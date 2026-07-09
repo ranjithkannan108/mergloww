@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
+import { MapPin } from 'lucide-react';
 import { servicesData } from '../data/serviceData';
 import Reveal from './Reveal';
 import './ServiceDetail.css';
@@ -98,37 +99,16 @@ export default function ServiceDetail() {
         style={{ backgroundImage: `url(${service.image})` }}
       >
         <div className="service-hero-overlay"></div>
-        <h1 className="service-hero-title">{service.title}</h1>
+        <div style={{ position: 'relative', zIndex: 3, textAlign: 'center' }}>
+          <h1 className="service-hero-title" style={{ marginBottom: '10px' }}>{service.title}</h1>
+          <p style={{ color: 'var(--primary)', fontSize: '1.25rem', margin: 0, textTransform: 'uppercase', letterSpacing: '2px', textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>
+            <MapPin size={20} style={{ display: 'inline-block', verticalAlign: 'text-bottom', marginRight: '8px' }} />
+            {service.tags[service.tags.length - 1]}
+          </p>
+        </div>
       </div>
 
       <div className="service-content-wrapper">
-        {/* Scrolling Tags Text */}
-        <div className="service-detail-marquee-wrapper">
-          <div className="service-detail-marquee-container">
-            <div className="service-detail-marquee-content">
-              <span>
-                <LogoDivider />
-                {service.tags.join(' ')}
-                <LogoDivider />
-                Premium Real Estate 
-                <LogoDivider />
-                Trusted Investment 
-                <LogoDivider />
-                {service.title} 
-              </span>
-              <span>
-                <LogoDivider />
-                {service.tags.join(' ')}
-                <LogoDivider />
-                Premium Real Estate 
-                <LogoDivider />
-                Trusted Investment 
-                <LogoDivider />
-                {service.title} 
-              </span>
-            </div>
-          </div>
-        </div>
 
         {service.heading ? (
           <>

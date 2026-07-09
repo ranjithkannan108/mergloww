@@ -21,8 +21,13 @@ export default function Header() {
         setActiveSection('services');
         return;
       }
+      
+      if (location.pathname === '/contact') {
+        setActiveSection('contact');
+        return;
+      }
 
-      const sections = ['about', 'testimonials', 'contact'];
+      const sections = ['testimonials', 'contact'];
       let current = 'home';
       
       if (window.scrollY > 100) {
@@ -89,10 +94,9 @@ export default function Header() {
 
         <nav className="desktop-nav">
           <a href="/" onClick={(e) => handleNavClick(e, '/', '')} className={`nav-link ${activeSection === 'home' ? 'active' : ''}`}><span>Home</span></a>
-          <a href="/" onClick={(e) => handleNavClick(e, '/', 'about')} className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}><span>About</span></a>
           <Link to="/services" onClick={closeMenu} className={`nav-link ${activeSection === 'services' ? 'active' : ''}`}><span>Projects</span></Link>
           <a href="/" onClick={(e) => handleNavClick(e, '/', 'testimonials')} className={`nav-link ${activeSection === 'testimonials' ? 'active' : ''}`}><span>Testimonials</span></a>
-          <a href="/" onClick={(e) => handleNavClick(e, '/', 'contact')} className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}><span>Contact</span></a>
+          <Link to="/contact" onClick={closeMenu} className={`nav-link ${location.pathname === '/contact' || activeSection === 'contact' ? 'active' : ''}`}><span>Contact</span></Link>
         </nav>
 
         <div className="header-actions">
@@ -110,10 +114,9 @@ export default function Header() {
 
       <nav className={`mobile-nav ${isMobileMenuOpen ? 'active' : ''}`}>
         <a href="/" onClick={(e) => handleNavClick(e, '/', '')} className={`mobile-link ${activeSection === 'home' ? 'active' : ''}`}><span>Home</span></a>
-        <a href="/" onClick={(e) => handleNavClick(e, '/', 'about')} className={`mobile-link ${activeSection === 'about' ? 'active' : ''}`}><span>About</span></a>
         <Link to="/services" onClick={closeMenu} className={`mobile-link ${activeSection === 'services' ? 'active' : ''}`}><span>Projects</span></Link>
         <a href="/" onClick={(e) => handleNavClick(e, '/', 'testimonials')} className={`mobile-link ${activeSection === 'testimonials' ? 'active' : ''}`}><span>Testimonials</span></a>
-        <a href="/" onClick={(e) => handleNavClick(e, '/', 'contact')} className={`mobile-link ${activeSection === 'contact' ? 'active' : ''}`}><span>Contact</span></a>
+        <Link to="/contact" onClick={closeMenu} className={`mobile-link ${location.pathname === '/contact' || activeSection === 'contact' ? 'active' : ''}`}><span>Contact</span></Link>
         <a href="#" onClick={(e) => { e.preventDefault(); closeMenu(); setIsContactModalOpen(true); }} className="btn-primary mobile-btn glow-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>
           <span>Get in Touch</span>
         </a>

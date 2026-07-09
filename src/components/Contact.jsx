@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 import Reveal from './Reveal';
-import contactImg from '../assets/about-indian-family_converted.webp';
+import contactBg from '../assets/about-indian-family_converted.webp'; 
 import './Contact.css';
 
 export default function Contact() {
@@ -8,8 +9,12 @@ export default function Contact() {
     name: '',
     email: '',
     phone: '',
-    query: ''
+    query: '' 
   });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,76 +22,92 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
     console.log('Form submitted:', formData);
     alert('Thank you for contacting us. We will get back to you shortly.');
     setFormData({ name: '', email: '', phone: '', query: '' });
   };
 
   return (
-    <section id="contact" className="contact-section">
-      <div className="container">
-
+    <section className="contact-template-section" style={{ backgroundImage: `url(${contactBg})` }}>
+      <div className="contact-template-overlay"></div>
+      
+      <div className="contact-template-container">
         {/* Header */}
-        <Reveal type="fade" display="flex" style={{ justifyContent: 'center' }}>
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem', width: '100%' }}>
-            <h2 className="about-title glowing-title" style={{ fontSize: '1.25rem' }}>
-              START YOUR JOURNEY WITH US.
-            </h2>
+        <Reveal type="fade-up" duration={1}>
+          <div className="contact-template-header">
+            <span className="contact-thank-you-top">Thank You for Visiting</span>
+            <h2>Contact Us</h2>
+            <p>
+              Mergloww Estates Private Limited is your trusted partner for all your premium real estate and land investment needs. Let us guide you to your perfect property.
+            </p>
           </div>
         </Reveal>
 
-        {/* Contact Content Grid */}
-        <div className="contact-grid">
-
-          {/* Left Side: Image Card + Description */}
-          <Reveal type="slide-right" duration={1.5}>
-            <div className="contact-left-panel">
-              <div className="contact-image-card" style={{ backgroundImage: `url(${contactImg})` }}>
-                <div className="contact-image-overlay"></div>
-                <div className="contact-image-content">
-                  <div className="thank-you-sign">
-                    <span className="sign-title">MERGLOWW ESTATES PRIVATE LIMITED</span>
-                    <span className="sign-text">Thank You for Visiting</span>
-                  </div>
+        <div className="contact-template-grid">
+          {/* Left Column: Info */}
+          <div className="contact-template-info-wrapper">
+            <Reveal type="fade-up" duration={1}>
+              <div className="contact-info-card">
+              <div className="info-item">
+                <div className="info-icon">
+                  <MapPin size={24} color="#d4af37" strokeWidth={2.5} />
+                </div>
+                <div className="info-text">
+                  <h4>Address</h4>
+                  <p>No.1/1, W BLOCK, GROUND FLOOR, IMAYAM COLONY, ANNA NAGAR WEST EXTENSION, CHENNAI - 600101.</p>
                 </div>
               </div>
-              
-              {/* Description */}
-              <div className="contact-logo-box" style={{ marginTop: '2rem' }}>
-                <p className="contact-desc-text">
-                  <span className="company-gold">Mergloww Estates Private Limited</span>, trust drives every interaction. As Chennai’s leading real estate company, we offer DTCP, RERA, and CMDA‑approved plots and premium farmland projects, with expert guidance and transparent service for secure investments and site visits.
-                </p>
-              </div>
-            </div>
-          </Reveal>
 
-          {/* Right Side: Contact Form */}
-          <Reveal type="slide-left" duration={1.5}>
-            <div className="contact-right-panel">
-              <div className="contact-form-container">
-                <form onSubmit={handleSubmit} className="contact-form">
-                  <div className="form-group">
+              <div className="info-item">
+                <div className="info-icon">
+                  <Phone size={24} color="#d4af37" strokeWidth={2.5} />
+                </div>
+                <div className="info-text">
+                  <h4>Phone</h4>
+                  <p>+91 9514949342</p>
+                </div>
+              </div>
+
+              <div className="info-item">
+                <div className="info-icon">
+                  <Mail size={24} color="#d4af37" strokeWidth={2.5} />
+                </div>
+                <div className="info-text">
+                  <h4>Email</h4>
+                  <p>merglowwestatesofficial@gmail.com</p>
+                </div>
+              </div>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Right Column: Form */}
+          <div className="contact-template-form-wrapper">
+            <Reveal type="slide-left" delay={0.4}>
+              <div className="contact-template-card">
+                <h3>Send Message</h3>
+                <form onSubmit={handleSubmit} className="template-form">
+                  <div className="template-form-group">
                     <input 
                       type="text" 
                       name="name" 
-                      placeholder="Your Name" 
+                      placeholder="Full Name" 
                       value={formData.name}
                       onChange={handleChange}
                       required 
                     />
                   </div>
-                  <div className="form-group">
+                  <div className="template-form-group">
                     <input 
                       type="email" 
                       name="email" 
-                      placeholder="Your Email ID" 
+                      placeholder="Email" 
                       value={formData.email}
                       onChange={handleChange}
                       required 
                     />
                   </div>
-                  <div className="form-group">
+                  <div className="template-form-group">
                     <input 
                       type="tel" 
                       name="phone" 
@@ -96,22 +117,21 @@ export default function Contact() {
                       required 
                     />
                   </div>
-                  <div className="form-group">
+                  <div className="template-form-group">
                     <textarea 
                       name="query" 
-                      placeholder="Your Query" 
-                      rows="5" 
+                      placeholder="Type your message..." 
+                      rows="2" 
                       value={formData.query}
                       onChange={handleChange}
                       required 
                     ></textarea>
                   </div>
-                  <button type="submit" className="contact-submit-btn">Send Message</button>
+                  <button type="submit" className="template-submit-btn">Send Message</button>
                 </form>
               </div>
-            </div>
-          </Reveal>
-
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>
