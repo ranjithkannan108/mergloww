@@ -85,7 +85,6 @@ export default function Contact() {
           <div className="contact-template-form-wrapper">
             <Reveal type="slide-left" delay={0.4}>
               <div className="contact-template-card">
-                <h3>Send Message</h3>
                 <form onSubmit={handleSubmit} className="template-form">
                   <div className="template-form-group">
                     <input 

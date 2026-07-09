@@ -1,4 +1,5 @@
 import React from 'react';
+import { CheckCircle2, Briefcase, TrendingUp } from 'lucide-react';
 import './About.css';
 import Reveal from './Reveal';
 import aboutFamily from '../assets/about-indian-family_converted.webp';
@@ -128,6 +129,44 @@ export default function About() {
             </Reveal>
           </div>
           
+        </div>
+
+        {/* Our Promises Section */}
+        <div style={{ marginTop: '5rem', marginBottom: '6rem' }}>
+          <Reveal type="fade" display="flex" style={{ justifyContent: 'center' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem', width: '100%' }}>
+              <h2 className="about-title glowing-title" style={{ fontSize: '1.25rem', marginBottom: '1.5rem', textAlign: 'center' }}>
+                OUR PROMISES
+              </h2>
+            </div>
+          </Reveal>
+          
+          <div className="promises-grid">
+            <Reveal type="fade" delay={0}>
+              <div className="promise-card">
+                <CheckCircle2 color="#d4af37" size={36} strokeWidth={2} />
+                <h4>Trusted Experts</h4>
+              </div>
+            </Reveal>
+            <Reveal type="fade" delay={0.2}>
+              <div className="promise-card">
+                <Briefcase color="#d4af37" size={36} strokeWidth={2} />
+                <h4>Professional Service</h4>
+              </div>
+            </Reveal>
+            <Reveal type="fade" delay={0.4}>
+              <div className="promise-card">
+                <CheckCircle2 color="#d4af37" size={36} strokeWidth={2} />
+                <h4>Transparent Process</h4>
+              </div>
+            </Reveal>
+            <Reveal type="fade" delay={0.6}>
+              <div className="promise-card">
+                <TrendingUp color="#d4af37" size={36} strokeWidth={2} />
+                <h4>Growth-Focused<br/>Strategies</h4>
+              </div>
+            </Reveal>
+          </div>
         </div>
 
         {/* Services Section */}
