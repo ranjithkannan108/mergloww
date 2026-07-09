@@ -212,7 +212,7 @@ export default function ServiceDetail() {
                     >
                       <div className="landmark-item">
                         <div className="landmark-card-shape" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-                          <div style={{ width: '100%', height: '120px' }}>
+                          <div style={{ width: '100%', height: '140px' }}>
                             <img src={getLandmarkImage(item)} alt="landmark" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                           </div>
                           <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '15px 15px 45px 15px' }}>
