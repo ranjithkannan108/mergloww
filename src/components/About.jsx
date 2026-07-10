@@ -3,17 +3,17 @@ import { CheckCircle2, Briefcase, TrendingUp } from 'lucide-react';
 import './About.css';
 import Reveal from './Reveal';
 import aboutFamily from '../assets/about-indian-family_converted.webp';
-import imgCustomerSatisfaction from '../assets/trust_integrity.png';
-import imgLongTermValue from '../assets/long_term_value.png';
-import imgTransparency from '../assets/complete_transparency.png';
-import imgProfessionalism from '../assets/professional_excellence.png';
+import imgCustomerSatisfaction from '../assets/trust_integrity.webp';
+import imgLongTermValue from '../assets/long_term_value.webp';
+import imgTransparency from '../assets/complete_transparency.webp';
+import imgProfessionalism from '../assets/professional_excellence.webp';
 
 // Images for services
-import bannerPremiumPlots from '../assets/srv_premium_villa.png';
-import bannerFarmland from '../assets/srv_farmland.png';
-import bannerDtcp from '../assets/srv_dtcp_layout.png';
-import imgDocs from '../assets/srv_property_docs.png';
-import imgSupport from '../assets/srv_customer_support.png';
+import bannerPremiumPlots from '../assets/srv_premium_villa.webp';
+import bannerFarmland from '../assets/srv_farmland.webp';
+import bannerDtcp from '../assets/srv_dtcp_layout.webp';
+import imgDocs from '../assets/srv_property_docs.webp';
+import imgSupport from '../assets/srv_customer_support.webp';
 
 const FanOutCards = ({ services }) => {
   const ref = React.useRef(null);
