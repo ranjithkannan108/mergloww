@@ -240,10 +240,51 @@
 }
 
 @media (max-width: 768px) {
-  .contact-template-header h2 {
-    font-size: 2rem;
+  .contact-template-section {
+    padding: 100px 15px 60px;
   }
+  
+  .contact-template-header h2 {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+  }
+  
   .contact-template-header p {
-    font-size: 1.05rem;
+    font-size: clamp(0.9rem, 3vw, 1.05rem);
+  }
+
+  .contact-thank-you-top {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+  }
+
+  .contact-thank-you-top::before,
+  .contact-thank-you-top::after {
+    width: 20px;
+  }
+
+  .contact-thank-you-top::before {
+    margin-right: 10px;
+  }
+
+  .contact-thank-you-top::after {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-info-card,
+  .contact-template-card {
+    padding: 1.5rem;
+  }
+
+  .info-item {
+    gap: 1rem;
+  }
+
+  .info-text h4 {
+    font-size: 1rem;
+  }
+
+  .info-text p {
+    font-size: 0.85rem;
   }
 }

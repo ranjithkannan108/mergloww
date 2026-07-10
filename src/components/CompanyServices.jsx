@@ -168,7 +168,7 @@ export default function CompanyServices() {
               alignItems: 'center',
               justifyContent: 'center',
               willChange: 'transform',
-              marginTop: '5vh' // Shift the entire cluster down slightly
+              marginTop: 'calc(var(--header-height, 80px) + 40px)' // Shift down to perfectly clear the header
             }}
           >
             
