@@ -19,6 +19,8 @@ import itLandmark from '../assets/it_landmark.png';
 import locationLandmark from '../assets/location_landmark.png';
 import imgResidentialSurroundings from '../assets/residential surroundings.png';
 import imgWaterFacility from '../assets/water facility.png';
+import imgAvenueTrees from '../assets/avenue trees.png';
+import imgPlayArea from '../assets/play area.png';
 const ScrambleText = ({ text }) => {
   const [display, setDisplay] = useState(text);
   const [isVisible, setIsVisible] = useState(false);
