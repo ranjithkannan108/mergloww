@@ -60,6 +60,7 @@ export default function Footer() {
             <h4 className="footer-heading">Company</h4>
             <ul className="footer-links">
               <li><a href="/" onClick={(e) => handleNavClick(e, '/', '')} className="footer-link">Home</a></li>
+              <li><Link to="/our-services" className="footer-link">Services</Link></li>
               <li><Link to="/services" className="footer-link">Projects</Link></li>
               <li><a href="/" onClick={(e) => handleNavClick(e, '/', 'testimonials')} className="footer-link">Testimonials</a></li>
               <li><Link to="/contact" className="footer-link">Contact Us</Link></li>

@@ -7,6 +7,7 @@ const Services = lazy(() => import('./components/Services'));
 const ServiceDetail = lazy(() => import('./components/ServiceDetail'));
 const Testimonials = lazy(() => import('./components/Testimonials'));
 const Contact = lazy(() => import('./components/Contact'));
+const CompanyServices = lazy(() => import('./components/CompanyServices'));
 import Footer from './components/Footer';
 import MouseTrail from './components/MouseTrail';
 import ScrollTopWidget from './components/ScrollTopWidget';
@@ -126,6 +127,7 @@ function App() {
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/services/:serviceId" element={<div className="fade-in"><ServiceDetail /></div>} />
               <Route path="/projects/:serviceId" element={<div className="fade-in"><ServiceDetail /></div>} />
+              <Route path="/our-services" element={<div className="fade-in"><CompanyServices /></div>} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="*" element={<HomePage />} />
             </Routes>

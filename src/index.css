@@ -212,3 +212,17 @@ a {
 .animate-hero-text {
   animation: slowTextReveal 2.2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
 }
+
+/* Hexagon Heartbeat Animation */
+@keyframes hexagonBeat {
+  0% { transform: scale(1); }
+  10% { transform: scale(1.05); filter: brightness(1.1); box-shadow: 0 0 20px rgba(212,175,55,0.6); }
+  20% { transform: scale(1); filter: brightness(1); }
+  30% { transform: scale(1.05); filter: brightness(1.1); box-shadow: 0 0 20px rgba(212,175,55,0.6); }
+  50% { transform: scale(1); filter: brightness(1); box-shadow: none; }
+  100% { transform: scale(1); filter: brightness(1); box-shadow: none; }
+}
+
+.hex-beat {
+  animation: hexagonBeat 2.5s infinite ease-in-out;
+}

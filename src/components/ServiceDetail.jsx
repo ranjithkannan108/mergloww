@@ -22,7 +22,8 @@ import imgWaterFacility from '../assets/water facility.webp';
 import imgAvenueTrees from '../assets/avenue trees.webp';
 import imgPlayArea from '../assets/play area.webp';
 const ScrambleText = ({ text }) => {
-  const [display, setDisplay] = useState(text);
+  const safeText = text !== undefined && text !== null ? String(text) : '';
+  const [display, setDisplay] = useState(safeText);
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
@@ -44,7 +45,7 @@ const ScrambleText = ({ text }) => {
   }, []);
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible || !safeText) return;
     
     let startTime = Date.now();
     const duration = 1200 + Math.random() * 800; // 1.2 to 2.0 seconds
@@ -54,12 +55,12 @@ const ScrambleText = ({ text }) => {
     const scramble = () => {
       const now = Date.now();
       if (now - startTime >= duration) {
-        setDisplay(text);
+        setDisplay(safeText);
         clearInterval(interval);
         return;
       }
       
-      const scrambled = text.split('').map(char => {
+      const scrambled = safeText.split('').map(char => {
         // Scramble only digits to keep formatting intact
         if (/[0-9]/.test(char)) {
           return chars[Math.floor(Math.random() * chars.length)];
@@ -72,7 +73,7 @@ const ScrambleText = ({ text }) => {
 
     interval = setInterval(scramble, 50);
     return () => clearInterval(interval);
-  }, [isVisible, text]);
+  }, [isVisible, safeText]);
 
   return <span ref={ref}>{display}</span>;
 };
