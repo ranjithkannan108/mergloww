@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
-import Home from './components/Home';
-import About from './components/About';
-import Services from './components/Services';
-import ServiceDetail from './components/ServiceDetail';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
+const Home = lazy(() => import('./components/Home'));
+const About = lazy(() => import('./components/About'));
+const Services = lazy(() => import('./components/Services'));
+const ServiceDetail = lazy(() => import('./components/ServiceDetail'));
+const Testimonials = lazy(() => import('./components/Testimonials'));
+const Contact = lazy(() => import('./components/Contact'));
 import Footer from './components/Footer';
 import MouseTrail from './components/MouseTrail';
 import ScrollTopWidget from './components/ScrollTopWidget';
@@ -120,14 +120,16 @@ function App() {
       <div className="app-wrapper">
         <Header />
         <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/services/:serviceId" element={<div className="fade-in"><ServiceDetail /></div>} />
-            <Route path="/projects/:serviceId" element={<div className="fade-in"><ServiceDetail /></div>} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="*" element={<HomePage />} />
-          </Routes>
+          <Suspense fallback={<Preloader />}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/services/:serviceId" element={<div className="fade-in"><ServiceDetail /></div>} />
+              <Route path="/projects/:serviceId" element={<div className="fade-in"><ServiceDetail /></div>} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="*" element={<HomePage />} />
+            </Routes>
+          </Suspense>
         </main>
         <Footer />
       </div>
