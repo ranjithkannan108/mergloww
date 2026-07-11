@@ -18,9 +18,9 @@ export default function Services() {
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <Reveal type="fade">
-            <h2 className="glowing-title dim-to-bright" style={{ marginBottom: '1.5rem' }}>
+            <h1 className="glowing-title dim-to-bright" style={{ marginBottom: '1.5rem' }}>
               OUR PROJECTS
-            </h2>
+            </h1>
           </Reveal>
           <Reveal type="fade" delay={0.15}>
             <p className="dim-to-bright" style={{ color: '#ffffff', fontSize: '1.2rem', letterSpacing: '0.05em', opacity: 0.9 }}>

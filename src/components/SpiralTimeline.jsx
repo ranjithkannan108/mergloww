@@ -204,6 +204,7 @@ export default function SpiralTimeline({ items }) {
                         e.stopPropagation();
                         navigate(`/projects/${card.id}`);
                       }}
+                      aria-label={`View More about ${card.title}`}
                     >
                       View More <span>→</span>
                     </button>

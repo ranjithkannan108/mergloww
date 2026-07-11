@@ -1,6 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Reveal from './Reveal';
 
+import imgSudiksha from '../assets/SUDIKSHA GARDEN.webp';
+import imgSpNagar from '../assets/SP NAGAR.webp';
+import imgSriSakthi from '../assets/SRI SAKTHI GARDEN.webp';
+import imgTrust from '../assets/trust_integrity.webp';
+import imgTransparency from '../assets/complete_transparency.webp';
+import imgLongTermValue from '../assets/long_term_value.webp';
+import imgProfessionalism from '../assets/professional_excellence.webp';
+
 export default function CompanyServices() {
   const containerRef = useRef(null);
   const zoomWrapperRef = useRef(null);
@@ -99,43 +107,43 @@ export default function CompanyServices() {
       icon: "🏡",
       title: "DTCP Approved Plots",
       desc: "Secure and legally approved DTCP residential plots in fast-growing locations with excellent appreciation potential.",
-      img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+      img: imgSudiksha
     },
     {
       icon: "🏢",
       title: "CMDA Approved Projects",
       desc: "Premium CMDA-approved residential developments offering long-term value, quality infrastructure, and complete legal compliance.",
-      img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+      img: imgSpNagar
     },
     {
       icon: "📜",
       title: "RERA Registered Projects",
       desc: "Transparent and trustworthy RERA-registered projects that ensure complete buyer protection and peace of mind.",
-      img: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+      img: imgSriSakthi
     },
     {
       icon: "🌿",
       title: "Premium Farmland",
       desc: "Own carefully selected farmland investments with high future appreciation and a peaceful natural environment.",
-      img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+      img: imgTrust
     },
     {
       icon: "⚖️",
       title: "Legal Documentation Support",
       desc: "Complete assistance with title verification, documentation, registration, and legal formalities for a hassle-free purchase.",
-      img: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+      img: imgTransparency
     },
     {
       icon: "💰",
       title: "Property Loan Assistance",
       desc: "Support in obtaining loans through leading financial institutions with simplified processing.",
-      img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+      img: imgLongTermValue
     },
     {
       icon: "🏗️",
       title: "End-to-End Customer Support",
       desc: "From property selection to registration and after-sales assistance, we stand with you at every stage of your investment journey.",
-      img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+      img: imgProfessionalism
     }
   ];
 
@@ -188,7 +196,7 @@ export default function CompanyServices() {
               textAlign: 'center',
               padding: '10px'
             }}>
-              <h2 style={{ 
+              <h1 style={{ 
                 color: '#071f11', 
                 fontSize: dim.iconSize, 
                 fontFamily: 'var(--font-serif, serif)', 
@@ -196,7 +204,7 @@ export default function CompanyServices() {
                 lineHeight: '1.2' 
               }}>
                 Our<br/>Services
-              </h2>
+              </h1>
             </div>
 
             {/* Surrounding Hexagons */}
@@ -245,6 +253,15 @@ export default function CompanyServices() {
                     onClick={() => {
                       document.getElementById(`service-detail-${idx}`)?.scrollIntoView({ behavior: 'smooth' });
                     }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        document.getElementById(`service-detail-${idx}`)?.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    tabIndex={0}
+                    role="button"
+                    aria-label={`View details for ${srv.title}`}
                   >
                     <div 
                       className="hex-inner"

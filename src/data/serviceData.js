@@ -1,6 +1,6 @@
-import bannerSriSakthi from '../assets/Banner Image Sri Sakthi garden.webp';
-import bannerSudiksha from '../assets/Banner Image Sudiksha garden.webp';
-import bannerSpNagar from '../assets/Banner Image SP Nagar.webp';
+import bannerSriSakthi from '../assets/Banner Image Sri Sakthi garden-min.webp';
+import bannerSudiksha from '../assets/Banner Image Sudiksha garden-min.webp';
+import bannerSpNagar from '../assets/Banner Image SP Nagar-min.webp';
 
 export const servicesData = {
   'sri-sakthi-garden': {

@@ -22,7 +22,7 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+
     alert('Thank you for contacting us. We will get back to you shortly.');
     setFormData({ name: '', email: '', phone: '', query: '' });
   };
@@ -36,7 +36,7 @@ export default function Contact() {
         <Reveal type="fade-up" duration={1}>
           <div className="contact-template-header">
             <span className="contact-thank-you-top">Thank You for Visiting</span>
-            <h2>Contact Us</h2>
+            <h1>Contact Us</h1>
             <p>
               Mergloww Estates Private Limited is your trusted partner for all your premium real estate and land investment needs. Let us guide you to your perfect property.
             </p>

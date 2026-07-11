@@ -132,7 +132,7 @@ export default function Header() {
         <div className="modal-overlay" onClick={() => setIsContactModalOpen(false)}>
           <div className="flyer-modal" onClick={e => e.stopPropagation()}>
             {/* Absolute Circular Close Button */}
-            <button className="flyer-close-btn" onClick={() => setIsContactModalOpen(false)}>✕</button>
+            <button className="flyer-close-btn" aria-label="Close contact modal" onClick={() => setIsContactModalOpen(false)}>✕</button>
             
             {/* Top Image Section */}
             <div className="flyer-image-section" style={{ backgroundImage: `url(${heroBg})` }}>

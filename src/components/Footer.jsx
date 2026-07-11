@@ -102,7 +102,9 @@ export default function Footer() {
 
         </div>
 
-
+        <div style={{ textAlign: 'center', marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.1)', color: '#9ca3af', fontSize: '0.85rem' }}>
+          &copy; {new Date().getFullYear()} Mergloww Estates Private Limited. All rights reserved.
+        </div>
 
       </div>
     </footer>

@@ -9,19 +9,10 @@ import img24x7Security from '../assets/24x7 security.webp';
 import img30FeetRoad from '../assets/30 Feet road.webp';
 import imgCompoundWall from '../assets/Compound wall with gated community.webp';
 import imgSolarStreetLight from '../assets/Solar street light.webp';
-import bannerSudiksha from '../assets/Banner Image Sudiksha garden.webp';
-import bannerSpNagar from '../assets/Banner Image SP Nagar.webp';
-import railwayLandmark from '../assets/railway_landmark.webp';
-import busLandmark from '../assets/bus_landmark.webp';
-import schoolLandmark from '../assets/school_landmark.webp';
-import hospitalLandmark from '../assets/hospital_landmark.webp';
-import itLandmark from '../assets/it_landmark.webp';
-import locationLandmark from '../assets/location_landmark.webp';
 import imgResidentialSurroundings from '../assets/residential surroundings.webp';
 import imgWaterFacility from '../assets/water facility.webp';
 import imgAvenueTrees from '../assets/avenue trees.webp';
 import imgPlayArea from '../assets/play area.webp';
-import logoImg from '../assets/LOGO PNG.png';
 const ScrambleText = ({ text }) => {
   const safeText = text !== undefined && text !== null ? String(text) : '';
   const [display, setDisplay] = useState(safeText);
@@ -79,9 +70,6 @@ const ScrambleText = ({ text }) => {
   return <span ref={ref}>{display}</span>;
 };
 
-const LogoDivider = () => (
-  <img src={logoImg} alt="Merglooww Logo" style={{ width: '45px', height: 'auto', display: 'inline-block', verticalAlign: 'middle', margin: '0 15px', objectFit: 'contain' }} />
-);
 
 export default function ServiceDetail() {
   const { serviceId } = useParams();
@@ -194,16 +182,6 @@ export default function ServiceDetail() {
                     return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>;
                   };
 
-                  const getLandmarkImage = (text) => {
-                    const lower = text.toLowerCase();
-                    if (lower.includes('railway') || lower.includes('train')) return railwayLandmark;
-                    if (lower.includes('bus')) return busLandmark;
-                    if (lower.includes('school') || lower.includes('college') || lower.includes('education')) return schoolLandmark;
-                    if (lower.includes('hospital') || lower.includes('health')) return hospitalLandmark;
-                    if (lower.includes('it ') || lower.includes('industr') || lower.includes('compan')) return itLandmark;
-                    return locationLandmark;
-                  };
-
                   return (
                     <Reveal 
                       key={idx} 
@@ -212,13 +190,8 @@ export default function ServiceDetail() {
                       display="inline-flex"
                     >
                       <div className="landmark-item">
-                        <div className="landmark-card-shape" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-                          <div style={{ width: '100%', height: '140px' }}>
-                            <img src={getLandmarkImage(item)} alt="landmark" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                          </div>
-                          <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '15px 15px 45px 15px' }}>
-                            <div className="landmark-title">{item}</div>
-                          </div>
+                        <div className="landmark-card-shape">
+                          <div className="landmark-title">{item}</div>
                         </div>
                         <div className="landmark-icon-wrapper">
                           {getLandmarkIcon(item)}
