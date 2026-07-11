@@ -1,78 +1,15 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 import heroBg1 from '../assets/Home page 2.webp';
-import heroBg2 from '../assets/srv_farmland.webp';
-import heroBg3 from '../assets/srv_premium_villa.webp';
 import './Home.css';
 
 export default function Home() {
-  const containerRef = useRef(null);
-  const bg1Ref = useRef(null);
-  const bg2Ref = useRef(null);
-  const bg3Ref = useRef(null);
-
-  useEffect(() => {
-    let ticking = false;
-
-    const updateScroll = () => {
-      if (!containerRef.current) {
-        ticking = false;
-        return;
-      }
-      
-      const rect = containerRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      
-      // Total scrollable area within the sticky container
-      const totalScroll = rect.height - windowHeight;
-      let progress = -rect.top / totalScroll;
-      
-      progress = Math.max(0, Math.min(1, progress));
-      
-      // Slow, subtle zoom effect for all images
-      const scale = 1 + (progress * 0.15);
-
-      // Smooth fade transition optimized for 3 images over 300vh
-      // Image 2 fades in smoothly over the first half of the scroll
-      let op2 = Math.max(0, Math.min(1, (progress - 0.05) / 0.4));
-      
-      // Image 3 fades in smoothly over the second half of the scroll
-      let op3 = Math.max(0, Math.min(1, (progress - 0.55) / 0.4));
-
-      if (bg1Ref.current) {
-        bg1Ref.current.style.transform = `scale(${scale})`;
-      }
-      if (bg2Ref.current) {
-        bg2Ref.current.style.transform = `scale(${scale})`;
-        bg2Ref.current.style.opacity = op2;
-      }
-      if (bg3Ref.current) {
-        bg3Ref.current.style.transform = `scale(${scale})`;
-        bg3Ref.current.style.opacity = op3;
-      }
-
-      ticking = false;
-    };
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateScroll);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // init
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <>
     <section 
       id="home" 
-      ref={containerRef}
       style={{ 
-        height: '130vh',
+        height: '100vh',
         width: '100%',
         position: 'relative',
         borderBottom: '1px solid var(--border-color)',
@@ -80,7 +17,7 @@ export default function Home() {
       }}
     >
       <div style={{
-        position: 'sticky',
+        position: 'absolute',
         top: 0,
         height: '100vh',
         width: '100%',
@@ -89,37 +26,11 @@ export default function Home() {
 
         {/* Background Images Layer */}
         <div 
-          ref={bg1Ref}
           style={{
             position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
             backgroundImage: `url(${heroBg1})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            willChange: 'transform'
-          }}
-        ></div>
-        
-        <div 
-          ref={bg2Ref}
-          style={{
-            position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-            backgroundImage: `url(${heroBg2})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: 0,
-            willChange: 'transform, opacity'
-          }}
-        ></div>
-
-        <div 
-          ref={bg3Ref}
-          style={{
-            position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-            backgroundImage: `url(${heroBg3})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: 0,
-            willChange: 'transform, opacity'
           }}
         ></div>
 

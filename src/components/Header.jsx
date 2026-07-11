@@ -131,8 +131,8 @@ export default function Header() {
 
       {/* Flyer-Style Contact Modal (Rendered via Portal) */}
       {isContactModalOpen && createPortal(
-        <div className="modal-overlay">
-          <div className="modal-content flyer-modal" onClick={e => e.stopPropagation()}>
+        <div className="modal-overlay" onClick={() => setIsContactModalOpen(false)}>
+          <div className="flyer-modal" onClick={e => e.stopPropagation()}>
             {/* Absolute Circular Close Button */}
             <button className="flyer-close-btn" onClick={() => setIsContactModalOpen(false)}>✕</button>
             

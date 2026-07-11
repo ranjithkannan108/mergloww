@@ -169,25 +169,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* Services Section */}
-        <div style={{ marginBottom: '6rem', marginTop: '2rem' }}>
-          <Reveal type="fade" display="flex" style={{ justifyContent: 'center' }}>
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem', width: '100%' }}>
-              <h2 className="about-title glowing-title" style={{ fontSize: '1.25rem', marginBottom: '1.5rem', textAlign: 'center' }}>
-                OUR SERVICES
-              </h2>
-            </div>
-          </Reveal>
-          
-          <FanOutCards services={[
-            { title: "Premium Villa Plots", desc: "Build your dream home on our carefully selected, premium plots.", img: bannerPremiumPlots },
-            { title: "Farmland Investments", desc: "Secure your future with high-yield, fertile farmland opportunities.", img: bannerFarmland },
-            { title: "DTCP Approved Layouts", desc: "Invest with confidence in our fully compliant and legally clear layouts.", img: bannerDtcp },
-            { title: "Property Documentation", desc: "Hassle-free, transparent, and completely secure legal processes.", img: imgDocs },
-            { title: "Customer Support", desc: "Dedicated guidance and support at every step of your journey.", img: imgSupport }
-          ]} />
-        </div>
-
         {/* Vision & Mission Section - Static Banners with Sunset & Landscape Backgrounds */}
         <div className="vision-mission-container">
           <Reveal type="slide-right" display="flex" style={{ flex: 1 }}>
