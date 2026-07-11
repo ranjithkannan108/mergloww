@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import heroBg from '../assets/Home page 2.webp';
+import logoImg from '../assets/LOGO PNG.png';
 import './Header.css';
 
 export default function Header() {
@@ -85,10 +86,7 @@ export default function Header() {
       <div className="header-container">
         <div className="logo-section">
           <div className="logo-icon-container">
-             <svg width="28" height="28" viewBox="0 0 100 100" fill="none" className="header-logo-svg">
-              <path d="M15 75 L35 35 L50 55 L65 35 L85 75" stroke="#d4af37" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M25 75 L35 55 L50 75 L65 55 L75 75" stroke="#f3e5ab" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
-            </svg>
+            <img src={logoImg} alt="Merglooww Logo" style={{ width: '60px', height: 'auto', objectFit: 'contain' }} className="header-logo-svg" />
           </div>
           <div className="logo-text-wrapper">
             <span className="logo-text">MERGLOWW</span>

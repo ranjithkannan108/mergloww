@@ -1,6 +1,7 @@
 import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import logoImg from '../assets/LOGO PNG.png';
 import './Footer.css';
 
 export default function Footer() {
@@ -32,10 +33,7 @@ export default function Footer() {
           {/* Column 1: Brand & Socials */}
           <div className="footer-logo-section">
             <div className="footer-logo-container">
-              <svg width="35" height="35" viewBox="0 0 100 100" fill="none">
-                <path d="M15 75 L35 35 L50 55 L65 35 L85 75" stroke="#d4af37" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M25 75 L35 55 L50 75 L65 55 L75 75" stroke="#f3e5ab" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
-              </svg>
+              <img src={logoImg} alt="Merglooww Logo" style={{ width: '75px', height: 'auto', objectFit: 'contain' }} />
               <div className="footer-logo-text">
                 <span className="footer-logo-main">MERGLOWW</span>
                 <span className="footer-logo-sub">ESTATES PRIVATE LIMITED</span>

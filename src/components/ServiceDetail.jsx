@@ -21,6 +21,7 @@ import imgResidentialSurroundings from '../assets/residential surroundings.webp'
 import imgWaterFacility from '../assets/water facility.webp';
 import imgAvenueTrees from '../assets/avenue trees.webp';
 import imgPlayArea from '../assets/play area.webp';
+import logoImg from '../assets/LOGO PNG.png';
 const ScrambleText = ({ text }) => {
   const safeText = text !== undefined && text !== null ? String(text) : '';
   const [display, setDisplay] = useState(safeText);
@@ -79,10 +80,7 @@ const ScrambleText = ({ text }) => {
 };
 
 const LogoDivider = () => (
-  <svg width="24" height="24" viewBox="0 0 100 100" fill="none" style={{ display: 'inline-block', verticalAlign: 'middle', margin: '0 15px' }}>
-    <path d="M15 75 L35 35 L50 55 L65 35 L85 75" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M25 75 L35 55 L50 75 L65 55 L75 75" stroke="#f3e5ab" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
-  </svg>
+  <img src={logoImg} alt="Merglooww Logo" style={{ width: '45px', height: 'auto', display: 'inline-block', verticalAlign: 'middle', margin: '0 15px', objectFit: 'contain' }} />
 );
 
 export default function ServiceDetail() {
