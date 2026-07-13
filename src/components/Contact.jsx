@@ -11,6 +11,8 @@ export default function Contact() {
     phone: '',
     query: '' 
   });
+  const [botCheck, setBotCheck] = useState(''); // Honeypot field
+  const [status, setStatus] = useState(''); // '', 'submitting', 'success', 'error'
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -20,11 +22,47 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    alert('Thank you for contacting us. We will get back to you shortly.');
-    setFormData({ name: '', email: '', phone: '', query: '' });
+    // Spam Protection: If the hidden honeypot field is filled, silently fake success.
+    if (botCheck !== '') {
+      setStatus('success');
+      setFormData({ name: '', email: '', phone: '', query: '' });
+      setBotCheck('');
+      return;
+    }
+
+    setStatus('submitting');
+    
+    // Using Environment Variable instead of hardcoded URL
+    const scriptURL = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL;
+    
+    try {
+      const data = new FormData();
+      data.append('name', formData.name);
+      data.append('email', formData.email);
+      data.append('phone', formData.phone);
+      data.append('query', formData.query);
+
+      await fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: data
+      });
+      
+      // With no-cors, we can't read the response status, so we assume success if it didn't throw a network error.
+      setStatus('success');
+      setFormData({ name: '', email: '', phone: '', query: '' });
+      
+    } catch (error) {
+      console.error('Error!', error.message);
+      setStatus('error');
+    }
+  };
+
+  const closePopup = () => {
+    setStatus('');
   };
 
   return (
@@ -86,6 +124,17 @@ export default function Contact() {
             <Reveal type="slide-left" delay={0.4}>
               <div className="contact-template-card">
                 <form onSubmit={handleSubmit} className="template-form">
+                  {/* Honeypot Field - Invisible to Real Users, Bots will fill it */}
+                  <input 
+                    type="text" 
+                    name="botcheck" 
+                    style={{ display: 'none' }} 
+                    value={botCheck}
+                    onChange={(e) => setBotCheck(e.target.value)}
+                    tabIndex="-1"
+                    autoComplete="off"
+                  />
+
                   <div className="template-form-group">
                     <input 
                       type="text" 
@@ -126,13 +175,39 @@ export default function Contact() {
                       required 
                     ></textarea>
                   </div>
-                  <button type="submit" className="template-submit-btn">Send Message</button>
+                  <button type="submit" className="template-submit-btn" disabled={status === 'submitting'}>
+                    {status === 'submitting' ? 'Sending...' : 'Send Message'}
+                  </button>
                 </form>
               </div>
             </Reveal>
           </div>
         </div>
       </div>
+
+      {/* Custom Popup Modal */}
+      {(status === 'success' || status === 'error') && (
+        <div className="custom-popup-overlay">
+          <div className="custom-popup-modal">
+            <div className={`popup-icon ${status}`}>
+              {status === 'success' ? (
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              )}
+            </div>
+            <h3>{status === 'success' ? 'Thank You!' : 'Oops!'}</h3>
+            <p>
+              {status === 'success' 
+                ? 'Your message has been sent successfully. We will get back to you shortly.' 
+                : 'There was an error submitting the form. Please try again.'}
+            </p>
+            <button className="popup-close-btn" onClick={closePopup}>
+              {status === 'success' ? 'Great' : 'Try Again'}
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
